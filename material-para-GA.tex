@@ -1,0 +1,5732 @@
+% (find-angg "LATEX/material-para-GA.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record material-para-GA.tex"))
+% (defun d () (interactive) (find-xpdfpage "~/LATEX/material-para-GA.pdf"))
+% (defun b () (interactive) (find-zsh "bibtex material-para-GA; makeindex material-para-GA"))
+% (defun e () (interactive) (find-LATEX "material-para-GA.tex"))
+% (defun u () (interactive) (find-latex-upload-links "material-para-GA"))
+% (find-xpdfpage "~/LATEX/material-para-GA.pdf")
+% (find-sh0 "cp -v  ~/LATEX/material-para-GA.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/material-para-GA.pdf /tmp/pen/")
+%   file:///home/edrx/LATEX/material-para-GA.pdf
+%               file:///tmp/material-para-GA.pdf
+%           file:///tmp/pen/material-para-GA.pdf
+% http://angg.twu.net/LATEX/material-para-GA.pdf
+
+% «.Psection»			(to "Psection")
+% «.mypsection»			(to "mypsection")
+% «.picturedots»		(to "picturedots")
+% «.pictOuv»			(to "pictOuv")
+% «.pictABCDE»			(to "pictABCDE")
+% «.cells»			(to "cells")
+% «.tikz-defs»			(to "tikz-defs")
+% «.pictureFxy»			(to "pictureFxy")
+% «.calcpoints»			(to "calcpoints")
+%
+% «.title-page»			(to "title-page")
+% «.introducao»			(to "introducao")
+%
+% «.coisas-muito»		(to "coisas-muito")
+% «.dicas»			(to "dicas")
+% «.substituicao»		(to "substituicao")
+% «.matrizes»			(to "matrizes")
+% «.comprehension»		(to "comprehension")
+% «.comprehension-tables»	(to "comprehension-tables")
+% «.comprehension-ex123»	(to "comprehension-ex123")
+% «.comprehension-prod»		(to "comprehension-prod")
+% «.comprehension-gab»		(to "comprehension-gab")
+% «.retas»			(to "retas")
+% «.pontos-e-vetores»		(to "pontos-e-vetores")
+% «.pontos-e-vetores-graficamente»  (to "pontos-e-vetores-graficamente")
+% «.retas-de-novo»		(to "retas-de-novo")
+% «.intersecoes-de-retas»	(to "intersecoes-de-retas")
+% «.sistemas-de-coordenadas»	(to "sistemas-de-coordenadas")
+% «.sistemas-de-coordenadas-2»	(to "sistemas-de-coordenadas-2")
+% «.sistemas»			(to "sistemas")
+% «.sistemas-2»			(to "sistemas-2")
+% «.varias-coords»		(to "varias-coords")
+% «.varias-coords-2»		(to "varias-coords-2")
+% «.Fxy»			(to "Fxy")
+% «.pitagoras»			(to "pitagoras")
+% «.normas»			(to "normas")
+% «.uma-demonstracao-errada»	(to "uma-demonstracao-errada")
+% «.propriedades-basicas»	(to "propriedades-basicas")
+% «.dicas-V-F-justifique»	(to "dicas-V-F-justifique")
+% «.propriedades-basicas-2»	(to "propriedades-basicas-2")
+% «.propriedades-de-normas»	(to "propriedades-de-normas")
+% «.demonstracao-comentada»	(to "demonstracao-comentada")
+% «.projecao-ortogonal»		(to "projecao-ortogonal")
+% «.projecoes-no-olhometro»	(to "projecoes-no-olhometro")
+% «.propriedades-da-projecao»	(to "propriedades-da-projecao")
+% «.senos-e-cossenos»		(to "senos-e-cossenos")
+% «.areas-e-determinantes»	(to "areas-e-determinantes")
+% «.areas-e-determinantes-2»	(to "areas-e-determinantes-2")
+% «.pontos-mais-proximos»	(to "pontos-mais-proximos")
+% «.circulos»			(to "circulos")
+% «.circulos-2»			(to "circulos-2")
+% «.decomp-ang»			(to "decomp-ang")
+% «.distancia-ponto-reta»	(to "distancia-ponto-reta")
+%
+% «.conicas-e-R3»		(to "conicas-e-R3")
+%
+% «.areas-em-R3»		(to "areas-em-R3")
+% «.R3-retas-e-planos»		(to "R3-retas-e-planos")
+% «.R3-retas-e-planos-2»	(to "R3-retas-e-planos-2")
+% «.determinantes-em-R3»	(to "determinantes-em-R3")
+% «.determinantes-em-R3-2»	(to "determinantes-em-R3-2")
+% «.cross-prod»			(to "cross-prod")
+% «.alguns-usos-do-x»		(to "alguns-usos-do-x")
+%
+% «.indice»			(to "indice")
+% «.git»			(to "git")
+
+\documentclass[oneside]{book}
+\usepackage[colorlinks,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage{color}                % (find-LATEX "edrx15.sty" "colors")
+\usepackage{colorweb}             % (find-es "tex" "colorweb")
+\usepackage{tikz}
+\usepackage{boxedminipage}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+\usepackage{proof}   % For derivation trees ("%:" lines)
+\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx15}               % (find-angg "LATEX/edrx15.sty")
+\input edrxaccents.tex            % (find-angg "LATEX/edrxaccents.tex")
+\input edrxchars.tex              % (find-LATEX "edrxchars.tex")
+\input edrxheadfoot.tex           % (find-dn4ex "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%
+\begin{document}
+
+
+\catcode`\^^J=10
+\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+
+% \catcode`\^^J=10
+% \directlua{dednat6dir = "dednat6/"}
+% \directlua{dofile(dednat6dir.."dednat6.lua")}
+% \directlua{texfile(tex.jobname)}
+% \directlua{verbose()}
+% \directlua{output(preamble1)}
+% \def\expr#1{\directlua{output(tostring(#1))}}
+% \def\eval#1{\directlua{#1}}
+% \def\pu{\directlua{pu()}}
+
+\directlua{dofile "edrxtikz.lua"} % (find-LATEX "edrxtikz.lua")
+\directlua{dofile "edrxpict.lua"} % (find-LATEX "edrxpict.lua")
+%L V.__tostring = function (v) return format("(%.3f,%.3f)", v[1], v[2]) end
+%L V.__tostring = function (v) return pformat("(%s,%s)",    v[1], v[2]) end
+
+
+
+
+
+
+\def\erro{\operatorname{erro}}
+\def\setofpt  #1 #2 #3 #4 {\setofet{(#1,#2)+t\VEC{#3,#4}}}
+\def\setofpu  #1 #2 #3 #4 {\setofeu{(#1,#2)+u\VEC{#3,#4}}}
+
+% (find-LATEXfile "2016-1-GA-material.tex" "setofet")
+\def\setofet  #1{\setofst{#1}{t∈\R}}
+\def\setofeu  #1{\setofst{#1}{u∈\R}}
+\def\setofpt  #1 #2 #3 #4 {\setofet{(#1,#2)+t\VEC{#3,#4}}}
+\def\setofpu  #1 #2 #3 #4 {\setofeu{(#1,#2)+u\VEC{#3,#4}}}
+
+\unitlength=5pt
+
+
+% «Psection» (to ".Psection")
+% (find-es "tex" "section")
+\makeatletter
+\newcommand\Psection{\@startsection{Psection}{1}{\z@}%
+                                    {0ex}%
+                                    {\ssk}%
+                                    {\normalfont\normalsize\bfseries}}
+\makeatother
+\newcounter{Psection}
+% \Psection{Foo}
+% \Psection{Bar}
+
+% «mypsection» (to ".mypsection")
+% (find-es "tex" "protect")
+% (find-angg ".emacs" "eewrap-mypsection")
+% \def\mypsection#1#2{\label{#1}{\bf #2}\ssk}
+
+% (find-es "tex" "page-numbers")
+%L psections = {}
+%L psectionstex = function ()
+%L     local f = function(A)
+%L         return format("\\mypsectiontex{%s}{%s}", A[1], A[2])
+%L       end
+%L     return mapconcat(f, psections, "\n")
+%L   end
+\def\mypsectiontex#1#2{\par\pageref{#1} #2}
+\def\mypsectionstex{\expr{psectionstex()}}
+\pu
+
+\def\mypsectionadd#1#2{\directlua{table.insert(psections, {"#1", [[#2]]})}}
+\def\mypsection   #1#2{\label{#1}{\bf #2}\mypsectionadd{#1}{#2}\ssk}
+%\def\mypsection   #1#2{\label{#1}{\bf #2}\mypsectionadd{#1}{\protect{#2}}\ssk}
+
+% (find-es "tex" "protect")
+
+
+
+% «picturedots» (to ".picturedots")
+% (find-LATEX "edrxpict.lua" "pictdots")
+% (find-LATEX "edrxgac2.tex" "pict2e")
+% (to "comprehension-gab")
+%
+\def\beginpicture(#1,#2)(#3,#4){\expr{beginpicture(v(#1,#2),v(#3,#4))}}
+\def\pictaxes{\expr{pictaxes()}}
+\def\pictdots#1{\expr{pictdots("#1")}}
+\def\picturedots(#1,#2)(#3,#4)#5{%
+  \vcenter{\hbox{%
+  \beginpicture(#1,#2)(#3,#4)%
+  \pictaxes%
+  \pictdots{#5}%
+  \end{picture}%
+  }}%
+}
+
+\unitlength=5pt
+
+%L p = function (a, b) return O + a*uu + b*vv end
+
+%L --  «pictOuv» (to ".pictOuv")
+%L pictOOuuvv = function (OO, xx, yy, OOtext, xxtext, yytext, vtextdist, Otextdist)
+%L     local bprint, out = makebprint()
+%L     local xxpos = OO + xx/2 + xx:rotright():unit(vtextdist)
+%L     local yypos = OO + yy/2 + yy:rotleft() :unit(vtextdist)
+%L     local OOpos = OO + (-xx-yy):unit(Otextdist or vtextdist)
+%L     local f = function (str) return (str:gsub("!", "\\")) end
+%L     bprint("\\Vector%s%s", OO, OO+xx)
+%L     bprint("\\Vector%s%s", OO, OO+yy)
+%L     bprint("\\put%s{\\cell{%s}}", OOpos, f(OOtext))
+%L     bprint("\\put%s{\\cell{%s}}", xxpos, f(xxtext))
+%L     bprint("\\put%s{\\cell{%s}}", yypos, f(yytext))
+%L     return out()
+%L   end
+%L -- sysco = pictOOuuvv
+\def\pictOuv(#1,#2){
+  {\color{GrayPale}\expr{pictpgrid(0,0,4,4)}}
+  \pictaxes
+  {\linethickness{1.0pt}
+   \expr{pictOOuuvv(O, uu, vv,  "O", "!uu", "!vv", #1, #2)}
+  }
+}
+
+%L -- «pictABCDE» (to ".pictABCDE")
+%L -- Used to draw "F"s in:
+%L -- (find-LATEX "2018-1-GA-material.tex" "sistemas-de-coordenadas")
+%L -- (find-LATEX "2018-1-GA-material.tex" "sistemas-de-coordenadas" "pictABCDE")
+%L -- (gam181p 15 "sistemas-de-coordenadas")
+%L tt = v(1, 0)
+%L pictABCDE = function (aang, bang, cang, dang, eang)
+%L     local bprint, out = makebprint()
+%L     local AA, BB, CC, DD, EE = p(1,1), p(1,3), p(3,3), p(1,2), p(2,2)
+%L     local f = function (str) return (str:gsub("!", "\\")) end
+%L     bprint("\\Line%s%s", AA, BB)
+%L     bprint("\\Line%s%s", BB, CC)
+%L     bprint("\\Line%s%s", DD, EE)
+%L     bprint("\\put%s{\\closeddot}", AA)
+%L     bprint("\\put%s{\\closeddot}", BB)
+%L     bprint("\\put%s{\\closeddot}", CC)
+%L     bprint("\\put%s{\\closeddot}", DD)
+%L     bprint("\\put%s{\\closeddot}", EE)
+%L     bprint("\\put%s{\\cell{%s}}", AA + tt:rot(aang), "A")
+%L     bprint("\\put%s{\\cell{%s}}", BB + tt:rot(bang), "B")
+%L     bprint("\\put%s{\\cell{%s}}", CC + tt:rot(cang), "C")
+%L     bprint("\\put%s{\\cell{%s}}", DD + tt:rot(dang), "D")
+%L     bprint("\\put%s{\\cell{%s}}", EE + tt:rot(eang), "E")
+%L     return out()
+%L   end
+\def\pictABCDE(#1,#2,#3,#4,#5){
+  {\linethickness{1.0pt}
+   \expr{pictABCDE(#1,#2,#3,#4,#5)}
+  }
+}
+
+\pu
+
+
+% «cells» (to ".cells")
+% (find-es "tex" "fbox")
+
+\def\cellhr#1{\hbox to 0pt    {\cellfont${#1}$\hss}}
+\def\cellhc#1{\hbox to 0pt{\hss\cellfont${#1}$\hss}}
+\def\cellhl#1{\hbox to 0pt{\hss\cellfont${#1}$}}
+\def\cellva#1{\setbox0#1\raise \dp0       \box0}
+\def\cellvm#1{\setbox0#1\lower \celllower \box0}
+\def\cellvb#1{\setbox0#1\lower \ht0       \box0}
+
+\def\cellnw  #1{\cellva{\cellhl{#1}}}
+ \def\celln  #1{\cellva{\cellhc{#1}}}
+  \def\cellne#1{\cellva{\cellhr{#1}}}
+\def\cellw   #1{\cellvm{\cellhl{#1}}}
+ \def\celle  #1{\cellvm{\cellhr{#1}}}
+\def\cellsw  #1{\cellvb{\cellhl{#1}}}
+ \def\cells  #1{\cellvb{\cellhc{#1}}}
+  \def\cellse#1{\cellvb{\cellhr{#1}}}
+
+\newdimen\cellsep
+\cellsep=4pt
+\def\addcellsep{%
+  \setbox0=\hbox{\kern\cellsep\box0\kern\cellsep}%
+  \ht0=\ht0 plus \cellsep%
+  \dp0=\dp0 plus \cellsep%
+  \box0%
+}
+\def\cellsp#1{%
+  \setbox0=\hbox{#1}%
+  \addcellsep%
+  \box0%
+}
+
+
+
+
+% «tikz-defs» (to ".tikz-defs")
+%
+% \mygrid and \myaxes
+% (find-es "tikz" "mygrid")
+\tikzset{mycurve/.style=very thick}
+\tikzset{axis/.style=semithick}
+\tikzset{tick/.style=semithick}
+\tikzset{grid/.style=gray!20,very thin}
+\tikzset{anydot/.style={circle,inner sep=0pt,minimum size=1.2mm}}
+\tikzset{opdot/.style={anydot, draw=black,fill=white}}
+\tikzset{cldot/.style={anydot, draw=black,fill=black}}
+%
+\def\mygrid(#1,#2) (#3,#4){
+  \clip              (#1-0.4, #2-0.4) rectangle (#3+0.4, #4+0.4);
+  \draw[step=1,grid] (#1-0.2, #2-0.2) grid      (#3+0.2, #4+0.2);
+  \draw[axis] (-10,0) -- (10,0);
+  \draw[axis] (0,-10) -- (0,10);
+  \foreach \x in {-10,...,10} \draw[tick] (\x,-0.2) -- (\x,0.2);
+  \foreach \y in {-10,...,10} \draw[tick] (-0.2,\y) -- (0.2,\y);
+}
+\def\myaxes(#1,#2) (#3,#4){
+  \clip              (#1-0.4, #2-0.4) rectangle (#3+0.4, #4+0.4);
+ %\draw[step=1,grid] (#1-0.2, #2-0.2) grid      (#3+0.2, #4+0.2);
+  \draw[axis] (-20,0) -- (20,0);
+  \draw[axis] (0,-20) -- (0,20);
+  \foreach \x in {-20,...,20} \draw[tick] (\x,-0.2) -- (\x,0.2);
+  \foreach \y in {-20,...,20} \draw[tick] (-0.2,\y) -- (0.2,\y);
+}
+
+% Grid color
+\tikzset{grid/.style=gray!50,very thin}
+
+\def\tikzp#1{\mat{\begin{tikzpicture}#1\end{tikzpicture}}}
+
+\def\mydraw       #1;{\draw [mycurve]  \expr{#1};}
+\def\mydot        #1;{\node [cldot] at \expr{#1} [] {};}
+\def\myldot #1 #2 #3;{\node [cldot] at \expr{#1} [label=#2:${#3}$] {};}
+\def\myseg     #1 #2;{\draw [mycurve]  \expr{#1} -- \expr{#2};}
+\def\mylabel #1 #2 #3;{\node []     at \expr{#1} [label=#2:${#3}$] {};}
+\def\myseggrid  #1 #2;{\draw [grid]    \expr{#1} -- \expr{#2};}
+
+% \myvgrid, for things like this:
+% (find-xpdfpage "~/LATEX/2016-1-GA-material.pdf" 6)
+\def\myvgrid{
+  \myseggrid p(0,0) p(0,4);
+  \myseggrid p(1,0) p(1,4);
+  \myseggrid p(2,0) p(2,4);
+  \myseggrid p(3,0) p(3,4);
+  \myseggrid p(4,0) p(4,4);
+  \myseggrid p(0,0) p(4,0);
+  \myseggrid p(0,1) p(4,1);
+  \myseggrid p(0,2) p(4,2);
+  \myseggrid p(0,3) p(4,3);
+  \myseggrid p(0,4) p(4,4);
+  \draw [->] \expr{p(0,0)} -- \expr{p(0,1)};
+  \draw [->] \expr{p(0,0)} -- \expr{p(1,0)};
+}
+
+
+% «pictureFxy» (to ".pictureFxy")
+\def\tcell#1{\lower\celllower\hbox to 0pt{\hss\cellfont#1\hss}}
+\def\pictureFxy(#1,#2)(#3,#4)#5{%
+  \vcenter{\hbox{%
+  \beginpictureb(#1,#2)(#3,#4){.7}%
+  {\color{GrayPale}%
+   \Line(#1,0)(#3,0)%
+   \Line(0,#2)(0,#4)%
+  }
+  \expr{pictFxy("#5")}
+  \end{picture}%
+  }}%
+}
+
+
+% «calcpoints» (to ".calcpoints")
+%L calcpoints = function (str)
+%L     local f = function (e1, e2) return format("(%s,%s)", expr(e1), expr(e2)) end
+%L     return (str:gsub("<(.-),(.-)>", f))
+%L   end
+%L calcpoints1 = function (str) return (calcpoints(str):gsub("!", "\\")) end
+%L
+%L calcpoints2 = function (str)
+%L     local result = str:gsub("<(.-)>", pformatexpr):gsub("!", "\\")
+%L     print(result)
+%L     return result
+%L   end
+\pu
+%
+\def\Calcpoints#1{\expr{calcpoints1("#1")}}
+\def\CalcPoints#1{\expr{calcpoints2("#1")}}
+
+\def\ang{\operatorname{ang}}
+\def\det{\operatorname{det}}
+
+
+
+
+
+%  _____ _ _         _       
+% |_   _(_) |_ _   _| | ___  
+%   | | | | __| | | | |/ _ \ 
+%   | | | | |_| |_| | | (_) |
+%   |_| |_|\__|\__,_|_|\___/ 
+%                            
+% «title-page» (to ".title-page")
+% (find-LATEX "2018tug-dednat6.tex" "title-page")
+
+\thispagestyle{empty}
+
+\begin{tabular}[b]{c}
+{\huge {\bf Material complementar}} \\
+{\huge {\bf para Geometria Analítica}} \\
+% {\Large Lua\LaTeX{} that understands} \\
+\\
+%\includegraphics[width=2cm]{2018tug-edrx-hoop.png}\\
+Eduardo Ochs -
+$〈${\tt eduardoochs@gmail.com}$〉$ \\
+\url{http://angg.twu.net/material-para-GA.html} \\
+RCN/CURO/UFF, 21/fev/2020 \\
+\end{tabular}
+
+
+\bsk
+\bsk
+
+$$\unitlength=15pt
+    \vcenter{\hbox{%
+     \beginpicture(0,0)(7,5)%
+     \pictgrid%
+     %\pictaxes
+     {\linethickness{1.0pt}
+      \Vector(1,1)(6,4)     \put(3,3){\cell{\ww}}
+      \Vector(1,1)(5,1)     \put(4,0.2){\cell{λ\uu}}
+      \Vector(5,1)(6,4)     \put(6,2.2){\cell{\vv}}
+      \Vector(1,0.7)(3,0.7) \put(2,0){\cell{\uu}}   
+     }
+     \end{picture}%
+   }}
+$$
+
+
+
+\newpage
+
+
+%  ___       _                 _                       
+% |_ _|_ __ | |_ _ __ ___   __| |_   _  ___ __ _  ___  
+%  | || '_ \| __| '__/ _ \ / _` | | | |/ __/ _` |/ _ \ 
+%  | || | | | |_| | | (_) | (_| | |_| | (_| (_| | (_) |
+% |___|_| |_|\__|_|  \___/ \__,_|\__,_|\___\__,_|\___/ 
+%                                                      
+% «introducao» (to ".introducao")
+% (mpgp 2 "introducao")
+% (mpg    "introducao")
+% (gam181p 2 "dicas")
+
+% \mypsection {introducao} {Introdução (2019sep16)}
+
+\mypsection {introducao} {Introdução}
+
+% (find-TH "material-para-GA")
+%    http://angg.twu.net/material-para-GA.html
+% file:///home/edrx/TH/L/material-para-GA.html
+
+% Introdução nova:
+
+
+
+Quando a gente leciona uma disciplina a gente acaba preparando
+material que complemente os livros nos pontos em que os alunos
+costumam ter mais dúvidas... e nos últimos anos em que eu lecionei
+Geometria Analítica a grande maioria das dúvidas --- pelo menos dos
+alunos que se manifestavam --- eram sobre como passar entre casos
+gerais e casos particulares: os alunos não sabiam como transformar os
+teoremas dos livros (``muito abstratos''!) em casos concretos, não
+sabiam nem como começar a tentar generalizar algo que eles vissem num
+caso particular, não sabiam escrever uma hipótese, não sabiam {\sl
+  testar} uma hipótese, não sabiam nem mesmo testar se uma determinada
+reta desenhada num plano correspondia a uma determinada equação de
+reta...
+
+Esses alunos não sabiam estudar pelos livros. Aliás, a maioria deles
+nem sabia {\sl como} estudar --- eles achavam que tinham que decorar
+fórmulas e procedimentos, mas tinham muito pouca noção do que cada
+trecho das fórmulas e procedimentos queria dizer, e muitos deles até
+achavam que {\sl não dava tempo} de aprender os detalhes direito, e
+isso acabava deixando eles paralisados.
+
+\msk
+
+Este PDF é um ``work in progress''. Ele é essencialmente a versão de
+2018.1 do material que eu usava com as minhas turmas de GA pra tentar
+complementar os livros-texto que tínhamos disponíveis online ou na
+biblioteca, que eram estes aqui:
+
+\msk
+
+Delgado, J., Frensel, K. e Santo, N.E., {\sl Geometria Analítica 1}, CEDERJ.
+
+Disponível em:
+\url{https://canalcederj.cecierj.edu.br/recurso/4690}
+
+\ssk
+
+Venturi, J.J., {\sl Álgebra Vetorial e Geometria Analítica} e
+
+{\sl Cônicas e Quádricas}. Ed.\ Unificado. Disponível em:
+
+\url{https://www.geometriaanalitica.com.br/}
+
+\ssk
+
+Reis, G.L., e Silva, V.V., {\sl Geometria Analítica}. LTC.
+
+\ssk
+
+Steinbruch, A., e Winterle, P., {\sl Geometria Analítica}. Ed Makron.
+
+\ssk
+
+Boulos, P., e Camargo, I. de., {\sl Geometria Analítica - um
+  tratamento vetorial}.
+
+Ed.\ Prentice Hall Brasil.
+
+% Baldin, Yuriko Yamamoto. Geometria Analítica para Todos. EdUFSCAR.
+
+\msk
+
+Tem várias coisas que eu gostaria de modificar aqui, mas que não tenho
+tempo agora... as principais são: 1) a abordagem de vetores (que ficou
+axiomática demais), 2) a parte sobre senos e cossenos (em 2018.1 eu
+descobri, tarde demais, que os alunos aprendiam {\sl bem} melhor de
+outro jeito), 3) o PDF deveria ter muitas referências explícitas aos
+livros pra forçar os alunos a compararem a nossa abordagem com as dos
+livros, mas por enquanto não tem quase nenhuma, 4) eu perdi o
+código-fonte em \LaTeX{} dos exercícios e figuras que eu preparei
+sobre cônicas, e ainda não tive tempo de redigitá-los e inclui-los
+aqui... mas aqui tem um link pro PDF dele:
+
+\msk
+
+\url{http://angg.twu.net/LATEX/2018-1-GA-conicas.pdf}
+
+\bsk
+
+Praticamente todo o material que eu produzi para as minhas aulas de
+Geometria Analítica no PURO/UFF está disponível online, incluindo
+fotos de praticamente todos os quadros a partir de 2012.2 --- mesmo os
+das aulas mal preparadas --- e em 2013.2 eu aprendi a fazer ``versões
+imprimíveis'' dos quadros aumentando o contraste das fotos e
+produzindo um arquivo PDF com todos os quadros do semestre. Veja os
+links abaixo:
+
+\msk
+
+% (find-TH "2018.1-GA")
+\url{http://angg.twu.net/2018.1-GA.html}
+
+\url{http://angg.twu.net/2018.1-GA/2018.1-GA.pdf}
+
+\url{http://angg.twu.net/2018.1-GA/Makefile.html}
+
+
+\bsk
+\bsk
+\bsk
+
+
+
+{\bf As mesmas idéias num nível mais alto}
+
+A partir do meio de 2018 eu comecei a aplicar algumas das idéias que
+estão por trás deste material --- {\sl que o melhor modo ensinar GA
+  ``para crianças'' é trabalhar em casos particulares e casos gerais
+  ao mesmo tempo, em paralelo} --- em áreas mais avançadas, como
+Teoria de Categorias, e a apresentá-las em congressos, seminários,
+workshops e artigos. Links:
+
+\msk
+
+\url{http://angg.twu.net/math-b.html\#zhas-for-children-2}
+
+\url{http://angg.twu.net/logic-for-children-2018.html}
+
+\url{http://angg.twu.net/math-b.html\#2020-tallinn}
+
+
+
+
+% Eu ensinei Geometria Analítica no PURO/UFF de 2011.1 e 2018.1, e nos
+% últimos semestres comecei a produzir um material \LaTeX ado que {\sl
+%   complementava} os livros-texto - obs: os livros que eu mais usei
+% foram o seu do CEDERJ e o do Reis e Silva - porque muitos dos nossos
+% calouros tinham uma base matemática tão ruim que não conseguiam
+% entender nada dos livros e precisavam de muito trabalho com exemplos
+% mais concretos...
+% 
+% Durante esse tempo eu tentei várias vezes fazer contato com outras
+% pessoas que também estivessem lidando com alunos com as mesmas
+% dificuldades de abstração que os meus, mas muito pouca gente me
+% respondia, e as pessoas eram muito reticentes em mostrar o material
+% delas...
+% 
+% Aí eu fui pondo na rede tudo que eu fazia, inclusive fotos de
+% quadros - mesmo as das aulas que eu não tinha preparado bem o
+% suficiente...
+% 
+% Bom, a coisa principal é esse PDF aqui. Só há uma semana atrás eu
+% consegui fazer uma introdução que deixa claro o que ele é... na
+% verdade ela ainda não está pronta, falta eu digitar um monte de
+% anotações em papel, incluir a bibliografia e um monte de links,
+% explicar que isso é um "work in progress", e dizer quais são as seções
+% que eu mudaria totalmente se tivesse tempo...
+% 
+% E agora que essa introdução tá ficando pronta é que me ocorreu que eu
+% devia 1) mostrar isso pra você, 2) perguntar se você conhece alguma
+% lista de discussão ou algo assim de professores de Geometria
+% Analítica...
+% 
+% Link pro PDF (quero terminar a introdução dele e uma página web sobre
+% ele até de noite):
+
+
+% http://angg.twu.net/2018.1-GA.html
+% https://geometrianaliticauff.wordpress.com/2015/12/02/bibliografia/
+
+% Reis, G. L. e Silva, V. V. Geometria Analítica. LTC.
+% Baldin, Yuriko Yamamoto. Geometria Analítica para Todos. EdUFSCAR.
+% Venturi, J.J. Álgebra Vetorial e Geometria Analítica. Ed. Unificado. Disponibilizado em www.geometriaanalitica.com.br
+% Venturi, J.J. Cônicas e Quádricas. Ed. Unificado. Disponibilizado em www.geometriaanalitica.com.br
+% Steinbruch, A. e Winterle, P. Geometria Analítica. Ed Makron.
+% Boulos, P. e Camargo, I. de. Geometria Analítica – um tratamento vetorial. Ed. Prentice Hall Brasil.
+% Delgado, J., Frensel, K. e Santo, N.E., Geometria Analítica 1 e 2, CEDERJ.
+
+
+% Introdução velha:
+%
+% Boa parte dos nossos alunos de Engenharia de Produção e Ciência da
+% Computação --- os cursos de exatas do campus de Rio das Ostras ---
+% entram na universidade vindos de um ensino médio fraquíssimo, com
+% pouquíssima base matemática; por exemplo, muitos deles nunca viram um
+% teorema na vida...
+% 
+% Este material é uma tentativa de {\sl complementar} os livros-texto
+% que usamos nos nossos cursos de Geometria Analítica --- listados no
+% fim desta introdução --- de uma forma que torne os livros e as aulas
+% mais acessíveis para estes ``alunos sem base'' (``ASBs''). A
+% característica mais deseperadora dos ASBs é que eles querem ``aprender
+% as fórmulas'' mas não sabem testar seus resultados, e aliás não sabem
+% nem verificar se o que eles escrevem está sintaticamente correto...
+% 
+% \def\twoninenyninelemma#1#2{
+%   \fbox{
+%   $\begin{array}{rcl}
+%    2^{#2}-2^{#1} &=& 2^{1+#1}-2^{#1} \\
+% %                &=& 2^{1}·2^{#1}-2^{#1} \\
+%                  &=& 2·2^{#1}-1·2^{#1} \\
+%                  &=& (2-1)·2^{#1} \\
+% %                &=& 1·2^{#1} \\
+%                  &=& 2^{#1} \\
+%    \end{array}
+%   $}
+% }
+% 
+% $$
+%   \twoninenyninelemma{n}{n+1}
+%   \twoninenyninelemma{99}{100}
+% $$
+
+
+% https://mail.google.com/mail/ca/u/0/#search/reginaldo/FMfcgxvwzcBWHctfnghRHbxwrQXZqplX
+
+% Oi Reginaldo,
+% 
+% não, eu não espero que vocês leiam o meu material de GA. Na internet
+% em que eu cresci quando a gente dá um link pra alguma coisa a gente
+% não espera que as pessoas leiam aquilo - a gente só espera, no máximo,
+% que ALGUMAS PESSOAS abram ele, scrollem ele durante dez segundos e
+% tenham uma noção de que aquilo existe, de quão disponível está, e de
+% onde encontrá-lo se quiserem olhar de novo algum dia.
+% 
+% Que bom que você citou não ter tempo - isso foi um dos motivos pelos
+% quais eu comecei a preparar esse material alguns semestres atrás.
+% Quero explicar tudo direito num texto que eu pretendo escrever depois
+% de terminar os gabaritos das provas de GA e de Cálculo 2 que eu dei
+% ontem, mas deixa eu adiantar algumas coisas.
+% 
+% A minha "apostila", pra usar o termo da reclamação dos discentes
+% incluída no memorando, não é uma apostila "tradicional" no sentido de
+% uma versão escrita do que a gente escreve no quadro numa aula
+% expositiva; ela é um material feito pra evitar que os alunos "PERCAM
+% TEMPO" com coisas tipo ficar copiando o quadro perdidos pensando "PQP,
+% vou tentar entender isso em casa depois", e ainda por cima muitas
+% vezes copiando errado. Ela começa com dicas sobre como estudar e
+% explicando que GA é um curso de escrita matemática, e ela está cheia
+% de exercícios pros alunos - mesmo os sem base matemática quase nenhuma
+% - poderem começar imediatamente, assim que eu distribuo cópias das
+% folhas do dia no início de cada aula, a lerem o texto e os exemplos e
+% começaram a fazer os exercícios DISCUTINDO ELES EM GRUPO - e tirando
+% dúvidas primeiro entre si e depois comigo sempre que precisarem; ou
+% seja, tem truques ali pra fazer eles APRENDEREM A ESTUDAR. Ah, e as
+% minhas "apostilas" COMPLEMENTAM os livros-texto que a gente usa no
+% curso e elas têm alguns "exercícios" que dizem coisas como "compare a
+% nossa abordagem com a das páginas tais e tais do livro tal" (que os
+% alunos têm em PDF)...
+% 
+% As minhas "apostilas" têm um bocado de material pra lidar com coisas
+% cuja falta nos livros eu acho desesperadora... por exemplo - deixa eu
+% descrever usando personagens - como lidar com alunos que desenham tudo
+% torto? Que deixam pra estudar na última hora? Que não têm nenhuma
+% referência de como fazer uma demonstração passo a passo? Que chegam
+% até o meio do semestre achando que podem mostrar que uma proposição é
+% verdadeira mostrando um caso particular? Que não fazem idéia de como
+% fazer o gráfico da reta x=2 ou da "reta degenerada" 0x+0y=4? Que acham
+% que basta mostrar o resultado de uma questão e não sabem escrever o
+% desenvolvimento? O ideal seria que eles soubessem estimar o nível de
+% cada questão e escrever tanto um desenvolvimento detalhado pra um
+% "leitor burro" quanto um desenvolvimento pra um leitor mais avançado,
+% né?
+% 
+% Eu tou produzindo esse material e mandando o link pra ele pra um monte
+% de lugares e brigando por ele exatamente porque eu acredito que estou
+% fazendo algo importante, e porque POR ENQUANTO as pessoas não têm
+% tempo pra conversar sobre os seus métodos de, por exemplo, ensinarem
+% alunos egressos do ensino médio de hoje em dia a representarem coisas
+% graficamente, a traduzirem entre o geométrico e o algébrico, e a
+% fazerem demonstrações...
+% 
+% Eu tou tentando deixar esse material cada vez mais visível porque POR
+% ENQUANTO eu não tenho social skills pra conseguir mais do que poucas
+% conversas de 10 minutos a cada semestre com as outras pessoas que dão
+% GA e Cálculo 1 pra saber como elas estão ensinando isso.
+% 
+% Eu tou deixando esse material visível pra que daqui a 3 semanas, 3
+% meses, ou 3 anos fique MUITO CLARO que a minha parte eu fiz e deixei
+% do modo mais fácil de consultar possível, e pra que você - deixa eu te
+% pegar como caso extremo =) - resolva que eu mereço 5 minutos da porra
+% do seu tempo pra gente trocar figurinhas sobre nossos métodos
+% didáticos, que certamente se complementam.
+
+
+\newpage
+
+
+%   ____      _                                 _ _
+%  / ___|___ (_)___  __ _ ___   _ __ ___  _   _(_) |_ ___
+% | |   / _ \| / __|/ _` / __| | '_ ` _ \| | | | | __/ _ \
+% | |__| (_) | \__ \ (_| \__ \ | | | | | | |_| | | || (_) |
+%  \____\___/|_|___/\__,_|___/ |_| |_| |_|\__,_|_|\__\___/
+%
+% «coisas-muito» (to ".coisas-muito")
+% (gam181p 1 "coisas-muito")
+
+% {\setlength{\parindent}{0em}
+% \footnotesize
+% \par Geometria Analítica - material para exercícios
+% \par PURO-UFF - 2018.1 - Eduardo Ochs
+% \par Links importantes:
+% \par \url{http://angg.twu.net/2018.1-GA.html} (página do curso)
+% \par \url{http://angg.twu.net/2018.1-GA/2018.1-GA.pdf} (quadros)
+% \par \url{http://angg.twu.net/LATEX/2018-1-GA-material.pdf} (isto aqui)
+% \par {\tt eduardoochs@gmail.com} (meu e-mail)
+% \par Dá pra chegar na página do curso googlando por ``Eduardo Ochs'',
+% \par indo pra qualquer subpágina do angg.twu.net, e clicando em ``GA''
+% \par na barra de navegação à esquerda.
+% 
+% }
+% 
+% \bsk
+% \bsk
+
+
+
+
+{
+\setlength{\parindent}{0em}
+
+\mypsection {coisas-muito} {Coisas MUITO importantes sobre Geometria Analítica}
+}
+
+\ssk
+
+A matéria é sobre duas linguagens diferentes: a
+%
+\begin{itemize}
+\item ``Geometria'', que é sobre coisas gráficas como pontos, retas e
+  círculos, e a
+
+\item ``Analítica'', que é sobre ``álgebra'', sobre coisas matemáticas
+  ``formais'' como contas, conjuntos e equações;
+
+\end{itemize}
+%
+além disso Geometria Analítica é também sobre a TRADUÇÃO entre essas
+duas linguagens.
+
+\msk
+
+Lembre que boa parte do que você aprendeu sobre álgebra no ensino
+médio era sobre {\sl resolver equações}.
+
+{\sl Encontrar soluções} de equações é difícil --- são muitos métodos,
+e dá pra errar bastante no caminho --- mas {\sl testar} as soluções é
+fácil.
+
+\msk
+
+Boa parte do que você aprendeu (ou deveria ter aprendido) sobre
+geometria no ensino médio envolvia construções gráficas; por exemplo,
+a partir de pontos $A$, $B$, $C$,
+
+Seja $A'$ o ponto médio entre $B$ e $C$,
+
+Seja $B'$ o ponto médio entre $A$ e $C$,
+
+Seja $C'$ o ponto médio entre $A$ e $B$,
+
+Seja $r_a$ a reta que passa por $A'$ e é ortogonal a $BC$,
+
+Seja $r_b$ a reta que passa por $B'$ e é ortogonal a $AC$,
+
+Seja $r_c$ a reta que passa por $C'$ e é ortogonal a $AB$,
+
+Seja $D$ o ponto de interseção das retas $r_a$, $r_b$ e $r_c$,
+
+então $D$ é o centro do círculo que passa por $A$, $B$ e $C$.
+
+\msk
+
+Você {\bf VAI TER QUE} aprender a definir seus objetos --- pontos, retas,
+conjuntos, círculos, etc... isso provavelmente vai ser algo novo pra
+você e é algo que precisa de MUITO treino. Dá pra passar em Cálculo 1
+e em Prog 1 só aprendendo a ``ler'' as definições que o professor e os
+livros mostram, mas em Geometria Analítica NÃO DÁ, em GA você vai ter
+que aprender a ler {\bf E A ESCREVER} definições.
+
+
+
+
+\newpage
+
+%  ____  _
+% |  _ \(_) ___ __ _ ___
+% | | | | |/ __/ _` / __|
+% | |_| | | (_| (_| \__ \
+% |____/|_|\___\__,_|___/
+%
+% «dicas» (to ".dicas")
+% (gam181p 2 "dicas")
+\mypsection {dicas} {Dicas MUITO IMPORTANTES e pouco óbvias}
+
+1) Aprenda a testar tudo: contas, possíveis soluções de equações,
+representações gráficas de conjuntos...
+
+2) Cada ``seja'' ou ``sejam'' que aparece nestas folhas é uma
+definição, e você pode usá-los como exemplos de definições
+bem-escritas (ééé!!!!) pra aprender jeitos de escrever as suas
+definições.
+
+3) Em ``matematiquês'' a gente quase não usa termos como ``ele'',
+``ela'', ``isso'', ``aquilo'' e ''lá'' --- ao invés disso a gente dá
+nomes curtos pros objetos ou usa expressões matemáticas pra eles cujo
+resultado é o objeto que a gente quer (como nas pags
+\pageref{comprehension-ex123} e \pageref{projecoes})... mas {\sl
+  quando a gente está discutindo problemas no papel ou no quadro} a
+gente pode ser referir a determinados objetos {\sl apontando pra eles
+  com o dedo} e dizendo ``esse aqui''.
+
+4) Se você estiver em dúvida sobre o que um problema quer dizer tente
+escrever as suas várias hipóteses --- a prática de escrever as suas
+idéias é o que vai te permitir aos poucos conseguir resolver coisas de
+cabeça.
+
+5) Muitas coisas aparecem nestas folhas escritas primeiro de um jeito
+detalhado, e depois aos poucos de jeitos cada vez mais curtos. Você
+vai ter que aprender a completar os detalhes.
+
+6) Alguns exercícios destas folhas têm muitos subcasos. Nos primeiros
+subcasos você provavelmente vai precisar fazer as contas com todos os
+detalhes e verificá-las várias vezes pra não errar, depois você vai
+aprender a fazê-las cada vez mais rápido, depois vai poder fazê-las de
+cabeça, e depois você vai começar a visualizar o que as contas
+``querem dizer'' e vai conseguir chegar ao resultado graficamente, sem
+contas; e se você estiver em dúvida se o seu ``método gráfico'' está
+certo você vai poder conferir se o ``método gráfico'' e o ``método
+contas'' dão aos mesmos resultados. Exemplo:
+p.\pageref{sistemas-de-coordenadas}.
+
+7) Uma solução bem escrita pode incluir, além do resultado final,
+contas, definições, representações gráficas, explicações em português,
+testes, etc. Uma solução bem escrita é fácil de ler e fácil de
+verificar. Você pode testar se uma solução sua está bem escrita
+submetendo-a às seguinte pessoas: a) você mesmo logo depois de você
+escrevê-la --- releia-a e veja se ela está clara; b) você mesmo, horas
+depois ou no dia seguinte, quando você não lembrar mais do que você
+pensava quando você a escreveu; c) um colega que seja seu amigo; d) um
+colega que seja menos seu amigo que o outro; e) o monitor ou o
+professor. Se as outras pessoas acharem que ler a sua solução é um
+sofrimento, isso é mau sinal; se as outras pessoas acharem que a sua
+solução está claríssima e que elas devem estudar com você, isso é bom
+sinal. {\sl GA é um curso de escrita matemática:} se você estiver
+estudando e descobrir que uma solução sua pode ser reescrita de um
+jeito bem melhor, não hesite --- reescrever é um ótimo exercício.
+
+% 8) Estas notas {\sl vão ser} uma versão ampliada e melhorada destas
+% notas aqui, do semestre passado:
+%
+% \url{http://angg.twu.net/LATEX/2017-2-GA-material.pdf}
+
+
+
+
+\newpage
+
+%  ____        _         _   _ _         _                 
+% / ___| _   _| |__  ___| |_(_) |_ _   _(_) ___ __ _  ___  
+% \___ \| | | | '_ \/ __| __| | __| | | | |/ __/ _` |/ _ \ 
+%  ___) | |_| | |_) \__ \ |_| | |_| |_| | | (_| (_| | (_) |
+% |____/ \__,_|_.__/|___/\__|_|\__|\__,_|_|\___\__,_|\___/ 
+%                                                          
+% «substituicao» (to ".substituicao")
+% (gam181p 3 "substituicao")
+\mypsection {substituicao} {Substituição}
+
+Uma das coisas que vamos usar neste curso e que não costuma ser
+apresentada em livros básicos --- mas que eu uso na optativa de
+``Lógica pra Crianças'' --- é uma operação chamada {\sl substituição
+  simultânea}. Exemplo:
+%
+$$((x+y)·z) \subst{ 
+    x:=a+y \\
+    y:=b+z \\
+    z:=c+x \\
+  }
+  \;\;=\;\;
+  ((a+y)+(b+z))·(c+x).
+$$
+
+Essa operação {\sl pode} ser aplicada em expressões que não fazem
+sentido nenhum --- por exemplo:
+%
+$$\def\newa{\psm{∫⊙\\◻}}
+  (\text{Vanessão 20 reais})
+  \bmat{\text{a} := \newa}
+  \;\;=\;\;
+  (\text{V$\newa$ness$\widetilde{\newa}$o 20 re$\newa$is})
+$$
+%
+e às vezes vamos usá-la para atribuir sentido para expresões
+aparentemente abstratas. Por exemplo, na parte sobre sistemas de
+coordenadas vamos ter definições como
+%
+$$
+(a,b)_Σ = (10a+2,100b+3) \qquad \text{para $a,b∈\R$}
+$$
+%
+que nos permite fazer
+$$
+\begin{array}{l}
+  ((a,b)_Σ = (10a+2,100b+3))\subst{a:=4\\b:==5} \\
+  = ((4,5)_Σ = (10·4+2,100·5+3)) \\
+  = ((4,5)_Σ = (42,503)) \\
+\end{array}
+$$
+%
+e fazendo isto pra vários valores de $a$ e $b$ a gente consegue montar
+uma tabela {\sl (ainda não fiz)} e entender geometricamente como a
+operação $(a,b)_Σ$ funciona.
+
+A substituição também serve pra gente testar equações:
+%
+$$
+\begin{array}{rcl}
+  (x^2-5x+6=0) \bmat{x:=1} &=& (1^2-5·1+6=0) \\
+                           &=& (1-5+6=0) \\
+                           &=& (2=0) \\
+                           &=& 𝐛F \\
+  (x^2-5x+6=0) \bmat{x:=2} &=& (2^2-5·2+6=0) \\
+                           &=& (4-10+6=0) \\
+                           &=& (0=0) \\
+                           &=& 𝐛V \\
+\end{array}
+$$
+%
+e as ``set comprehensions'' das seções seguintes vão nos permitir
+escrever o conjunto das soluções de uma equação de um jeito claro,
+rápido, preciso e fácil de debugar {\sl sem usar português:}
+%
+$$
+  \setofst{x∈\R}{x^2-5x+6=0} = \{2,3\}
+$$
+
+{\sl Aos poucos} a gente vai começar a usar substituições mais
+complicadas usando implicitamente a idéia de ``tipos'' das próximas
+páginas. Por exemplo, se $t∈\R$ esta substituição é válida,
+%
+$$
+\begin{array}{l}
+  ((a,b)_Σ = (10a+2,100b+3))\subst{a:=5t\\b:=6t} \\
+  = ((5t,6t)_Σ = (10·5t+2,100·6t+3)) \\
+\end{array}
+$$
+%
+mas não é válido substituir $a$ ou $b$ por uma expressão cujo
+resultado seja uma matriz.
+
+
+
+
+
+
+
+
+\newpage
+
+
+
+
+
+
+%  __  __       _        _
+% |  \/  | __ _| |_ _ __(_)_______  ___
+% | |\/| |/ _` | __| '__| |_  / _ \/ __|
+% | |  | | (_| | |_| |  | |/ /  __/\__ \
+% |_|  |_|\__,_|\__|_|  |_/___\___||___/
+%
+% «matrizes» (to ".matrizes")
+% (gam181p 4 "matrizes")
+\mypsection {matrizes} {Alguns ``tipos'' de objetos matemáticos familiares}
+
+Multiplicação de matrizes:
+
+\def\und#1#2{\underbrace{#1}_{#2}}
+
+$\und{\pmat{1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9}}{3×3}
+ \und{\pmat{1000 \\ 100 \\ 10}}{3×1}
+ = \und{\pmat{1230 \\ 4560 \\ 7890}}{3×1}
+$
+
+$\und{\pmat{a & b \\ c & d \\ e & f}}{3×2}
+ \und{\pmat{g & h & i & j \\ k & l & m & n}}{2×4}
+ = \und{\pmat{ag+bk & ah+bl & ai+bm & aj+bn \\
+              cg+dk & ch+dl & ci+dm & cj+dn \\
+              eg+fk & eh+fl & ei+fm & ej+fn \\}}{3×4}
+$
+
+$\und{\pmat{g & h & i & j \\ k & l & m & n}}{2×4}
+ \und{\pmat{a & b \\ c & d \\ e & f}}{3×2}
+ = \; \text{erro \qquad (porque $4≠3$)}
+$
+
+$\pmat{1 & 2 \\ 3 & 4} \pmat{100 & 0 \\ 10 & 0} = \pmat{120 & 0 \\ 340 & 0}$
+
+\ssk
+
+$\pmat{100 & 0 \\ 10 & 0} \pmat{1 & 2 \\ 3 & 4} = \pmat{100 & 200 \\ 10 & 20}$
+
+\ssk
+
+$\pmat{2 \\ 3 \\ 4}^T \pmat{100 \\ 10 \\ 1} = \pmat{2 & 3 & 4} \pmat{100 \\ 10 \\ 1} = (234) = 234$
+
+\bsk
+
+Soma de matrizes:
+
+$\pmat{10 & 20 & 30 \\ 40 & 50 & 60} + \pmat{2 & 3 & 4 \\ 5 & 6 & 7} = \pmat{12 & 23 & 34 \\ 45 & 56 & 67}$
+
+$\pmat{10 & 20 & 30 \\ 40 & 50 & 60} + \pmat{2 & 3 \\ 5 & 6 } = \; \text{erro}$
+
+\bsk
+
+Multiplicação de número por matriz:
+
+$10 \pmat{2 & 3 & 4 \\ 5 & 6 & 7} = \pmat{20 & 30 & 40 \\ 50 & 60 & 70}$
+
+
+
+\bsk
+
+\def\V{\mathbf{V}}
+\def\F{\mathbf{F}}
+
+Operações lógicas:
+
+\ssk
+
+$\begin{array}[t]{rcl}
+ \text{``E'':} \\
+ \F\&\F &=& \F \\
+ \F\&\V &=& \F \\
+ \V\&\F &=& \F \\
+ \V\&\V &=& \V \\
+ \end{array}
+ %
+ \quad
+ %
+ \begin{array}[t]{rcl}
+ \text{``Ou'':} \\
+ \F∨\F &=& \F \\
+ \F∨\V &=& \V \\
+ \V∨\F &=& \V \\
+ \V∨\V &=& \V \\
+ \end{array}
+ %
+ \quad
+ %
+ \begin{array}[t]{rcl}
+ \text{``Implica'':}\hss \\
+ \F→\F &=& \V \\
+ \F→\V &=& \V \\
+ \V→\F &=& \F \\
+ \V→\V &=& \V \\
+ \end{array}
+ %
+ \quad
+ %
+ \begin{array}[t]{rcl}
+ \text{``Não'':} \\
+ ¬\F &=& \V \\
+ ¬\V &=& \F \\
+ \end{array}
+$
+
+\bsk
+
+Se $x=6$,
+
+$\und{\und{2<\und{x}{6}}{\V} \&
+      \und{\und{x}{6}<5}{\F}
+     }{\F}
+$
+
+
+
+
+\newpage
+
+%   ____                               _                    _
+%  / ___|___  _ __ ___  _ __  _ __ ___| |__   ___ _ __  ___(_) ___  _ __
+% | |   / _ \| '_ ` _ \| '_ \| '__/ _ \ '_ \ / _ \ '_ \/ __| |/ _ \| '_ \
+% | |__| (_) | | | | | | |_) | | |  __/ | | |  __/ | | \__ \ | (_) | | | |
+%  \____\___/|_| |_| |_| .__/|_|  \___|_| |_|\___|_| |_|___/_|\___/|_| |_|
+%                      |_|
+%
+% «comprehension» (to ".comprehension")
+% (gam181p 5 "comprehension")
+\mypsection {comprehension} {``Set comprehensions''}
+
+\def\und#1#2{\underbrace{#1}_{#2}}
+\def\und#1#2{\underbrace{#1}_{\text{#2}}}
+\def\ug#1{\und{#1}{ger}}
+\def\uf#1{\und{#1}{filt}}
+\def\ue#1{\und{#1}{expr}}
+
+Notação explícita, com geradores, filtros,
+
+e um ``;'' separando os geradores e filtros da expressão final:
+
+$\begin{array}{lll}
+\{\ug{a∈\{1,2,3,4\}}; \ue{10a}\}     &=& \{10,20,30,40\} \\
+\{\ug{a∈\{1,2,3,4\}}; \ue{a}\}       &=& \{1,2,3,4\} \\
+\{\ug{a∈\{1,2,3,4\}}, \uf{a≥3}; \ue{a}\} &=& \{3,4\} \\
+\{\ug{a∈\{1,2,3,4\}}, \uf{a≥3}; \ue{10a}\} &=& \{30,40\} \\
+\{\ug{a∈\{10,20\}}, \ug{b∈\{3,4\}}; \ue{a+b}\} &=& \{13,14,23,24\} \\
+\{\ug{a∈\{1,2\}}, \ug{b∈\{3,4\}}; \ue{(a,b)}\} &=& \{(1,3),(1,4),(2,3),(2,4)\} \\
+\end{array}
+$
+
+
+
+
+
+% (setq last-kbd-macro (kbd "C-w \\ uf{ C-y }"))
+% (setq last-kbd-macro (kbd "C-w \\ ue{ C-y }"))
+
+\msk
+\msk
+
+Notações convencionais, com ``$|$'' ao invés de ``;'':
+
+Primeiro tipo --- expressão final, ``$|$'', geradores e filtros:
+
+$\begin{array}{lll}
+\setofst{10a}{a∈\{1,2,3,4\}} &=&
+  \{\ug{a∈\{1,2,3,4\}}; \ue{10a}\} \\
+\setofst{10a}{a∈\{1,2,3,4\}, a≥3} &=&
+  \{\ug{a∈\{1,2,3,4\}}, \uf{a≥3}; \ue{10a}\} \\
+\setofst{a}{a∈\{1,2,3,4\}} &=&
+  \{\ug{a∈\{1,2,3,4\}}; \ue{a}\} \\
+% \{\ug{a∈\{1,2\}}, \ug{b∈\{3,4\}}; \ue{(a,b)}\} \\
+\end{array}
+$
+
+\msk
+
+O segundo tipo --- gerador, ``$|$'', filtros ---
+
+pode ser convertido para o primeiro...
+
+o truque é fazer a expressão final ser a variável do gerador:
+
+$\begin{array}{lll}
+\setofst{a∈\{1,2,3,4\}}{a≥3} &=& \\
+\setofst{a}{a∈\{1,2,3,4\}, a≥3} &=&
+  \{\ug{a∈\{1,2,3,4\}}, \uf{a≥3}; \ue{a}\} \\
+% \{\ug{a∈\{10,20\}}, \ug{b∈\{3,4\}}; \ue{a+b}\} \\
+\end{array}
+$
+
+\msk
+
+O que distingue as duas notacões ``$\{\ldots|\ldots\}$'' é
+
+se o que vem antes da ``$|$'' é ou não um gerador.
+
+\bsk
+
+Observações:
+
+$\setofst{\text{gerador}}{\text{filtros}} =
+ \{\text{gerador},\text{filtros};\ue{\text{variável do gerador}}\}$
+
+$\setofst{\text{expr}}{\text{geradores e filtros}} =
+ \{\text{geradores e filtros}; \text{expr}\}
+$
+
+\msk
+
+As notações ``$\{\ldots|\ldots\}$'' são padrão e são usadas em muitos livros de matemática.
+
+A notação ``$\{\ldots;\ldots\}$'' é bem rara; eu aprendi ela em
+artigos sobre linguagens de programação, e resolvi apresentar ela aqui
+porque acho que ela ajuda a explicar as duas notações
+``$\{\ldots|\ldots\}$''.
+
+
+\newpage
+
+%                                     _                    _               _____
+%   ___ ___  _ __ ___  _ __  _ __ ___| |__   ___ _ __  ___(_) ___  _ __   |_   _|
+%  / __/ _ \| '_ ` _ \| '_ \| '__/ _ \ '_ \ / _ \ '_ \/ __| |/ _ \| '_ \    | |
+% | (_| (_) | | | | | | |_) | | |  __/ | | |  __/ | | \__ \ | (_) | | | |   | |
+%  \___\___/|_| |_| |_| .__/|_|  \___|_| |_|\___|_| |_|___/_|\___/|_| |_|   |_|
+%                     |_|
+%
+% «comprehension-tables» (to ".comprehension-tables")
+% (gam181p 6 "comprehension-tables")
+\mypsection {comprehension-tables} {``Set comprehensions'': como calcular usando tabelas}
+
+\def\tbl#1#2{\fbox{$\begin{array}{#1}#2\end{array}$}}
+\def\tbl#1#2{\fbox{$\sm{#2}$}}
+\def\V{\mathbf{V}}
+\def\F{\mathbf{F}}
+
+% "Stop":
+% (find-es "tex" "vrule")
+\def\S{\omit$|$\hss}
+\def\S{\omit\vrule\hss}
+\def\S{\omit\vrule$($\hss}
+\def\S{\omit\vrule$\scriptstyle($\hss}
+\def\S{\omit\vrule\phantom{$\scriptstyle($}\hss}   % stop
+
+Alguns exemplos:
+
+\msk
+
+\def\s{\mathstrut}
+\def\s{\phantom{$|$}}
+\def\s{\phantom{|}}
+\def\s{}
+
+Se $A := \{x∈\{1,2\}; (x,3-x)\}$
+
+então $A = \{(1,2), (2,1)\}$:
+
+\tbl{ccc}{
+ \s x & (x,3-x) \\\hline
+ \s 1 & (1,2) \\
+ \s 2 & (2,1) \\
+}
+
+\msk
+
+Se $I := \{x∈\{1,2,3\}, y∈\{3,4\}, x+y<6; (x,y)\}$
+
+então $I = \{(1,3),(1,4),(1,5)\}$:
+
+\tbl{ccc}{
+ \s x & y & x+y<6 & (x,y) \\\hline
+ \s 1 & 3 & \V & (1,3) \\
+ \s 1 & 4 & \V & (1,4) \\
+ \s 2 & 3 & \V & (2,3) \\
+ \s 2 & 4 & \F & \S \\
+ \s 3 & 3 & \F & \S \\
+ \s 3 & 4 & \F & \S \\
+}
+
+\msk
+
+Se $D := \setofst{(x,2x)}{x∈\{0,1,2,3\}}$
+
+então $D = \{x∈\{0,1,2,3\}; (x,2x)\}$,
+
+$D = \{(0,0), (1,2), (2,4), (3,6)\}$:
+
+\tbl{ccc}{
+ \s x & (x,2x) \\\hline
+ \s 0 & (0,0) \\
+ \s 1 & (1,2) \\
+ \s 2 & (2,4) \\
+ \s 3 & (3,6) \\
+}
+
+\msk
+
+Se $P := \setofst {(x,y)∈\{1,2,3\}^2} {x≥y}$
+
+então $P = \{(x,y)∈\{1,2,3\}^2, x≥y; (x,y)\}$,
+
+$P = \{(1,1), (2,1), (2,2), (3,1), (3,2), (3,3)\}$:
+
+\tbl{ccc}{
+ \s (x,y) & x & y & x≥y & (x,y) \\\hline
+ \s (1,1) & 1 & 1 & \V & (1,1) \\
+ \s (1,2) & 1 & 2 & \F & \S    \\
+ \s (1,3) & 1 & 3 & \F & \S    \\
+ \s (2,1) & 2 & 1 & \V & (2,1) \\
+ \s (2,2) & 2 & 2 & \V & (2,2) \\
+ \s (2,3) & 2 & 3 & \F & \S    \\
+ \s (3,1) & 3 & 1 & \V & (3,1) \\
+ \s (3,2) & 3 & 2 & \V & (3,2) \\
+ \s (3,3) & 3 & 3 & \V & (3,3) \\
+}
+
+\bsk
+
+Obs: os exemplos acima correspondem aos
+
+exercícios 2A, 2I, 3D e 5P das próximas páginas.
+
+
+
+
+\newpage
+
+%  _____                   _      _
+% | ____|_  _____ _ __ ___(_) ___(_) ___  ___
+% |  _| \ \/ / _ \ '__/ __| |/ __| |/ _ \/ __|
+% | |___ >  <  __/ | | (__| | (__| | (_) \__ \
+% |_____/_/\_\___|_|  \___|_|\___|_|\___/|___/
+%
+% «comprehension-ex123» (to ".comprehension-ex123")
+% (gam181p 7 "comprehension-ex123")
+\mypsection {comprehension-ex123} {Exercícios de ``set comprehensions''}
+
+1) Represente graficamente:
+
+$\begin{array}{rcl}
+ A & := & \{(1,4), (2,4), (1,3)\} \\
+ B & := & \{(1,3), (1,4), (2,4)\} \\
+ C & := & \{(1,3), (1,4), (2,4), (2,4)\} \\
+ D & := & \{(1,3), (1,4), (2,3), (2,4)\} \\
+ E & := & \{(0,3), (1,2), (2,1), (3,0)\} \\
+\end{array}
+$
+
+\msk
+
+2) Calcule e represente graficamente:
+
+$\begin{array}{rcl}
+ A & := & \{x∈\{1,2\}; (x,3-x)\} \\
+ B & := & \{x∈\{1,2,3\}; (x,3-x)\} \\
+ C & := & \{x∈\{0,1,2,3\}; (x,3-x)\} \\
+ D & := & \{x∈\{0,0.5,1, \ldots, 3\}; (x,3-x)\} \\
+ E & := & \{x∈\{1,2,3\}, y∈\{3,4\}; (x,y)\} \\
+ F & := & \{x∈\{3,4\}, y∈\{1,2,3\}; (x,y)\} \\
+ G & := & \{x∈\{3,4\}, y∈\{1,2,3\}; (y,x)\} \\
+ H & := & \{x∈\{3,4\}, y∈\{1,2,3\}; (x,2)\} \\
+ I & := & \{x∈\{1,2,3\}, y∈\{3,4\}, x+y<6; (x,y)\} \\
+ J & := & \{x∈\{1,2,3\}, y∈\{3,4\}, x+y>4; (x,y)\} \\
+ K & := & \{x∈\{1,2,3,4\}, y∈\{1,2,3,4\}; (x,y)\} \\
+ L & := & \{x,y∈\{0,1,2,3,4\}; (x,y)\} \\
+ M & := & \{x,y∈\{0,1,2,3,4\}, y=3; (x,y)\} \\
+ N & := & \{x,y∈\{0,1,2,3,4\}, x=2; (x,y)\} \\
+ O & := & \{x,y∈\{0,1,2,3,4\}, x+y=3; (x,y)\} \\
+ P & := & \{x,y∈\{0,1,2,3,4\}, y=x; (x,y)\} \\
+ Q & := & \{x,y∈\{0,1,2,3,4\}, y=x+1; (x,y)\} \\
+ R & := & \{x,y∈\{0,1,2,3,4\}, y=2x; (x,y)\} \\
+ S & := & \{x,y∈\{0,1,2,3,4\}, y=2x+1; (x,y)\} \\
+\end{array}
+$
+
+\msk
+
+3) Calcule e represente graficamente:
+
+$\begin{array}{rcl}
+ A & := & \setofst{(x,0)}{x∈\{0,1,2,3\}} \\
+ B & := & \setofst{(x,x/2)}{x∈\{0,1,2,3\}} \\
+ C & := & \setofst{(x,x)}{x∈\{0,1,2,3\}} \\
+ D & := & \setofst{(x,2x)}{x∈\{0,1,2,3\}} \\
+ E & := & \setofst{(x,1)}{x∈\{0,1,2,3\}} \\
+ F & := & \setofst{(x,1+x/2)}{x∈\{0,1,2,3\}} \\
+ G & := & \setofst{(x,1+x)}{x∈\{0,1,2,3\}} \\
+ H & := & \setofst{(x,1+2x)}{x∈\{0,1,2,3\}} \\
+ I & := & \setofst{(x,2)}{x∈\{0,1,2,3\}} \\
+ J & := & \setofst{(x,2+x/2)}{x∈\{0,1,2,3\}} \\
+ K & := & \setofst{(x,2+x)}{x∈\{0,1,2,3\}} \\
+ L & := & \setofst{(x,2+2x)}{x∈\{0,1,2,3\}} \\
+ M & := & \setofst{(x,2)}{x∈\{0,1,2,3\}} \\
+ N & := & \setofst{(x,2-x/2)}{x∈\{0,1,2,3\}} \\
+ O & := & \setofst{(x,2-x)}{x∈\{0,1,2,3\}} \\
+ P & := & \setofst{(x,2-2x)}{x∈\{0,1,2,3\}} \\
+\end{array}
+$
+
+
+\newpage
+
+%  ____                _                  _
+% |  _ \ _ __ ___   __| |   ___ __ _ _ __| |_
+% | |_) | '__/ _ \ / _` |  / __/ _` | '__| __|
+% |  __/| | | (_) | (_| | | (_| (_| | |  | |_
+% |_|   |_|  \___/ \__,_|  \___\__,_|_|   \__|
+%
+% «comprehension-prod» (to ".comprehension-prod")
+% (gam181p 8 "comprehension-prod")
+\mypsection {comprehension-prod} {Produto cartesiano de conjuntos}
+
+$A×B:=\{a∈A,b∈B;(a,b)\}$
+
+Exemplo: $\{1,2\}×\{3,4\} = \{(1,3),(1,4),(2,3),(2,4)\}$.
+
+\ssk
+
+Uma notação: $A^2 = A×A$.
+
+Exemplo: $\{3,4\}^2 = \{3,4\}×\{3,4\} = \{(3,3),(3,4),(4,3),(4,4)\}$.
+
+\msk
+
+Sejam:
+
+$A = \{1,2,4\}$,
+
+$B = \{2,3\}$,
+
+$C = \{2,3,4\}$.
+
+
+\msk
+
+{\bf Exercícios}
+
+\ssk
+
+4) Calcule e represente graficamente:
+
+\begin{tabular}{lll}
+a) $A×A$ & d) $B×A$ & g) $C×A$ \\
+b) $A×B$ & e) $B×B$ & h) $C×B$ \\
+c) $A×C$ & f) $B×C$ & i) $C×C$ \\
+\end{tabular}
+
+\msk
+
+5) Calcule e represente graficamente:
+
+$\begin{array}{rcl}
+ A &:=& \{x,y∈\{0,1,2,3\};(x,y)\} \\
+ B &:=& \{x,y∈\{0,1,2,3\}, y=2; (x,y)\} \\
+ C &:=& \{x,y∈\{0,1,2,3\}, x=1; (x,y)\} \\
+ D &:=& \{x,y∈\{0,1,2,3\}, y=x; (x,y)\} \\
+ E &:=& \{x,y∈\{0,1,2,3,4\}, y=2x; (x,y)\} \\
+ F &:=& \{(x,y)∈\{0,1,2,3,4\}^2, y=2x; (x,y)\} \\
+ G &:=& \{(x,y)∈\{0,1,2,3,4\}^2, y=x; (x,y)\} \\
+ H &:=& \{(x,y)∈\{0,1,2,3,4\}^2, y=x/2; (x,y)\} \\
+ I &:=& \{(x,y)∈\{0,1,2,3,4\}^2, y=x/2+1; (x,y)\} \\
+ J &:=& \setofst {(x,y)∈\{0,1,2,3,4\}^2} {y=2x} \\
+ K &:=& \setofst {(x,y)∈\{0,1,2,3,4\}^2} {y=x} \\
+ L &:=& \setofst {(x,y)∈\{0,1,2,3,4\}^2} {y=x/2} \\
+ M &:=& \setofst {(x,y)∈\{0,1,2,3,4\}^2} {y=x/2+1} \\
+ N &:=& \setofst {(x,y)∈\{1,2,3\}^2} {0x+0y=0} \\
+ O &:=& \setofst {(x,y)∈\{1,2,3\}^2} {0x+0y=2} \\
+ P &:=& \setofst {(x,y)∈\{1,2,3\}^2} {x≥y} \\
+ \end{array}
+$
+
+\msk
+
+6) Represente graficamente:
+
+$\begin{array}{rcl}
+ J' &:=& \setofst {(x,y)∈\R^2} {y=2x} \\
+ K' &:=& \setofst {(x,y)∈\R^2} {y=x} \\
+ L' &:=& \setofst {(x,y)∈\R^2} {y=x/2} \\
+ M' &:=& \setofst {(x,y)∈\R^2} {y=x/2+1} \\
+ N' &:=& \setofst {(x,y)∈\R^2} {0x+0y=0} \\
+ O' &:=& \setofst {(x,y)∈\R^2} {0x+0y=2} \\
+ P' &:=& \setofst {(x,y)∈\R^2} {x≥y} \\
+ \end{array}
+$
+
+
+
+
+
+\newpage
+
+%   ____       _                _ _
+%  / ___| __ _| |__   __ _ _ __(_) |_ ___
+% | |  _ / _` | '_ \ / _` | '__| | __/ _ \
+% | |_| | (_| | |_) | (_| | |  | | || (_) |
+%  \____|\__,_|_.__/ \__,_|_|  |_|\__\___/
+%
+% «comprehension-gab» (to ".comprehension-gab")
+% (gam181p 9 "comprehension-gab")
+% (to "picturedots")
+\mypsection {comprehension-gab} {Gabarito dos exercícios de set comprehensions}
+
+% \bhbox{$\picturedots(-1,-2)(5,5){ 3,1 3,2 3,3 }$}
+
+1)
+$
+A = B = C = \picturedots(0,0)(3,4){ 1,4 2,4 1,3 }
+\quad
+D = \picturedots(0,0)(3,4){ 1,4 2,4 1,3 2,3 }
+\quad
+E = \picturedots(0,0)(4,4){ 0,3 1,2 2,1 3,0 }
+$
+
+\bsk
+
+2)
+$     A = \picturedots(0,0)(4,4){     1,2 2,1     }
+\quad B = \picturedots(0,0)(4,4){     1,2 2,1 3,0 }
+\quad C = \picturedots(0,0)(4,4){ 0,3 1,2 2,1 3,0 }
+\quad D = \picturedots(0,0)(4,4){ 0,3 .5,2.5 1,2 1.5,1.5 2,1 2.5,.5 3,0 }
+$
+
+\msk
+
+$
+\quad E = \picturedots(0,0)(4,4){ 1,3 2,3 3,3   1,4 2,4 3,4 }
+\quad F = \picturedots(0,0)(4,4){ 3,1 4,1   3,2 4,2   3,3 4,3 }
+\quad G = \picturedots(0,0)(4,4){ 1,3 2,3 3,3   1,4 2,4 3,4 }
+\quad H = \picturedots(0,0)(4,4){ 3,2 4,2 }
+\quad I = \picturedots(0,0)(4,4){ 1,3 2,3       1,4         }
+\quad J = \picturedots(0,0)(4,4){     2,3 3,3   1,4 2,4 3,4 }
+$
+
+\msk
+
+$
+\quad K = \picturedots(0,0)(4,4){     1,4 2,4 3,4 4,4
+                                      1,3 2,3 3,3 4,3
+                                      1,2 2,2 3,2 4,2
+                                      1,1 2,1 3,1 4,1 }
+\quad L = \picturedots(0,0)(4,4){ 0,4 1,4 2,4 3,4 4,4
+                                  0,3 1,3 2,3 3,3 4,3
+                                  0,2 1,2 2,2 3,2 4,2
+                                  0,1 1,1 2,1 3,1 4,1
+                                  0,0 1,0 2,0 3,0 4,0 }
+\quad M = \picturedots(0,0)(4,4){ 0,3 1,3 2,3 3,3 4,3 }
+\quad N = \picturedots(0,0)(4,4){ 2,0 2,1 2,2 2,3 2,4 }
+\quad O = \picturedots(0,0)(4,4){ 0,3 1,2 2,1 3,0 }
+\quad P = \picturedots(0,0)(4,4){ 0,0 1,1 2,2 3,3 4,4 }
+$
+
+\msk
+
+$
+\quad Q = \picturedots(0,0)(4,4){ 0,1 1,2 2,3 3,4 }
+\quad R = \picturedots(0,0)(4,4){ 0,0 1,2 2,4 }
+\quad S = \picturedots(0,0)(4,4){ 0,1 1,3 }
+$
+
+\bsk
+
+3)
+$     A = \picturedots(0,0)(4,4){ 0,0 1,0  2,0 3,0   }
+\quad B = \picturedots(0,0)(4,4){ 0,0 1,.5 2,1 3,1.5 }
+\quad C = \picturedots(0,0)(4,4){ 0,0 1,1  2,2 3,3   }
+\quad D = \picturedots(0,0)(4,7){ 0,0 1,2  2,4 3,6   }
+$
+
+$
+\quad E = \picturedots(0,0)(4,4){ 0,1 1,1   2,1 3,1   }
+\quad F = \picturedots(0,0)(4,4){ 0,1 1,1.5 2,2 3,2.5 }
+\quad G = \picturedots(0,0)(4,4){ 0,1 1,2   2,3 3,4   }
+\quad H = \picturedots(0,0)(4,7){ 0,1 1,3   2,5 3,7   }
+$
+
+$
+\quad I = \picturedots(0,0)(4,4){ 0,2 1,2   2,2 3,2   }
+\quad J = \picturedots(0,0)(4,4){ 0,2 1,2.5 2,3 3,3.5 }
+\quad K = \picturedots(0,0)(4,4){ 0,2 1,3   2,4 3,5   }
+\quad L = \picturedots(0,0)(4,8){ 0,2 1,4   2,6 3,8   }
+$
+
+$
+\quad M = \picturedots(0,0)(4,4){ 0,2 1,2   2,2 3,2   }
+\quad N = \picturedots(0,0)(4,4){ 0,2 1,1.5 2,1 3,.5 }
+\quad O = \picturedots(0,-1)(4,4){ 0,2 1,1   2,0 3,-1  }
+\quad P = \picturedots(0,-5)(4,3){ 0,2 1,0   2,-2 3,-4   }
+$
+
+\bsk
+
+4)
+$     A×A = \picturedots(0,0)(4,4){ 1,1 2,1 4,1   1,2 2,2 4,2   1,4 2,4 4,4 }
+\quad B×A = \picturedots(0,0)(4,4){ 2,1 3,1       2,2 3,2       2,4 3,4     }
+\quad C×A = \picturedots(0,0)(4,4){ 2,1 3,1 4,1   2,2 3,2 4,2   2,4 3,4 4,4 }
+$
+
+\msk
+
+$
+\quad A×B = \picturedots(0,0)(4,4){ 1,2 2,2 4,2   1,3 2,3 4,3 }
+\quad B×B = \picturedots(0,0)(4,4){ 2,2 3,2       2,3 3,3     }
+\quad C×B = \picturedots(0,0)(4,4){ 2,2 3,2 4,2   2,3 3,3 4,3 }
+$
+
+\msk
+
+$
+\quad A×C = \picturedots(0,0)(4,4){ 1,2 2,2 4,2   1,3 2,3 4,3   1,4 2,4 4,4 }
+\quad B×C = \picturedots(0,0)(4,4){ 2,2 3,2       2,3 3,3       2,4 3,4     }
+\quad C×C = \picturedots(0,0)(4,4){ 2,2 3,2 4,2   2,3 3,3 4,3   2,4 3,4 4,4 }
+$
+
+\bsk
+
+5)
+$     A = \picturedots(0,0)(4,4){ 0,3 1,3 2,3 3,3
+                                  0,2 1,2 2,2 3,2
+                                  0,1 1,1 2,1 3,1
+                                  0,0 1,0 2,0 3,0 }
+\quad B = \picturedots(0,0)(4,4){ 0,2 1,2 2,2 3,2 }
+\quad C = \picturedots(0,0)(4,4){ 1,0 1,1 1,2 1,3 }
+\quad D = \picturedots(0,0)(4,4){ 0,0 1,1 2,2 3,3 }
+\quad E = \picturedots(0,0)(4,4){ 0,0 1,2 2,4 }
+$
+
+\msk
+
+$
+\quad F = \picturedots(0,0)(4,4){ 0,0 1,2 2,4         }
+\quad G = \picturedots(0,0)(4,4){ 0,0 1,1 2,2 3,3 4,4 }
+\quad H = \picturedots(0,0)(4,4){ 0,0 2,1 4,2         }
+\quad I = \picturedots(0,0)(4,4){ 0,1 2,2 4,3         }
+$
+
+\msk
+
+$
+\quad J = \picturedots(0,0)(4,4){ 0,0 1,2 2,4         }
+\quad K = \picturedots(0,0)(4,4){ 0,0 1,1 2,2 3,3 4,4 }
+\quad L = \picturedots(0,0)(4,4){ 0,0 2,1 4,2         }
+\quad M = \picturedots(0,0)(4,4){ 0,1 2,2 4,3         }
+$
+
+\msk
+
+$
+\quad N = \picturedots(0,0)(4,4){ 1,3 2,3 3,3
+                                  1,2 2,2 3,2
+                                  1,1 2,1 3,1 }
+\quad O = \picturedots(0,0)(4,4){             }
+\quad P = \picturedots(0,0)(4,4){         3,3
+                                      2,2 3,2
+                                  1,1 2,1 3,1 }
+$
+
+
+\newpage
+
+%           _            
+%  _ __ ___| |_ __ _ ___ 
+% | '__/ _ \ __/ _` / __|
+% | | |  __/ || (_| \__ \
+% |_|  \___|\__\__,_|___/
+%                        
+% «retas» (to ".retas")
+% (gam181p 10 "retas")
+\mypsection {retas} {Retas}
+
+Sejam:
+
+$\begin{array}{rclcrcl}
+ R_{a,b}   &=& \setofst{(x,y)∈\{0,1,2,3,4,5\}^2}{y=ax+b}  \\
+ r_{a,b}   &=& \setofst{(x,y)∈\R^2}{y=ax+b} \\
+ R_{a,b,c} &=& \setofst{(x,y)∈\{0,1,2,3,4,5\}^2}{ax+by=c} \\
+ r_{a,b,c} &=& \setofst{(x,y)∈\R^2}{ax+by=c} \\
+ \end{array}
+$
+
+\ssk
+
+{\bf Exercícios:}
+
+1) Represente graficamente:
+
+a) $R_{0,0}, R_{1,0}, R_{2,0}$.
+
+b) $R_{0,1}, R_{1,1}, R_{2,1}$.
+
+c) $R_{0,2}, R_{1,2}, R_{2,2}$.
+
+d) $r_{0,0}, r_{1,0}, r_{2,0}$.
+
+e) $r_{0,1}, r_{1,1}, r_{2,1}$.
+
+f) $r_{0,2}, r_{1,2}, r_{2,2}$.
+
+\ssk
+
+Dicas:
+
+Todo conjunto da forma $r_{a,b}$ para $a,b∈\R$ é uma reta.
+
+Se você comparar os resultados dos exercícios acima você vai conseguir
+
+entender --- ou pelo menos fazer hipóteses sobre --- o que ``querem
+dizer''
+
+o $a$ e o $b$ em $r_{a,b}$.
+
+Se você souber dois pontos de uma reta $r$ você consegue traçá-la.
+
+\ssk
+
+{\bf Mais exercícios:}
+
+2) Represente graficamente:
+
+a) $R_{1,1,1}$, $R_{1,1,2}$, $R_{1,1,3}$.
+
+b) $r_{1,1,1}$, $r_{1,1,2}$, $r_{1,1,3}$.
+
+c) $R_{2,3,6}$, $r_{2,3,6}$. 
+
+d) $r_{1/2,0}$, $r_{1/2,1}$, $r_{1/2,2}$.
+
+e) $r_{-1/2,0}$, $r_{-1/2,1}$, $r_{-1/2,2}$.
+
+f) $R_{2,2,2}$, $R_{2,2,4}$, $R_{2,2,6}$.
+
+g) $r_{2,2,2}$, $r_{2,2,4}$, $r_{2,2,6}$.
+
+\msk
+
+Mais dicas:
+
+Dois conjuntos são diferentes se existe algum ponto que pertence a um
+
+e não pertence a outro --- por exemplo, $(2,4)∈r_{2,0}$ e
+$(2,4)\not∈r(3,0)$,
+
+portanto $r_{2,0} ≠ r_{3,0}$.
+
+Duas retas são iguais se existem dois pontos diferentes que pertencem
+
+a ambas.
+
+\msk
+
+{\bf Mais exercícios:}
+
+3) Encontre $a,b∈\R$ tais que $r_{a,b}=r_{1,3,3}$. Dica: chutar e testar.
+
+4) Encontre $a,b∈\R$ tais que $r_{a,b}=r_{2,-1,4}$. Dica: chutar e testar.
+
+5) Represente graficamente $R_{0,0,1}$ e $R_{0,0,0}$. Dica: item 7 da p.2.
+
+6) Represente graficamente $r_{0,0,1}$ e $r_{0,0,0}$. Dica: item 7 da p.2.
+
+
+
+\newpage
+
+%                    _                               _
+%  _ __   ___  _ __ | |_ ___  ___    ___  __   _____| |_ ___  _ __ ___  ___
+% | '_ \ / _ \| '_ \| __/ _ \/ __|  / _ \ \ \ / / _ \ __/ _ \| '__/ _ \/ __|
+% | |_) | (_) | | | | || (_) \__ \ |  __/  \ V /  __/ || (_) | | |  __/\__ \
+% | .__/ \___/|_| |_|\__\___/|___/  \___|   \_/ \___|\__\___/|_|  \___||___/
+% |_|
+%
+% «pontos-e-vetores» (to ".pontos-e-vetores")
+% (gam181p 11 "pontos-e-vetores")
+\mypsection {pontos-e-vetores} {Pontos e vetores}
+
+Se $a,b,c$ são números então
+
+$(a,b)$ é um ponto de $\R^2$,
+
+$\VEC{a,b}$ é um vetor em $\R^2$,
+
+$(a,b,c)$ é um ponto de $\R^3$,
+
+$\VEC{a,b,c}$ é um vetor em $\R^3$.
+
+\msk
+
+Por enquanto nós só vamos usar $\R^2$ --
+
+a {\sl terceira parte do curso} vai ser sobre $\R^3$.
+
+\msk
+
+Podemos pensar que a {\sl operação} $(\_,\_)$ recebe dois números e
+``monta'' um ponto de $\R^2$ com eles; a operação $\VEC{\_,\_}$ é
+similar, mas ela monta um vetor. Também temos operações , $\__1$,
+$\__2$ que ``desmontam'' pontos e vetores e retornam a primeira ou a
+segunda componente deles: $(3,4)_1=3$, $(3,4)_2=4$, $\VEC{3,4}_1=3$,
+$\VEC{3,4}_2=4$. Se $\vv=\VEC{4,5}$ então $\vv=\VEC{\vv_1,\vv_2}$.
+
+\msk
+
+{\bf Operações com pontos e vetores} (obs: $a,b,c,d,k∈\R$):
+
+\ssk
+
+% (gaq161 1)
+
+1) $(a,b) + \VEC{c,d} = (a+c,b+d)$
+
+2) $\VEC{a,b} + \VEC{c,d} = \VEC{a+c,b+d}$
+
+3) $(a,b) - (c,d) = \VEC{a-c,b-d}$
+
+4) $(a,b) - \VEC{c,d} = (a-c,b-d)$
+
+5) $\VEC{a,b} - \VEC{c,d} = \VEC{a-c,b-d}$
+
+6) $k·\VEC{a,b} = \VEC{ka,kb}$
+
+7) $\VEC{a,b}·\VEC{c,d} = ac+bd$ \quad (!!!!)
+
+\ssk
+
+As outras operações dão erro. Por exemplo:
+
+$\VEC{a,b}+(c,d) = \erro$
+
+$(a,b)+(c,d) = \erro$
+
+$(a,b)·k = \erro$
+
+\bsk
+
+{\bf Exercícios}
+
+\ssk
+
+\def\V(#1){\VEC{#1}}
+\def\und#1#2{\underbrace{#1}_{#2}}
+\def\unds#1#2#3{\und {#1} {\sm{ \text{[regra #2]} \\ #3 }} }
+
+% (find-es "tex" "boxedminipage")
+
+6) Calcule:
+
+\begin{minipage}[t]{2.25in}
+
+a) $(2,3)+(\V(4,5)+\V(10,20))$
+
+b) $((2,3)+\V(4,5))+\V(10,20)$
+
+c) $4·((20,30)-(5,10))$
+
+d) $\V(2,3)·\V(5,10)$
+
+e) $\V(5,10)·\V(2,3)$
+
+f) $(\V(2,3)·\V(5,10))·\V(10,100)$
+
+g) $\V(2,3)·(\V(5,10)·\V(10,100))$
+
+h) $(\V(5,10)·\V(10,100))·\V(2,3)$
+
+i) $(\V(10,100)·\V(5,10))·\V(2,3)$
+
+j) $(\V(10,100)·\V(2,3))·\V(5,10)$
+
+\end{minipage}
+%
+\begin{minipage}[t]{2in}
+
+Obs: dois modos de resolver o 6a:
+
+(o segundo é o modo padrão)
+
+\msk
+
+a)
+$\unds {(2,3)+(\unds {\V(4,5)+\V(10,20)}
+                     2
+                     {=\;\V(14,25)}     )}
+       1
+       {=\;(16,28)}
+$
+
+\msk
+
+a) $\begin{array}[t]{l}
+      (2,3)+(\V(4,5)+\V(10,20)) \\
+    = (2,3)+\V(14,25) \\
+    = (16,28) \\
+    \end{array}
+   $
+
+\end{minipage}
+
+
+\newpage
+
+%     _                                 __ 
+%    / \    _ __   __   __ _ _ __ __ _ / _|
+%   / _ \ _| |\ \ / /  / _` | '__/ _` | |_ 
+%  / ___ \_   _\ V /  | (_| | | | (_| |  _|
+% /_/   \_\|_|  \_/    \__, |_|  \__,_|_|  
+%                      |___/               
+%
+% «pontos-e-vetores-graficamente» (to ".pontos-e-vetores-graficamente")
+% (gam181p 12 "pontos-e-vetores-graficamente")
+
+\mypsection {pontos-e-vetores-graficamente} {Como representar pontos e vetores graficamente}
+
+1) Represente num gráfico os pontos $A=(2,1)$, $B=(4,0)$, $C=(3,3)$ e
+escreva perto de cada um destes pontos o seu nome --- $A$, $B$, $C$.
+Repare que se o seu gráfico estiver claro o suficiente o leitor vai
+entender que os seus pontos têm coordenadas inteiras e vai conseguir
+descobrir as coordenadas de $A$, $B$ e $C$.
+
+2) Vetores correspondem a {\sl deslocamentos} vão ser representados
+como setas indo de um ponto a outro. O vetor $\vv=\VEC{2,1}$
+corresponde a um deslocamento de duas unidades para a direita e uma
+unidade pra cima; uma seta indo do ponto $D=(0,3)$ para o ponto
+$D+\vv=(0+2,3+1)$ é uma representação do vetor $\vv$ ``apoiado no
+ponto $D$''. Um bom modo de representar graficamente o vetor $\vv$
+apoiado no ponto $D$ é representando os pontos $D$ e $D+\vv$ ---
+lembre de escrever os nomes $D$ e $D+\vv$ perto destes pontos no
+gráfico --- e fazer uma seta de $D$ para $D+\vv$ e escrever $\vv$
+perto dela. Represente graficamente o vetor $\vv$ apoiado no ponto
+$D$.
+
+3) Um bom modo de representar graficamente a soma $D+\vv$ é fazer o
+mesmo que no item anterior, representando graficamente os pontos $D$,
+$D+\vv$ e a seta (``$\vv$'') indo de um para o outro. Represente as
+somas $A+\vv$, $B+\vv$, $C+\vv$ e $D+\vv$ num gráfico só, e repare que
+você vai ter várias setas com o nome ``$\vv$'' --- todas elas {\sl são
+  o mesmo vetor}, mas representado ``apoiado em pontos diferentes''.
+
+4) A ``aula 1'' no livro do CEDERJ, que usa uma abordagem diferente da
+nossa, se chama ``Vetores no plano - segmentos orientados''. Dê uma
+olhada nas três primeiras páginas da ``aula 1'' (até o fim da
+``Definição 1'') pra ter uma noção de como ele faz as coisas ---
+repare que o início do livro não usa coordenadas, elas só aparecem
+depois! --- e depois dê uma olhada nas proposições 1 e 2 do livro e
+nas definições 2 e 3.
+
+5) Seja $\ww=\VEC{0,-1}$. Represente graficamente $A+\ww$, $B+\ww$,
+$C+\ww$, $D+\ww$.
+
+6) Calcule $\vv+\ww$ e $\ww+\vv$ usando as regras definidas na página
+anterior.
+
+7) Represente graficamente $B+\vv$, $(B+\vv)+\ww$ e $B+(\vv+\ww)$ num
+gráfico só.
+
+8) Leia a ``Definição 4'' no livro do CEDERJ e compare os desenhos
+dele com os seus desenhos do item anterior.
+
+9) Represente graficamente $B+\vv$, $(B+\vv)+\ww$, $B+(\vv+\ww)$,
+$B+\ww$ e $(B+\ww)+\vv$ num gráfico só.
+
+10) Leia a p.23 do livro do CEDERJ.
+
+11) Calcule $2\vv$, $3\vv$, $0\vv$ e $(-1)\vv$ usando as regras da
+página anterior.
+
+12) Represente graficamente os vetores $2\vv$, $3\vv$, $0\vv$ e
+$(-1)\vv$ apoiando-os no ponto $B$.
+
+13) Dê uma olhada nas ``Propriedades da adição de vetores'' e na
+``Definição 5'' no livro do CEDERJ (páginas 23--25).
+
+
+
+
+\newpage
+
+%           _
+%  _ __ ___| |_ __ _ ___
+% | '__/ _ \ __/ _` / __|
+% | | |  __/ || (_| \__ \
+% |_|  \___|\__\__,_|___/
+%
+% «retas-de-novo» (to ".retas")
+% (gam181p 13 "retas-de-novo")
+\mypsection {retas-de-novo} {Retas (de novo)}
+
+{\bf Exercícios}
+
+\ssk
+
+% (find-LATEXfile "2016-1-GA-material.tex" "em sala em 16/dez/2015")
+
+1) Represente graficamente as retas abaixo.
+
+Dica: encontre dois pontos de cada reta e marque-os no gráfico.
+
+Dica 2: quando você tiver dificuldade substitua $\R^2$ por
+$\{0,1,2,3,4,5\}^2$.
+
+Nas parametrizadas indique no gráfico os pontos associados a $t=0$ e $t=1$.
+
+$r_a = \setofxyst{ x+2y=0 }$
+
+$r_b = \setofxyst{ x+2y=4 }$
+
+$r_c = \setofxyst{ x+2y=2 }$
+
+$r_d = \setofxyst{ 2x+3y=0 }$
+
+$r_e = \setofxyst{ 2x+3y=6 }$
+
+$r_f = \setofxyst{ 2x+3y=3 }$
+
+$r_l = \setofxyst{ y=4 }$
+
+$r_m = \setofxyst{ y=4+x }$
+
+$r_n = \setofxyst{ y=4-2x }$
+
+$r_g = \setofpt 3 -1 -1 1 $
+
+$r_h = \setofpt 3 -1 -2 1 $
+
+$r_i = \setofpt 3 -1 1 -1 $
+
+$r_j = \setofpt 0 3 2 0 $
+
+$r_k = \setofpt 2 0 0 1 $
+
+$s_a = \setofxyst{ \V(x,y)·\V(1,2)=0 }$
+
+$s_b = \setofxyst{ \V(x,y)·\V(1,2)=4 }$
+
+$s_c = \setofxyst{ \V(x,y)·\V(1,2)=2 }$
+
+$s_d = \setofxyst{ \V(x,y)·\V(2,3)=0 }$
+
+$s_e = \setofxyst{ \V(x,y)·\V(2,3)=6 }$
+
+$s_f = \setofxyst{ \V(x,y)·\V(2,3)=3 }$
+
+$r'_l = \setofxyst{ 0x+1y=4 }$
+
+$r'_m = \setofxyst{ (-1)x+1y=4 }$
+
+$r'_n = \setofxyst{ 2x+1y=4 }$
+
+$s_l = \setofxyst{ \V(x,y)·\V(0,1)=4 }$
+
+$s_m = \setofxyst{ \V(x,y)·\V(-1,1)=4 }$
+
+$s_n = \setofxyst{ \V(x,y)·\V(2,1)=4 }$
+
+\msk
+
+{\setlength{\parindent}{0em}
+
+Se você tiver dificuldade com os exercícios envolvendo o produto
+$\VEC{a,b}·\VEC{c,d}=ac+bd$ faça os exercícios abaixo e depois volte
+pro exercício 1 acima.
+
+2) Encontre soluções para $\VEC{x,y}·\VEC{2,3}=4$ para: a) $x=1$, b)
+$x=10$, c) $y=5$.
+
+3) Sejam $\uu_1 = \VEC{4,5}$ e $\uu_2 = \VEC{6,7}$. Calcule
+$\uu_1+\uu_2$, $(\uu_1)_1$, $(\uu_1)_2$.
+
+4) Encontre 5 soluções diferentes para $\VEC{x,y}·\VEC{1,2}=0$.
+Chame-as de $\vv_1$, $\vv_2$, $\vv_3$, $\vv_4$, $\vv_5$. Desenhe no
+mesmo gráfico os vetores $\VEC{1,2}$, $\vv_1$, $\vv_2$, $\vv_3$,
+$\vv_4$, $\vv_5$ apoiando todos no ponto $(0,0)$.
+
+}
+
+
+\newpage
+
+%         _       _                  
+%  _ __  (_)_ __ | |_ ___ _ __   ___ 
+% | '__| | | '_ \| __/ _ \ '__| / __|
+% | |    | | | | | ||  __/ |    \__ \
+% |_|    |_|_| |_|\__\___|_|    |___/
+%                                    
+% «intersecoes-de-retas» (to ".intersecoes-de-retas")
+% (gam181p 14 "intersecoes-de-retas")
+% (gaap162 14 "parametrizadas")
+{\setlength{\parindent}{0em}
+
+\mypsection {intersecoes-de-retas} {Interseções de retas parametrizadas}
+
+%L r0, rv = v(2,3), v(1,1)
+%L s0, sw = v(2,3), v(2,-1)
+%L rt = function (t) return r0 + t*rv end
+%L su = function (u) return s0 + u*sw end
+\pu
+\def\rt#1{\expr{rt(#1):xy()}}
+\def\su#1{\expr{su(#1):xy()}}
+
+% \rt 0 \rt 1 \rt 2
+% \su 0 \su 1 \su 2
+
+
+Se $r = \setofpt 3 3 2 -1 $
+
+e $s = \setofpu 4 1 -1 1 $,
+
+então $r$ e $s$ se intersectam no ponto $P=(1,4)$,
+
+que está associado a $t=-1$ (em $r$) e a $u=3$ (em $s$).
+
+Graficamente,
+
+\msk
+
+%L inter  = v(1,4)
+%L r0, rv = v(3,3), v(2,-1)
+%L s0, sw = v(4,1), v(-1,1)
+\pu
+% (find-pgfmanualpage  44 "3.9    Adding Labels Next to Nodes")
+% (find-pgfmanualtext  44 "3.9    Adding Labels Next to Nodes")
+$\tikzp{[scale=0.5,auto]
+    \mygrid (-1,-1) (7,5);
+    \draw[mycurve] \rt{-2} -- \rt{5};
+    \draw[mycurve] \su{-2} -- \su{5};
+    \node [cldot] at \rt{0} [label=60:${t{=}0}$] {};
+    \node [cldot] at \rt{1} [label=60:${t{=}1}$] {};
+    \node [cldot] at \su{0} [label=200:${u{=}0}$] {};
+    \node [cldot] at \su{1} [label=200:${u{=}1}$] {};
+    \node [cldot] at \su{3} [label=60:$P$] {};
+  }
+$
+
+\msk
+
+Algebricamente, podemos convencer alguém do nosso resultado assim:
+
+$(1,4) = (3,3)+(-1)\VEC{2,-1} ∈ r$,
+
+$(1,4) = (4,1)+3\VEC{-1,1} ∈ s$,
+
+$(1,4) ∈ r∩s$.
+
+\ssk
+
+Repare que poderíamos ter encontrado $(x,y)=P∈r∩s$ usando um sistema:
+
+$(x,y) = (3+2t, 3-t)$
+
+$(x,y) = (4-u, 1+u)$
+
+Primeiro encontramos $t$ e $u$ tais que $(3+2t, 3-t) = (4-u, 1+u)$,
+
+depois encontramos $(x,y) = (3+2t, 3-t) = (4-u, 1+u)$.
+
+\msk
+
+{\bf Exercício}
+
+\ssk
+
+1) Em cada um dos casos abaixo represente graficamente $r$ e $s$,
+
+encontre $P∈r∩s$, e verifique algebricamente que o seu $P$ está certo.
+
+a) $r = \setofpt 1 0 0 3 $, $s = \setofpu 0 4 2 0 $
+
+b) $r = \setofpt 1 0 3 1 $, $s = \setofpu 0 2 2 3 $
+
+c) $r = \setofet{ (1+3t,t) }$, $s = \setofeu{ (2u,2+3u) } $
+
+d) $r = \setofpt 0 3 2 -1 $, $s = \setofpu 1 0 1 3 $
+
+\ssk
+
+Obs: no (d) o olhômetro não basta, você vai precisar resolver um sistema.
+
+}
+
+\newpage
+
+
+
+%   ___
+%  / _ \    _   _    __   __
+% | | | |  | | | |   \ \ / /
+% | |_| |  | |_| |_   \ V /
+%  \___( )  \__,_( )   \_/
+%      |/        |/
+%
+% «sistemas-de-coordenadas» (to ".sistemas-de-coordenadas")
+% (gam181p 15 "sistemas-de-coordenadas")
+% (gaap162 11 "coordenadas")
+{\setlength{\parindent}{0em}
+
+\mypsection {sistemas-de-coordenadas} {Sistemas de coordenadas}
+
+Um ``sistema de coordenadas'' $Σ=(O,\uu,\vv)$ em $\R^2$ é uma tripla
+formada por um ponto e dois vetores; por exemplo, podemos ter
+$Σ=((2,3),\VEC{2,1},\VEC{0,-1})$ --- aí $O=(2,3)$, $\uu=\VEC{2,1}$,
+$\vv=\VEC{0,-1}$. Até agora nós só usamos pontos com coordenadas $x$ e
+$y$, mas agora vamos começar a falar das ``coordenada $a$ e $b$'' de
+um ponto, e elas vão depender da escolha do sistema de coordenadas
+$Σ$. A definição importante (que só vale para esta página e a
+seguinte!) é:
+
+\ssk
+
+$(a,b)_Σ = O+a\uu+b\vv$.
+
+\msk
+
+{\bf Exercícios}
+
+\ssk
+
+1) $((a,b)_Σ = O+a\uu+b\vv) \subst{a:=3 \\ b:=4 } = ?$
+
+2) $((a,b)_Σ = O+a\uu+b\vv) \subst{O:=(3,1) \\ \uu:=\VEC{2,1} \\ \vv:=\VEC{-1,1} } = ?$
+
+3) Em cada um dos casos $a$ até $f$ abaixo descubra quem são $O$,
+$\uu$ e $\vv$ olhando para o gráfico.
+
+{
+
+\unitlength=11pt
+\def\closeddot{\circle*{0.4}}
+\def\cellfont{\scriptsize}
+\def\cellfont{}
+
+a)
+$\vcenter{\hbox{%
+   \beginpicture(-1,-1)(11,9)%
+   \eval{O,uu,vv = v(3,1), v(2,1), v(-1,1)}
+   \pictOuv(0.5, 0.7)
+   \pictABCDE(180, 180, 0, 180, 0)
+   \end{picture}%
+  }}
+$
+%
+\quad
+%
+b)
+$\vcenter{\hbox{%
+   \beginpicture(-1,-1)(6,6)
+   \eval{O, uu, vv  = v(2, 2), v(1, 0), v(0, 1)}
+   \pictOuv(0.5, 0.7)
+   \end{picture}%
+  }}
+$
+
+c)
+$\unitlength=9pt
+ \vcenter{\hbox{%
+   \beginpicture(-6,-1)(3,6)
+   \eval{O, uu, vv  = v(-5, 1), v(2, 0), v(0, 1)}
+   \pictOuv(0.5, 0.7)
+   \end{picture}%
+ }}
+$
+%
+\quad
+%
+d)
+$\unitlength=9pt
+ \vcenter{\hbox{%
+   \beginpicture(-1,-1)(5,9)
+   \eval{O, uu, vv = v(1, 1), v(1, 0), v(0, 2)}
+   \pictOuv(0.5, 0.7)
+   \end{picture}%
+ }}
+$
+%
+\quad
+%
+e)
+$\vcenter{\hbox{%
+   \beginpicture(-1,-1)(6,6)
+   \eval{O, uu, vv = v(2, 2), v(0, 1), v(1, 0)}
+   \pictOuv(-0.5, 0.7)
+   \end{picture}%
+ }}
+$
+
+
+f)
+$\unitlength=8pt
+ \vcenter{\hbox{%
+    \beginpicture(-8,-4)(6,8)
+    \eval{O, uu, vv = v(4, 4), v(-2, 1), v(-1, -2)}
+   \pictOuv(0.5, 0.7)
+   \end{picture}%
+ }}
+$
+%
+\quad
+%
+g)
+$\vcenter{\hbox{%
+   \beginpicture(-4,-1)(5,6)
+   \eval{O, uu, vv = v(-3, 1), v(1, 0), v(1, 1)}
+   \pictOuv(0.5, 0.7)
+   \end{picture}%
+ }}
+$
+
+}
+
+\msk
+
+4a) Represente graficamente os pontos $(0,0)_Σ$, $(1,0)_Σ$, $(2,0)_Σ$,
+$(0,1)_Σ$, $(1,1)_Σ$, $(2,1)_Σ$, $(0,2)_Σ$, $(1,2)_Σ$, $(2,2)_Σ$ num
+gráfico só para o $Σ$ do item (a) acima, e escreva perto de cada ponto
+o nome dele --- por exemplo, ``$(1,2)_Σ$''.
+
+4b, 4c, 4d, 4e, 4f, 4g) Faça o mesmo para o $Σ$ do item (b), do item
+(c), etc.
+
+}
+
+\newpage
+
+
+%   ___                       ____  
+%  / _ \    _   _    __   __ |___ \ 
+% | | | |  | | | |   \ \ / /   __) |
+% | |_| |  | |_| |_   \ V /   / __/ 
+%  \___( )  \__,_( )   \_/   |_____|
+%      |/        |/                 
+
+% «sistemas-de-coordenadas-2» (to ".sistemas-de-coordenadas-2")
+% (gam181p 16 "sistemas-de-coordenadas-2")
+{\setlength{\parindent}{0em}
+
+\mypsection {sistemas-de-coordenadas-2} {Sistemas de coordenadas (2)}
+
+Cada uma das figuras abaixo usa um sistema de coordenadas
+$Σ=(O,\uu,\vv)$ diferente; lembre que $(a,b)_Σ = O+a\uu+b\vv$. Sejam:
+
+$B = (1,3)_Σ$, \phantom{$E = (2,2)_Σ$} $C = (3,3)_Σ$,
+
+$D = (1,2)_Σ$, $E = (2,2)_Σ$,
+
+$A = (1,1)_Σ$.
+
+{\bf Exercício.} Em cada um dos casos abaixo desenhe a figura formada
+pelos pontos $A$, $B$, $C$, $D$ e $E$ e pelos segmentos de reta
+$\overline{AB}$, $\overline{BC}$ e $\overline{DE}$.
+
+(O item (a) já está feito.)
+
+{
+
+\unitlength=12pt
+\def\closeddot{\circle*{0.4}}
+\def\cellfont{\scriptsize}
+\def\cellfont{}
+
+a)
+$\vcenter{\hbox{%
+   \beginpicture(-1,-1)(11,9)%
+   \eval{O,uu,vv = v(3,1), v(2,1), v(-1,1)}
+   \pictOuv(0.5, 0.7)
+   \pictABCDE(180, 180, 0, 180, 0)
+   \end{picture}%
+  }}
+$
+%
+\quad
+%
+b)
+$\vcenter{\hbox{%
+   \beginpicture(-1,-1)(6,6)
+   \eval{O, uu, vv  = v(2, 2), v(1, 0), v(0, 1)}
+   \pictOuv(0.5, 0.7)
+   \end{picture}%
+  }}
+$
+
+c)
+$\unitlength=10pt
+ \vcenter{\hbox{%
+   \beginpicture(-6,-1)(3,6)
+   \eval{O, uu, vv  = v(-5, 1), v(2, 0), v(0, 1)}
+   \pictOuv(0.5, 0.7)
+   \end{picture}%
+ }}
+$
+%
+\quad
+%
+d)
+$\unitlength=10pt
+ \vcenter{\hbox{%
+   \beginpicture(-1,-1)(5,9)
+   \eval{O, uu, vv = v(1, 1), v(1, 0), v(0, 2)}
+   \pictOuv(0.5, 0.7)
+   \end{picture}%
+ }}
+$
+%
+\quad
+%
+e)
+$\vcenter{\hbox{%
+   \beginpicture(-1,-1)(6,6)
+   \eval{O, uu, vv = v(2, 2), v(0, 1), v(1, 0)}
+   \pictOuv(-0.5, 0.7)
+   \end{picture}%
+ }}
+$
+
+
+f)
+$\unitlength=10pt
+ \vcenter{\hbox{%
+    \beginpicture(-8,-4)(6,8)
+    \eval{O, uu, vv = v(4, 4), v(-2, 1), v(-1, -2)}
+   \pictOuv(0.5, 0.7)
+   \end{picture}%
+ }}
+$
+%
+\quad
+%
+g)
+$\vcenter{\hbox{%
+   \beginpicture(-4,-1)(5,6)
+   \eval{O, uu, vv = v(-3, 1), v(1, 0), v(1, 1)}
+   \pictOuv(0.5, 0.7)
+   \end{picture}%
+ }}
+$
+
+}
+
+
+
+
+}
+
+\msk
+
+
+
+\newpage
+
+
+
+%  ____  _     _
+% / ___|(_)___| |_ ___ _ __ ___   __ _ ___
+% \___ \| / __| __/ _ \ '_ ` _ \ / _` / __|
+%  ___) | \__ \ ||  __/ | | | | | (_| \__ \
+% |____/|_|___/\__\___|_| |_| |_|\__,_|___/
+%
+% «sistemas» (to ".sistemas")
+% (gam181p 17 "sistemas")
+% (gaap162 12 "sistemas")
+
+{\setlength{\parindent}{0em}
+
+\mypsection {sistemas} {Sistemas de equações e sistemas de coordenadas}
+
+%L p = function (a, b) return O + a*uu + b*vv end
+
+\begin{minipage}[t]{2.5in}
+
+No item (f) da página anterior temos:
+
+\ssk
+
+
+$\unitlength=8pt
+ \def\cellfont{}
+ \def\cellfont{\footnotesize}
+ \vcenter{\hbox{%
+   \beginpicture(-8,-4)(6,8)
+   \eval{O, uu, vv = v(4, 4), v(-2, 1), v(-1, -2)}
+   \pictOuv(0.5, 0.7)
+   \end{picture}%
+ }}
+ \quad
+ {\footnotesize
+ \begin{array}{l}
+ O       = (4,4) \\
+ \uu     = \V(-2,1) \\
+ \vv     = \V(-1,-2) \\
+ \end{array}
+ }
+$
+
+% \ssk
+
+$(a,b)_Σ = (4,4) + a\V(-2,1) + b\V(-1,-2)$
+
+$(a,b)_Σ = (4-2a-b, 4+a-2b) \quad\; (*)$
+
+\ssk
+
+$\begin{array}[t]{rcl}
+   (a,b)_Σ &=& (x,y) \\\hline
+   %----------------
+   (0,0)_Σ &=& (4,4) \\
+   (1,0)_Σ &=& (2,5) \\
+   (0,1)_Σ &=& (3,2) \\
+ A=(1,1)_Σ &=& ?_a \\
+ B=(1,3)_Σ &=& ?_b \\
+ C=(3,3)_Σ &=& ?_c \\
+ D=(1,2)_Σ &=& ?_d \\
+ E=(2,2)_Σ &=& ?_e \\
+       ?_f &=& (0,6) \\
+       ?_g &=& (-1,4) \\
+       ?_h &=& (5,1) \\
+       ?_i &=& (1,2) \\
+       ?_j &=& (1,1) \\
+       ?_k &=& (2,1) \\
+ \end{array}
+ %
+$
+
+\ssk
+
+Os itens (a) até (h) acima (``$?_a$'' a ``$?_h$'') são fáceis de
+resolver ``no olhômetro'' usando o gráfico, e é fácil conferir os
+resultados algebricamente usando a fórmula $(*)$.
+
+\msk
+
+No item (i) dá pra ver pelo gráfico que os valores de $a$ e $b$ em
+$(a,b)_Σ = (1,2)$ vão ser fracionários e difíceis de chutar -- mas
+podemos obtê-los {\sl algebricamente}, resolvendo um {\sl sistema de
+  equações}.
+
+\end{minipage}
+%
+\qquad
+%
+\begin{minipage}[t]{2.25in}
+
+\begin{boxedminipage}[t]{2.25in}
+
+\footnotesize
+
+Solução do ``$?_i$'':
+
+\ssk
+
+$\begin{array}{rcl}
+   (a,b)_Σ &=& (1,2) \\
+   (4-2a-b, 4+a-2b) &=& (1,2) \\
+   4-2a-b &=& 1 \\
+   4+a-2b &=& 2 \\
+   -2a-b  &=& -3 \\
+   a-2b   &=& -2 \\
+   -2a+3  &=& b \\
+   a      &=& -2+2b \\
+   -2(-2+2b)+3 &=& \color{red}{b} \\
+   4-4b+3 &=& b \\
+   7      &=& 5b \\
+   b      &=& \frac 7 5 \\
+   a      &=& -2 + 2 \frac 7 5 \\
+          &=& \frac{-10}{5} + \frac{14}{5} \\
+          &=& \frac{4}{5} \\
+   (\frac{4}{5}, \frac{7}{5})_Σ &=& (1,2) \\
+ \end{array}
+ %
+$
+
+\end{boxedminipage}
+
+\bsk
+
+\begin{boxedminipage}[t]{2.25in}
+\footnotesize
+
+Uma generalização:
+
+\ssk
+
+$\begin{array}{rcl}
+   (a,b)_Σ &=& (x,y) \\
+   (4-2a-b, 4+a-2b) &=& (x,y) \\
+   4-2a-b &=& x \\
+   4+a-2b &=& y \\
+   4-2a-x &=& b \\
+ \end{array}
+$
+
+\ssk
+
+$\begin{array}{rcl}
+   a &=& y+2b-4 \\
+     &=& y+2(4-2a-x)-4 \\
+     &=& y+8-4a-2x-4 \\
+     &=& y-2x+4-4a \\
+   5a &=& y-2x+4 \\
+    a &=& (y-2x+4)/5 \\
+      &=& \frac15 y - \frac25 x + \frac45 \\
+      &=& \frac45 - \frac25 x + \frac15 y \\
+  % b &=& 4-2(\frac15 y - \frac25 x + \frac45)-x \\
+    b &=& 4-2(\frac45 - \frac25 x + \frac15 y)-x \\
+      &=& \frac{20}5 - \frac85 + \frac45 x - \frac25 y  -\frac55 x \\
+      &=& \frac{12}5 - \frac15 x - \frac25 y \\
+ \end{array}
+ %
+$
+
+\ssk
+
+$(\frac45 - \frac25 x + \frac15y,
+  \frac{12}5 - \frac15 x - \frac25 y)_Σ = (x,y)
+$
+
+\ssk
+
+Vamos chamar a fórmula acima de $(**)$.
+
+\end{boxedminipage}
+
+\end{minipage}
+
+\bsk
+
+{\bf Exercícios}
+
+1) Resolva ``$?_j$'' pelo sistema.
+
+2) Resolva ``$?_k$'' pelo sistema.
+
+3) Verifique que as suas soluções de ``$?_a$'' até ``$?_k$'' obedecem
+$(*)$ e $(**)$.
+
+4) Resolva ``$?_j$'' e ``$?_k$'' por $(**)$.
+
+}
+
+\newpage
+
+
+
+%  ____  _     _                             ____
+% / ___|(_)___| |_ ___ _ __ ___   __ _ ___  |___ \
+% \___ \| / __| __/ _ \ '_ ` _ \ / _` / __|   __) |
+%  ___) | \__ \ ||  __/ | | | | | (_| \__ \  / __/
+% |____/|_|___/\__\___|_| |_| |_|\__,_|___/ |_____|
+%
+
+% «sistemas-2» (to ".sistemas-2")
+% (gam181p 18 "sistemas-2")
+% (gaap162 13 "sistemas-2")
+
+{\setlength{\parindent}{0em}
+
+\mypsection {sistemas-2} {Sistemas de equações e sistemas de coordenadas (2)}
+
+Um outro modo de organizar os problemas da página anterior é o
+seguinte.
+
+Temos as equações $[x]$, $[y]$, $[a]$, $[b]$ abaixo,
+
+\ssk
+
+$\begin{array}{crcl}
+   {}[x] & x &=& 4-2a-b \\
+   {}[y] & y &=& 4+a-2b \\
+   {}[a] & a &=& \frac45 -\frac25 x + \frac15 y  \\
+   {}[b] & b &=& \frac{12}5 -\frac15 x - \frac25 y \\
+ \end{array}
+$
+
+\ssk
+
+e queremos preencher a tabela abaixo de tal forma que em cada linha
+
+as equações $[x]$, $[y]$, $[a]$, $[b]$ sejam obedecidas:
+
+$\begin{array}{rrrr}
+   a & b & x & y \\\hline
+   %----------------
+ 0 & 0 & 4 & 4 \\
+ 1 & 0 & 2 & 5 \\
+ 0 & 1 & 3 & 2 \\
+ 1 & 1 & · & · \\
+ 1 & 3 & · & · \\
+ 3 & 3 & · & · \\
+ 1 & 2 & · & · \\
+ 2 & 2 & · & · \\
+ · & · & 0 & 6 \\
+ · & · &-1 & 4 \\
+ · & · & 5 & 1 \\
+ · & · & 1 & 2 \\
+ · & · & 1 & 1 \\
+ · & · & 2 & 1 \\
+ \end{array}
+ %
+$
+
+\msk
+
+Note que:
+
+1) quando as lacunas são em $x$ e $y$ é mais rápido usar as equações
+$[x]$ e $[y]$,
+
+2) quando as lacunas são em $a$ e $b$ é mais rápido usar as equações
+$[a]$ e $[b]$,
+
+3) as equações $[a]$ e $[b]$ são {\sl consequências} das $[x]$ e $[y]$,
+
+4) $[x]$ e $[y]$ são consequências de $(a,b)_Σ = (4-2a-b, 4+a-2b) = (x,y)$,
+
+5) $\psm{x\\ y\\}
+    = \psm{4-2a-b\\ 4+a-2b\\}
+    = \psm{4\\ 4\\} + \psm{-2a-b\\ a-2b\\}
+    = \psm{4\\ 4\\} + \psm{-2 & -1\\ 1 & -2\\} \psm{a\\ b\\}
+   $
+
+6) $\psm{x\\ y\\}
+    = \psm{O_1 +au_1 +bv_1 \\ O_2 + au_2 + bv_2\\}
+    = \psm{O_1\\ O_2\\} + \psm{u_1 & v_1\\ u_2 & v_2\\} \psm{a\\ b\\}
+   $
+
+\msk
+
+{\bf Exercícios}
+
+\ssk
+
+1) No item (g) duas páginas atrás temos $O=(-3,1)$, $\uu=\V(1,0)$,
+$\vv=\V(1,1)$, $(a,b)_Σ = (-3+a+b, 1+b)$. Obtenha as equações $[x]$,
+$[y]$, $[a]$, $[b]$ para este caso.
+
+2) Faça o mesmo para o item (a), onde $O=(3,1)$, $\uu=\V(2,1)$,
+$\vv=\V(-1,1)$.
+
+}
+
+
+\newpage
+
+
+
+% __     __         _                                     _     
+% \ \   / /_ _ _ __(_) __ _ ___    ___ ___   ___  _ __ __| |___ 
+%  \ \ / / _` | '__| |/ _` / __|  / __/ _ \ / _ \| '__/ _` / __|
+%   \ V / (_| | |  | | (_| \__ \ | (_| (_) | (_) | | | (_| \__ \
+%    \_/ \__,_|_|  |_|\__,_|___/  \___\___/ \___/|_|  \__,_|___/
+%                                                               
+% «varias-coords» (to ".varias-coords")
+% (gam181p 19 "varias-coords")
+% (gaap162 15 "sistemas-3")
+\mypsection {varias-coords} {Vários sistemas de coordenadas ao mesmo tempo}
+
+\def\xx{\vec x}
+\def\yy{\vec y}
+\def\aa{\vec a}
+\def\bb{\vec b}
+\def\cc{\vec c}
+\def\dd{\vec d}
+\def\ee{\vec e}
+\def\ff{\vec f}
+\def\gg{\vec g}
+\def\hh{\vec h}
+
+\ssk
+
+Há muitas notações possíveis para lidar com situações em que temos
+vários sistemas de coordenadas ao mesmo tempo -- vamos ver {\sl uma}
+delas.
+
+Vamos ter:
+
+$\bullet$ as coordenadas $x,y$ e os eixos $x$ e $y$,
+
+$\bullet$ as coordenadas $a,b$ e os eixos $a$ e $b$,
+
+$\bullet$ as coordenadas $c,d$ e os eixos $d$ e $d$,
+
+$\bullet$ as coordenadas $e,f$ e os eixos $e$ e $f$,
+
+\noindent e além disso vamos ter as origens $O_{xy}$, $O_{ab}$,
+$O_{cd}$, $O_{ef}$ de cada um dos sistemas de coordenadas e os vetores
+$\xx$, $\yy$, $\aa$, $\bb$, $\cc$, $\dd$, $\ee$, $\ff$.
+
+\msk
+
+Um exemplo concreto:
+
+$\unitlength=15pt
+ \def\closeddot{\circle*{0.2}}
+ \def\cellfont{\scriptsize}
+ \def\cellfont{}
+ \vcenter{\hbox{%
+   \beginpicture(-1,-2)(6,6)%
+   \pictgrid%
+   \pictaxes%
+   {\linethickness{1.0pt}
+    \expr{pictOOuuvv(v(0,0),  v(1,0),   v(0,1),  "!;!;O_{xy}", "!xx", "!yy", 0.5, 0.7)}
+    \expr{pictOOuuvv(v(2,-1), v(1,0),   v(0,1),  "!;!;O_{ab}", "!aa", "!bb", 0.5, 0.7)}
+    \expr{pictOOuuvv(v(5,5),  v(-2,0),  v(0,-2), "!;!;O_{cd}", "!cc", "!dd", 0.5, 0.5)}
+    \expr{pictOOuuvv(v(1,5),  v(-1,-1), v(1,-1), "!;!;O_{ef}", "!ee", "!ff", 0.5, 0.5)}
+   }
+   \put(1,1){\closeddot}
+   \put(3,1){\closeddot}
+   \put(5,1){\closeddot}
+   \put(1,3){\closeddot}
+   \put(3,3){\closeddot}
+   \end{picture}%
+  }}%
+  %
+  \qquad
+  %
+  \begin{array}{l}
+    \begin{array}{lll}
+      O_{xy}=(0,0)  & \xx=\V(1,0) & \yy=\V(0,1) \\
+      O_{ab}=(2,-1) & \aa=\V(1,0) & \bb=\V(0,1) \\
+      O_{cd}=(5,5)  & \cc=\V(-2,0) & \dd=\V(0,-2) \\
+      O_{ef}=(1,5)  & \ee=\V(-1,-1) & \ff=\V(1,-1) \\
+    \end{array}
+    %
+    \\[5pt]
+    \\
+    %
+    \begin{array}{lllll}
+      (x,y)_{xy} & = & O_{xy} + x\xx + y\yy & = & (x,y) \\
+      (a,b)_{ab} & = & O_{ab} + a\aa + b\bb & = & (a+2,b-1) \\
+      (c,d)_{cd} & = & O_{cd} + c\cc + d\dd \\
+      (e,f)_{ef} & = & O_{ef} + e\ee + f\ff \\
+    \end{array}
+  \end{array}
+$
+
+\bsk
+
+Um modo de entender esta notação é:
+%
+$$\begin{array}{ll}
+  \left( (c,d)_{cd} \; = \; O_{cd} + c\cc + d\dd \right)
+    \subst{ O_{cd}:=(5,5) \\ \cc:=\V(-2,0) \\ \dd=\V(0,-2) \\ }
+    \subst{ c:=3 \\ d:=4 \\ }
+  \\[12pt] =
+  \left( (c,d)_{cd} \; = \; (5,5) + c\V(-2,0) + d\V(0,-2) \right)
+    \subst{ c:=3 \\ d:=4 \\ }
+  \\[5pt] =
+  \left( (3,4)_{cd} \; = \; (5,5) + 3\V(-2,0) + 4\V(0,-2) \right)
+  \end{array}
+$$
+
+Nós vimos (na p.\pageref{pontos-e-vetores}) que as notações ``$P_1$''
+e ``$P_2$'' dão a ``primeira componente'' e a ``segunda componente''
+de um ponto $P$. Se usarmos as notações $P_x$, $P_x$, $P_a$, $P_b$,
+$P_c$, $P_d$, $P_e$, $P_f$ para as ``coordenadas'' $x$, $y$, $a$, $b$,
+$c$, $d$, $e$, $f$ de um ponto $P$ temos:
+
+\ssk
+
+$P = (P_x,P_y)_{xy} = (P_a,P_b)_{ab} = (P_c,P_d)_{cd} = (P_e,P_f)_{ef}$
+
+\ssk
+
+\noindent e se considerarmos que $x$, $y$, $a$, $b$, $c$, $d$, $e$,
+$f$ são variáveis que ``variam juntas'' (como nas págs
+\pageref{sistemas} e \pageref{sistemas-2}), a condição que elas
+obedecem é:
+
+\ssk
+
+$(x,y) = (x,y)_{xy} = (a,b)_{ab} = (c,d)_{cd} = (e,f)_{ef}$
+
+\ssk
+
+{\bf Exercícios}
+
+1) Digamos que $P=(3,1)$. Descubra $P_x$, $P_x$, $P_a$, $P_b$, $P_c$,
+$P_d$, $P_e$, $P_f$.
+
+2) Digamos que $(x,y)=(5,1)$. Descubra $a$, $b$, $c$, $d$, $e$, $f$.
+
+
+\newpage
+
+
+
+% __     __         _                                     _       ____  
+% \ \   / /_ _ _ __(_) __ _ ___    ___ ___   ___  _ __ __| |___  |___ \ 
+%  \ \ / / _` | '__| |/ _` / __|  / __/ _ \ / _ \| '__/ _` / __|   __) |
+%   \ V / (_| | |  | | (_| \__ \ | (_| (_) | (_) | | | (_| \__ \  / __/ 
+%    \_/ \__,_|_|  |_|\__,_|___/  \___\___/ \___/|_|  \__,_|___/ |_____|
+%                                                                       
+% «varias-coords-2» (to ".varias-coords-2")
+% (gam181p 20 "varias-coords-2")
+\mypsection {varias-coords-2} {Vários sistemas de coordenadas ao mesmo tempo (2)}
+
+Podemos usar o diagrama da página anterior --- reproduzido abaixo ---
+para desenhar ``grids'' como os das páginas
+\pageref{sistemas-de-coordenadas} e
+\pageref{sistemas-de-coordenadas-2}. Esse diagrama define sistemas de
+coordenadas $(O_{xy}, \xx, \yy)$, $(O_{ab}, \aa, \bb)$, $(O_{cd}, \cc,
+\dd)$, $(O_{ef}, \ee, \ff)$,
+
+\msk
+
+$\unitlength=15pt
+ \def\closeddot{\circle*{0.2}}
+ \def\cellfont{\scriptsize}
+ \def\cellfont{}
+ \vcenter{\hbox{%
+   \beginpicture(-1,-2)(6,6)%
+   % \pictgrid%
+   \pictaxes%
+   {\linethickness{1.0pt}
+    \expr{pictOOuuvv(v(0,0),  v(1,0),   v(0,1),  "!;!;O_{xy}", "!xx", "!yy", 0.5, 0.7)}
+    \expr{pictOOuuvv(v(2,-1), v(1,0),   v(0,1),  "!;!;O_{ab}", "!aa", "!bb", 0.5, 0.7)}
+    \expr{pictOOuuvv(v(5,5),  v(-2,0),  v(0,-2), "!;!;O_{cd}", "!cc", "!dd", 0.5, 0.5)}
+    \expr{pictOOuuvv(v(1,5),  v(-1,-1), v(1,-1), "!;!;O_{ef}", "!ee", "!ff", 0.5, 0.5)}
+   }
+   \put(1,1){\closeddot}
+   \put(3,1){\closeddot}
+   \put(5,1){\closeddot}
+   \put(1,3){\closeddot}
+   \put(3,3){\closeddot}
+   \end{picture}%
+  }}%
+  %
+  \qquad
+  %
+  \begin{array}{l}
+    \begin{array}{lll}
+      O_{xy}=(0,0)  & \xx=\V(1,0) & \yy=\V(0,1) \\
+      O_{ab}=(2,-1) & \aa=\V(1,0) & \bb=\V(0,1) \\
+      O_{cd}=(5,5)  & \cc=\V(-2,0) & \dd=\V(0,-2) \\
+      O_{ef}=(1,5)  & \ee=\V(-1,-1) & \ff=\V(1,-1) \\
+    \end{array}
+    %
+    \\[5pt]
+    \\
+    %
+    \begin{array}{lllll}
+      (x,y)_{xy} & = & O_{xy} + x\xx + y\yy & = & (x,y) \\
+      (a,b)_{ab} & = & O_{ab} + a\aa + b\bb & = & (a+2,b-1) \\
+      (c,d)_{cd} & = & O_{cd} + c\cc + d\dd \\
+      (e,f)_{ef} & = & O_{ef} + e\ee + f\ff \\
+    \end{array}
+  \end{array}
+$
+
+\msk
+
+{\setlength{\parindent}{0em}
+
+{\bf Exercícios}
+
+1) Trace:
+
+uma reta contendo os pontos $(0,0)_{ef}$, $(1,0)_{ef}$, $(2,0)_{ef}$ e
+chame-a de ``$f=0$'',
+
+uma reta contendo os pontos $(0,1)_{ef}$, $(1,1)_{ef}$, $(2,1)_{ef}$ e
+chame-a de ``$f=0$'',
+
+uma reta contendo os pontos $(0,2)_{ef}$, $(1,2)_{ef}$, $(2,2)_{ef}$ e
+chame-a de ``$f=0$'',
+
+uma reta contendo os pontos $(0,0)_{ef}$, $(0,1)_{ef}$, $(0,2)_{ef}$ e
+chame-a de ``$e=0$'',
+
+uma reta contendo os pontos $(1,0)_{ef}$, $(1,1)_{ef}$, $(1,2)_{ef}$ e
+chame-a de ``$e=1$'',
+
+uma reta contendo os pontos $(2,0)_{ef}$, $(2,1)_{ef}$, $(2,2)_{ef}$ e
+chame-a de ``$e=2$''.
+
+\ssk
+
+2) Faça a mesma coisa para as retas ``$c=0$'', ``$c=1$'', ``$c=2$'',
+``$d=0$'', ``$d=1$'' e ``$d=2$'', mas agora só visualizando essas
+retas mentalmente, sem desenhá-las.
+
+\ssk
+
+3) Idem para ``$a=0$'', ``$a=1$'', ``$a=2$'', ``$b=0$'', ``$b=1$'' e
+``$b=2$''.
+
+\ssk
+
+4) Verifique que o ponto $(1,2)_{ef}$ está na interseção das retas
+$e=1$ e $f=2$.
+
+\ssk
+
+5) Verifique que o ponto $(2,3)_{cd}$ está na interseção das retas
+$c=2$ e $d=3$.
+
+}
+
+\msk
+
+Obs: os exercícios acima vão ser bem importantes para a parte 2 do
+curso, que é sobre cônicas em $\R^2$... por exemplo, pra desenhar uma
+``hipérbole torta'' em $\R^2$ a gente vai desenhar $O_{uv}$, $\uu$ e
+$\vv$, depois as retas $u=0$ e $v=0$ e depois os pontos
+$(1/2,2)_{uv}$, $(1,1)_{uv}$, $(2,1/2)_{uv}$, $(-1/2,-2)_{uv}$,
+$(-1,-1)_{uv}$, $(-2,-1/2)_{uv}$.
+
+\msk
+
+{\setlength{\parindent}{0em}
+
+6) Complete, usando o diagrama acima e olhômetro:
+
+$\begin{array}{cllll}
+ \text{ponto} & (\_,\_)_{xy} & (\_,\_)_{ab} & (\_,\_)_{cd} & (\_,\_)_{ef} \\\hline
+ P & (1,1)_{xy} & (-1,2)_{ab} & (2,2)_{cd} &            \\
+ Q & (3,1)_{xy} & (1,2)_{ab}  & (1,2)_{cd} & (1,3)_{ef} \\
+ R & (5,1)_{xy} \\
+ S & (1,3)_{xy} \\
+ T & (3,3)_{xy} \\
+ \end{array}
+$
+
+}
+
+\newpage
+
+
+%  _____    __                  __
+% |  ___|  / / __  __    _   _  \ \
+% | |_    | |  \ \/ /   | | | |  | |
+% |  _|   | |   >  < _  | |_| |  | |
+% |_|     | |  /_/\_( )  \__, |  | |
+%          \_\      |/   |___/  /_/
+%
+% «Fxy» (to ".Fxy")
+% (mpgp 24 "Fxy")
+% (mpg     "Fxy")
+% (gam181p 21 "Fxy")
+% (find-LATEX "2016-2-C2-integral.tex" "pict2e")
+% (find-LATEX "edrxgac2.tex" "pict2e")
+{%\setlength{\parindent}{0em}
+\mypsection {Fxy} {Visualizando $F(x,y)$}
+
+\unitlength=8pt
+\celllower=3pt
+\def\cellfont{\scriptsize}
+
+Um bom modo de começar a entender visualmente o comportamento de uma
+função $F(x,y):\R^2→\R$ é fazendo diagramas como os abaixo, em que a
+gente escreve sobre cada ponto $(x,y)$ o valor de $F(x,y)$ naquele
+ponto... por exemplo, se $F(x,y)=x^2+y^2$ então $F(3,2)=9+4=13$, e a
+gente escreve ``13'' no ponto $(3,2)$. Exemplos:
+
+\msk
+
+\def\smF#1{\sm{F(x,y) \\ #1} ⇒}
+
+$\smF{\;\;\;\;=\, x}
+ \pictureFxy(-1,-2)(5,2){x}
+ \quad
+ \smF{\;\;=\, 2y}
+ \pictureFxy(-1,-2)(5,2){2*y}
+ \quad
+ \smF{=\,x+y}
+ \pictureFxy(-1,-2)(5,2){x+y}
+$
+
+$\smF{\;\;\;=\,xy}
+ \pictureFxy(-3,-3)(3,3){x*y}
+ \quad
+ \smF{\;\;\;=\,x^2+y^2}
+ \pictureFxy(-3,-2)(3,2){x*x+y*y}
+ % \quad
+ % \sm{F(x,y) \\ =\,xy} ⇒
+ % \pictureFxy(-1,-2)(5,2){x*y}
+$
+
+\msk
+
+\noindent Repare que dá pra usar o diagrama de $F(x,y)=x+y$ pra ver onde
+$x+y=0$, onde $x+y=3$, etc.
+
+\msk
+
+{\bf Exercícios}
+
+\ssk
+
+1) Faça diagramas como os acima para as funções:
+
+a) $F(x,y) = \V(x,y)·\V(2,3)$
+
+b) $F(x,y) = \V(x,y)·\V(3,1)$
+
+c) $F(x,y) = \V(x,y)·\V(2,-1)$
+
+d) $F(x,y) = x^2+y^2$ \qquad ($x,y∈\{-5,-4,\ldots,5\}^2$)
+
+e) $F(x,y) = x^2-y$
+
+f) $F(x,y) = y^2-x$
+
+g) $F(x,y) = xy$
+
+\msk
+
+2) Use os diagramas do exercício anterior para esboçar os conjuntos abaixo
+
+(que vão ser retas ou curvas):
+
+\noindent\phantom{!!!}
+\begin{tabular}{lll}
+a0) $\setofxyst{ \V(x,y)·\V(2,3)=0 }$    & d25) $\setofxyst{ x^2+y^2=25 }$  \\
+a2) $\setofxyst{ \V(x,y)·\V(2,3)=2 }$    & d4) $\setofxyst{ x^2+y^2=4 }$    \\
+a4) $\setofxyst{ \V(x,y)·\V(2,3)=4 }$    & d1) $\setofxyst{ x^2+y^2=1 }$    \\
+a-2) $\setofxyst{ \V(x,y)·\V(2,3)=-2 }$  & d0) $\setofxyst{ x^2+y^2=0 }$    \\
+b0) $\setofxyst{ \V(x,y)·\V(3,1)=0 }$    & d-1) $\setofxyst{ x^2+y^2=-1 }$  \\
+b3) $\setofxyst{ \V(x,y)·\V(3,1)=3 }$    & e0) $\setofxyst{ x^2-y=0 }$      \\  
+b6) $\setofxyst{ \V(x,y)·\V(3,1)=6 }$    & e1) $\setofxyst{ x^2-y=1 }$      \\  
+b-3) $\setofxyst{ \V(x,y)·\V(3,1)=-3 }$  & f0) $\setofxyst{ y^2-x=0 }$      \\  
+c0) $\setofxyst{ \V(x,y)·\V(2,-1)=0 }$   & f1) $\setofxyst{ y^2-x=1 }$      \\  
+c2) $\setofxyst{ \V(x,y)·\V(2,-1)=2 }$   & g0) $\setofxyst{ xy=0    }$      \\  
+c4) $\setofxyst{ \V(x,y)·\V(2,-1)=4 }$   & g1) $\setofxyst{ xy=1 }$         \\
+c-2) $\setofxyst{ \V(x,y)·\V(2,-1)=-2 }$ & g4) $\setofxyst{ xy=4 }$         \\
+\end{tabular}
+
+}
+
+
+\newpage
+
+
+
+%  ____  _ _                                  
+% |  _ \(_) |_ __ _  __ _  ___  _ __ __ _ ___ 
+% | |_) | | __/ _` |/ _` |/ _ \| '__/ _` / __|
+% |  __/| | || (_| | (_| | (_) | | | (_| \__ \
+% |_|   |_|\__\__,_|\__, |\___/|_|  \__,_|___/
+%                   |___/                     
+%
+% «pitagoras» (to ".pitagoras")
+% (gam181p 22 "pitagoras")
+\mypsection {pitagoras} {O teorema de Pitágoras}
+
+Para calcular a hipotenusa $h$ de um triângulo retângulo com catetos
+$a$ e $b$ podemos fazer estas figuras:
+%
+$$\unitlength=15pt
+ %
+ \vcenter{\hbox{%
+   \beginpicture(-4,-3)(7,7)%
+   \pictgrid%
+   %\pictaxes%
+   {\linethickness{1.0pt}
+    \eval{a=3; b=4}
+    \Calcpoints{!polygon<0,0><a,0><a,-a><0,-a>}
+    \Calcpoints{!polygon<0,0><0,b><-b,b><-b,0>}
+    \Calcpoints{!polygon<0,0><0,a+b><a+b,a+b><a+b,0>}
+    \Calcpoints{!polygon<a,0><a+b,a><b,a+b><0,b>}
+    % Areas dos quadrados:
+    \Calcpoints{!put<a/2,-a/2>{!cell{a^2}}}
+    \Calcpoints{!put<-b/2,b/2>{!cell{b^2}}}
+    % Areas dos triangulos:
+    \Calcpoints{!put<a/4,b/4>{!cell{!frac{ab}2}}}
+    \Calcpoints{!put<a+0.75*b,a/4>{!cell{!frac{ab}2}}}
+    \Calcpoints{!put<a/4,b+0.75*a>{!cell{!frac{ab}2}}}
+    \Calcpoints{!put<a+0.75*b,b+0.75*a>{!cell{!frac{ab}2}}}
+    % Area central:
+    \Calcpoints{!put<(a+b)/2,(a+b)/2>{!cell{h^2}}}
+   }
+   \end{picture}%
+  }}%
+  \quad
+  \vcenter{\hbox{%
+   \beginpicture(-4,-3)(7,7)%
+   \pictgrid%
+   %\pictaxes%
+   {\linethickness{1.0pt}
+    \eval{a=3; b=4}
+    \Calcpoints{!polygon<0,0><a,0><a,-a><0,-a>}
+    \Calcpoints{!polygon<0,0><0,b><-b,b><-b,0>}
+    \Calcpoints{!polygon<0,0><0,a+b><a+b,a+b><a+b,0>}
+    %\Calcpoints{!polygon<a,0><a+b,a><b,a+b><0,b>}
+    % Areas dos quadrados:
+    \Calcpoints{!put<a/2,-a/2>{!cell{a^2}}}
+    \Calcpoints{!put<-b/2,b/2>{!cell{b^2}}}
+    % Areas dos triangulos:
+    %\Calcpoints{!put<a/4,b/4>{!cell{!frac{ab}2}}}
+    %\Calcpoints{!put<a+0.75*b,a/4>{!cell{!frac{ab}2}}}
+    %\Calcpoints{!put<a/4,b+0.75*a>{!cell{!frac{ab}2}}}
+    %\Calcpoints{!put<a+0.75*b,b+0.75*a>{!cell{!frac{ab}2}}}
+    % Area central:
+    \Calcpoints{!put<(a+b)/2,(a+b)/2>{!cell{(a+b)^2}}}
+   }
+   \end{picture}%
+  }}%
+$$
+
+Temos:
+
+$h^2 + 4 \frac{ab}2 = (a+b)^2$
+
+$h^2 + 4 \frac{ab}2 = h^2 + 2ab = (a+b)^2 = a^2+2ab+b^2$
+
+$h^2 + 2ab = a^2+2ab+b^2$
+
+$h^2 = a^2 + b^2$
+
+$h = \sqrt{a^2 + b^2}$
+
+\msk
+
+A figura acima tem $a=3$ e $b=4$ e portanto (ééé!!!) tem $h=5$.
+
+\msk
+
+{\bf Exercícios}
+
+1) Faça uma figura parecida com a acima mas com $a=1$ e $b=2$, e use-a
+pra se convencer de que num triângulo retângulo com catetos de
+comprimentos $1$ e $2$ a hipotenusa tem comprimento $\sqrt{5}$.
+
+\msk
+
+Repare que o teorema de Pitágoras nos dá um modo de calcular {\sl
+  distâncias} em $\R^2$. Por exemplo, digamos que $A=(2,1)$ e
+$B=(4,5)$ e que queremos calcular $d(A,B)$; basta definir $C=(4,1)$ e
+calcular a hipotenusa do triângulo $ΔABC$... seus catetos têm
+comprimentos $d(A,C) = d((2,1),(4,1)) = 2$ e $d(B,C) = d((4,5),(4,1))
+= 4$ --- distâncias entre pontos na mesma horizontal ou na mesma
+vertical são muito fáceis de calcular! --- e $d(A,C) = \sqrt{2^2+4^2}
+= \sqrt{20}$.
+
+\msk
+
+Nos próximos exercícios suponha que $P=(a,b)$ e $Q=(c,d)$.
+
+2) Verifique que $d(P,Q) = \sqrt{(c-a)^2+(d-b)^2}$.
+
+3) Verifique que $d(P,Q) = \sqrt{(Q-P)·(Q-P)}$.
+
+4) Verifique que se $P=(0,0)$ então $d(P,Q) = \sqrt{c^2+d^2}$.
+
+5) Verifique que se $Q=(0,0)$ então $d(P,Q) = \sqrt{a^2+b^2}$.
+
+6) Verifique que se $b=d$ então $d(P,Q) = \sqrt{(c-a)^2} = |c-a|$.
+
+7) Mostre que nem sempre $\sqrt{(c-a)^2} = c-a$.
+
+
+\newpage
+
+%  _   _                                
+% | \ | | ___  _ __ _ __ ___   __ _ ___ 
+% |  \| |/ _ \| '__| '_ ` _ \ / _` / __|
+% | |\  | (_) | |  | | | | | | (_| \__ \
+% |_| \_|\___/|_|  |_| |_| |_|\__,_|___/
+%                                       
+% «normas» (to ".normas")
+% (gam181p 23 "normas")
+\mypsection {normas} {Comprimentos (``normas'') de vetores e ortogonalidade}
+
+Vamos definir quatro operações novas:
+
+$||\vv||$ é a {\sl norma} (ou o {\sl comprimento}) do vetor $\vv$.
+
+$\Vec{PQ}$ é o {\sl vetor que vai do ponto $P$ para o ponto $Q$}.
+
+$d(P,Q)$ é a {\sl distância do ponto $P$ ao ponto $Q$}.
+
+$\vv⊥\ww$ é ``{\sl o vetor $\vv$ é ortogonal ao vetor $\ww$}''.
+
+\ssk
+
+Formalmente:
+
+$||\vv|| = \sqrt{\vv·\vv}$,
+
+$\Vec{PQ} = Q-P$,
+
+$d(P,Q) = ||\Vec{PQ}||$,
+
+$\vv⊥\ww = (\vv·\ww=0)$.
+
+\ssk
+
+Note que $\vv⊥\ww$ responde $𝐛V$ ou $𝐛F$. Por exemplo,
+
+$\VEC{1,2}⊥\VEC{3,4} = (\VEC{1,2}·\VEC{3,4} = 0) = (1·3+2·4=0) = 𝐛F$, e
+
+$\VEC{1,2}⊥\VEC{20,-10}= (20-20=0) = 𝐛V$.
+
+\msk
+
+{\bf Exercícios}
+
+Calcule:
+
+\begin{tabular}[t]{l}
+1) $||\VEC{1,2}||$     \\
+2) $||\VEC{3,4}||$     \\
+3) $||\VEC{4,-3}||$    \\
+4) $||10·\VEC{3,4}||$  \\
+5) $||-10·\VEC{3,4}||$ \\
+6) $||-10·\VEC{3,4}||$ \\
+7) $\Vec{(2,0)(3,4)}$  \\
+8) $\Vec{(2,0)((3,4)+\VEC{1,1})}$  \\
+9) $d((3,4),(2,0))$  \\
+10) $d((2,0),(3,4))$  \\
+11) $d((2,0),(3,4)+\VEC{1,1})$  \\
+12) $d((a,b),(a,b)+\VEC{c,d})$  \\
+13) $\VEC{a,b}·\VEC{b,-a}$      \\
+14) $\VEC{a,b}·(k·\VEC{b,-a})$  \\
+15) $\VEC{a,b}⊥\VEC{b,-a}$      \\
+16) $\VEC{a,b}⊥(k·\VEC{b,-a})$  \\
+17) $\VEC{1,2}⊥\VEC{3,4}$  \\
+\end{tabular}
+\quad
+
+
+
+
+
+\newpage
+
+%  ____                                           _       
+% |  _ \  ___ _ __ ___     ___ _ __ _ __ __ _  __| | __ _ 
+% | | | |/ _ \ '_ ` _ \   / _ \ '__| '__/ _` |/ _` |/ _` |
+% | |_| |  __/ | | | | | |  __/ |  | | | (_| | (_| | (_| |
+% |____/ \___|_| |_| |_|  \___|_|  |_|  \__,_|\__,_|\__,_|
+%                                                         
+% «uma-demonstracao-errada» (to ".uma-demonstracao-errada")
+% (gam181p 24 "uma-demonstracao-errada")
+\mypsection {uma-demonstracao-errada} {Uma demonstração errada}
+
+% (find-angg ".emacs" "gaq172")
+% (find-angg ".emacs" "gaq172" "20170906")
+% (gaq172  9 "20170906" "Demonstrações; ||kv|| = k||v||")
+
+Sejam:
+%
+$$\begin{array}{rcl}
+  (PE) &=& \left( ||k\vv|| = k||\vv|| \right) \; , \\
+  \\
+  (DE) &=& \left(
+           \begin{array}{rcl}
+           ||k\VEC{a,b}|| &=& ||\VEC{ka,kb}|| \\
+                          &=& \sqrt{(ka)^2+(kb)^2} \\
+                          &=& \sqrt{k^2a^2+k^2b^2} \\
+                          &=& \sqrt{k^2(a^2+b^2)} \\
+                          &=& k\sqrt{a^2+b^2} \\
+                          &=& k||\VEC{a,b}|| \\
+           \end{array}
+           \right) .\\
+  \end{array}
+$$
+
+{\bf Exercícios}
+
+1) Verifique se $(PE)$ é verdade nos seguintes casos:
+
+a) $(PE) \subst{k:=2 \\ \vv=\VEC{3,0}}$
+
+b) $(PE) \subst{k:=2 \\ \vv=\VEC{3,4}}$
+
+c) $(PE) \subst{k:=0 \\ \vv=\VEC{3,4}}$
+
+d) $(PE) \subst{k:=-10 \\ \vv=\VEC{3,4}}$
+
+\msk
+
+Uma demonstração está correta quando todos os seus passos estão
+corretos e quando além disso é fácil entender porque cada passo dela é
+verdade. A demonstração $(DE)$ é {\sl aparentemente} uma demonstração
+correta, mas o exercício abaixo mostra um modo de encontrar o passo
+errado dela.
+
+\msk
+
+2) Calcule o valor de cada expressão entre `$=$'s em $(DE)
+\subst{k:=-10 \\ a:=3 \\ b:=4\\}$ e descubra qual é o passo errado.
+
+\msk
+
+O melhor modo de {\sl aprender} a fazer demonstrações é {\sl começar}
+com demonstrações que são só séries de igualdades, e nas quais cada
+igualdade é consequência de {\sl alguma} regra que o leitor já
+conhece... isso depende do seu leitor! Se você estiver escrevendo para
+um ``leitor burro'' cada passo seu tem que ser uma aplicação de uma
+regra só, e onde você usar uma regra mais complicada você tem que
+deixar claro que regra é essa.
+
+O melhor modo de {\sl começar} a aprender a fazer demonstrações é
+escrevendo {\sl para um leitor burro} demonstrações que são só séries
+de igualdades --- as dos exercícios da próxima página.
+
+
+\newpage
+
+%  ____                        _               _               
+% |  _ \ _ __ ___  _ __  ___  | |__   __ _ ___(_) ___ __ _ ___ 
+% | |_) | '__/ _ \| '_ \/ __| | '_ \ / _` / __| |/ __/ _` / __|
+% |  __/| | | (_) | |_) \__ \ | |_) | (_| \__ \ | (_| (_| \__ \
+% |_|   |_|  \___/| .__/|___/ |_.__/ \__,_|___/_|\___\__,_|___/
+%                 |_|                                          
+%
+% «propriedades-basicas» (to ".propriedades-basicas")
+% (gam181p 25 "propriedades-basicas")
+\mypsection {propriedades-basicas} {Propriedades das operações básicas com pontos e vetores}
+
+\def\eqo#1{\overset{#1}{=}}
+\def\eqq{\eqo{?}}
+\def\eqN{\eqo{\text{NÃO!}}}
+\def\pab{(a,b)}
+\def\pcd{(c,d)}
+\def\pef{(e,f)}
+\def\vab{\VEC{a,b}}
+\def\vcd{\VEC{c,d}}
+\def\vef{\VEC{e,f}}
+
+Algumas propriedades de operações básicas como `$+$', `$-$' e `$·$'
+têm nomes famosos: comutatividade, associatividade e distributividade.
+Sejam:
+%
+$$\begin{array}{rcl}
+  (CA) &=& (A+B = B+A) \\
+  (CM) &=& (A·B = B·A) \\
+  (CS) &=& (A-B = B-A) \\
+  (AA) &=& ((A+B)+C = A+(B+C)) \\
+  (AM) &=& ((A·B)·C = A·(B·C)) \\
+  (AS) &=& ((A-B)-C = A-(B-C)) \\
+  (DMA) &=& (A·(B+C) = A·B+A·C) \\
+  (DMS) &=& (A·(B-C) = A·B-A·C) \\
+  (DAM) &=& ((A+B)·C = A·C+B·C) \\
+  (DSM) &=& ((A-B)·C = A·C-B·C) \\
+  (AM') &=& ((A·B)·C = (A·C)·B) \\
+  \end{array}
+$$
+
+Nem todas elas são verdadeiras para números --- por exemplo, $(CS)
+\subst{A:=2\\B:=3}$ é falsa --- e algumas delas são verdadeiras para
+números mas não para matrizes --- a p.\pageref{matrizes} tem dois
+exemplos de que $(CM)$ é falsa para matrizes. Nossos primeiros
+exercícios de demonstrações vão ser exercícios de ``V/F/Justifique''
+adaptando as ``propriedades'' acima para as operações com pontos e
+vetores.
+
+\msk
+
+{\bf Exemplos}
+
+$(DMA)\subst{A:=k \\ B:=\vab \\ C:=\vcd}$ é verdadeira porque:
+%
+$$\def\pr#1{\text{(pela regra #1 da p.\pageref{pontos-e-vetores})}}
+  \begin{array}{rclcl}
+  k·(\vab+\vcd) &=& k·\VEC{a+c,b+d}           && \pr2 \\
+                &=& \VEC{k(a+c),k(b+d)}       && \pr6 \\
+                &=& \VEC{ka+kc,kb+kd}         && \\
+                &=& \VEC{ka,kb} + \VEC{kc,kd} && \pr2 \\
+                &=& k\vab + k\vcd             && \pr6 \\
+  \end{array}
+$$
+
+$(CS)\subst{A:=\pab \\ B:=\vcd}$ é falsa porque $\pab + \vcd =
+  (a+c,b+d)$ mas
+
+$\vcd+\pab = \text{erro}$.
+
+\msk
+
+{\bf Exercícios}
+
+(V/F/justifique; use as dicas da próxima página)
+
+\begin{tabular}[t]{l}
+1) $(CA)\subst{A:=\vab \\ B:=\vcd \\}$            \\
+2) $(AA)\subst{A:=\pab \\ B:=\vcd \\ C:=\vef \\}$ \\
+3) $(AA)\subst{A:=\vab \\ B:=\vcd \\ C:=\vef \\}$ \\
+\end{tabular}
+\quad
+\begin{tabular}[t]{l}
+4) $(AM) \subst{A:=\vab \\ B:=\vcd \\ C:=\vef \\}$ \\
+5) $(AM')\subst{A:=\vab \\ B:=\vcd \\ C:=\vef \\}$ \\
+6) $(AM) \subst{A:=k    \\ B:=\vab \\ C:=\vcd \\}$ \\
+\end{tabular}
+\quad
+\begin{tabular}[t]{l}
+7) $(DMA) \subst{A:=k    \\ B:=\vab \\ C:=\vcd \\}$ \\
+8) $(DMA) \subst{A:=\vab \\ B:=\vcd \\ C:=\vef \\}$ \\
+9) $(DAM) \subst{A:=a    \\ B:=b    \\ C:=\vcd \\}$ \\
+\end{tabular}
+
+
+
+
+\newpage
+
+% __     _________ __  _           _   _  __ _                  
+% \ \   / / /  ___/ / | |_   _ ___| |_(_)/ _(_) __ _ _   _  ___ 
+%  \ \ / / /| |_ / /  | | | | / __| __| | |_| |/ _` | | | |/ _ \
+%   \ V / / |  _/ / |_| | |_| \__ \ |_| |  _| | (_| | |_| |  __/
+%    \_/_/  |_|/_/ \___/ \__,_|___/\__|_|_| |_|\__, |\__,_|\___|
+%                                                 |_|           
+%
+% «dicas-V-F-justifique» (to ".dicas-V-F-justifique")
+% (gam181p 26 "dicas-V-F-justifique")
+\mypsection {dicas-V-F-justifique} {Dicas para problemas de ``V/F/Justifique''}
+
+1) Releia o item 7 da p.\pageref{dicas}. Você vai ter que aprender
+a reler as suas próprias demonstrações fazendo o papel de ``leitor
+burro''.
+
+2) O modo mais fácil de demonstrar que uma proposição é {\sl falsa} é
+dando um contra-exemplo pra ela --- pra mostrar que uma proposição não
+é verdadeira {\sl sempre} basta mostrar {\sl um caso} em que ela é
+falsa! Por exemplo:
+%
+$$\left(\sqrt{a}+\sqrt{b} = \sqrt{a+b}\right) \subst{a:=9\\b:=16}$$
+
+3) Em problemas que dão uma proposição e dizem ``V/F/Justifique'' você
+vai ter que primeiro decidir se a proposição é verdadeira ou falsa e
+depois demonstrar se ela é verdadeira (por uma série de igualdades) ou
+se ela é falsa (por contra-exemplo). {\sl Note que a técnica pra
+  demonstrar que uma proposição é verdadeira é totalmente diferente da
+  técnica pra mostrar que ela é falsa!}
+
+4) Releia cada demonstração de que uma proposição é verdadeira e faça
+anotações nela --- por exemplo, escreva um `?' em cada `$=$' que não é
+{\sl muito} claro para um leitor burro (`$=$' $→$ `$\eqq$') e escreva
+um `NÃO!' em cada `$=$' que parece estar usando uma regra errada. Por
+exemplo:
+%
+$$||\vv||(\sqrt{a}+\sqrt{b}) \eqN ||\vv||\sqrt{a+b}$$
+
+5) Algumas pessoas tentam ``demonstrar'' proposições só
+``traduzindo-as pro português'' e aí acreditando que a versão em
+português da proposição é ``óbvia''. {\sl Não seja como estas
+  pessoas!} Neste ponto do curso ``demonstrações'' feitas em português
+estão ERRADAS!
+
+6) Aprenda a fazer demonstrações ``em matematiquês'' usando a notação
+adequada e fazendo com que cada passo da sua demonstração seja uma
+aplicação de alguma regra conhecida e se possível de alguma regra com
+nome, {\sl ou senão eu vou reprovar você com o maior sorriso de orelha
+  a orelha que você já viu.} DEPOIS nós vamos ver como reescrever em
+português algumas partes das demonstrações desta parte do curso ---
+mas repare: ``{\sl algumas partes}'' e ``{\sl depois}''!
+
+7) O ``matematiquês'' permite algumas palavras em português, como
+``seja'', ``se'', ``então'' e ``supondo''.
+
+8) A notação de substituição simultânea da p.\pageref{substituicao}
+não é usada em nenhum livro básico que eu conheça... se você for
+comparar a notação daqui com a dos livros de GA recomendados pro curso
+você vai ver que eles usam expressões em português pra indicar
+substituição --- por exemplo, ``substituindo $k$ por $-10$, $a$ por
+$3$ e $b$ por $4$ na demonstração $(DE)$ temos ...''.
+
+
+
+\newpage
+
+
+%  ____                        _               _                 ____  
+% |  _ \ _ __ ___  _ __  ___  | |__   __ _ ___(_) ___ __ _ ___  |___ \ 
+% | |_) | '__/ _ \| '_ \/ __| | '_ \ / _` / __| |/ __/ _` / __|   __) |
+% |  __/| | | (_) | |_) \__ \ | |_) | (_| \__ \ | (_| (_| \__ \  / __/ 
+% |_|   |_|  \___/| .__/|___/ |_.__/ \__,_|___/_|\___\__,_|___/ |_____|
+%                 |_|                                                  
+%
+% «propriedades-basicas-2» (to ".propriedades-basicas-2")
+% (gam181p 27 "propriedades-basicas-2")
+\mypsection {propriedades-basicas-2} {Propriedades das operações básicas com pontos e vetores (2)}
+
+As propriedades da p.\pageref{propriedades-basicas} podem ser postas
+numa forma mais curta.
+
+Por exemplo:
+
+\msk
+
+$k·(\uu+\vv) = k\uu + k\vv$ é sempre verdade para $k∈\R$ e $\uu,\vv$
+vetores em $\R^2$.
+
+Demonstração. Sejam $\uu=\vab$ e $\vv=\vcd$. Então:
+%
+$$\def\pr#1{\text{(pela regra #1 da p.\pageref{pontos-e-vetores})}}
+  \begin{array}{rclcl}
+  k·(\uu+\vv)   &=& k·(\vab+\vcd)             &&      \\
+                &=& k·\VEC{a+c,b+d}           && \pr2 \\
+                &=& \VEC{k(a+c),k(b+d)}       && \pr6 \\
+                &=& \VEC{ka+kc,kb+kd}         &&      \\
+                &=& \VEC{ka,kb} + \VEC{kc,kd} && \pr2 \\
+                &=& k\vab + k\vcd             && \pr6 \\
+                &=& k\uu + k\vv               &&      \\
+  \end{array}
+$$
+
+\msk
+
+Normalmente a gente usa uma convenção que diz que as letras
+$a,b,c,k,x,y$ representam números reais, $P,Q,R$ representam pontos em
+$\R^2$ e $\uu,\vv,\ww$ representam vetores em $\R^2$, mas essa
+convenção muda de acordo com o contexto --- daqui a pouco quando
+introduzirmos círculos o $R$ vai passar a denotar o raio de um
+determinado círculo e vai passar a ser um número, e quando passarmos
+para $\R^3$ as letras $P,Q,R$ vão passar a denotar pontos de $\R^3$ e
+$\uu$, $\vv$, $\ww$ vão passar a ser vetores em $\R^3$.
+
+\msk
+
+{\bf Exercícios}
+
+V/F/Justifique:
+
+\begin{tabular}[t]{l}
+1) $P+\vv = \vv+P$       \\
+2) $\vv+\ww = \ww+\vv$   \\
+3) $P+(\vv+\ww) = (P+\vv)+\ww$ \\
+4) $(\uu·\vv)·\ww = \uu·(\vv·\ww)$ \\
+5) $(\uu·\vv)·\ww = (\uu·\ww)·\vv$ \\
+6) $(a+b)·\uu = a\uu + b\uu$ \\
+7) $(\uu+\vv)·\ww = \uu·\ww + \vv·\ww$ \\
+\end{tabular}
+
+\msk
+
+Observação MUITO importante: se você estiver escrevendo para um leitor
+que tem acesso às demonstrações que você fez na
+p.\pageref{propriedades-basicas} você vai poder encurtar as suas
+demonstrações desta página bastante --- você pode usar como
+justificativa de um passo algo como ``pela demonstração do exercício 9
+da p.\pageref{propriedades-basicas}, com {\sl [...e aí aqui você
+    indica a substituição necessária]}''. Ah, e quando você estiver
+escrevendo pra leitores menos burros você {\sl às vezes} vai poder
+omitir qual é a substituição --- mas só com bastante treino a gente
+aprende o que a gente pode omitir sem perder a clareza.
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+%  ____                                                             
+% |  _ \ _ __ ___  _ __  ___   _ __   ___  _ __ _ __ ___   __ _ ___ 
+% | |_) | '__/ _ \| '_ \/ __| | '_ \ / _ \| '__| '_ ` _ \ / _` / __|
+% |  __/| | | (_) | |_) \__ \ | | | | (_) | |  | | | | | | (_| \__ \
+% |_|   |_|  \___/| .__/|___/ |_| |_|\___/|_|  |_| |_| |_|\__,_|___/
+%                 |_|                                               
+%
+% «propriedades-de-normas» (to ".propriedades-de-normas")
+% (gam181p 28 "propriedades-de-normas")
+\mypsection {propriedades-de-normas} {Propriedades de normas e distâncias}
+
+{\bf Exercícios}
+
+1) V/F/justifique. Cada um dos itens abaixo pode ser feito ``abrindo
+os vetores'', isto é, começando com algo como ``digamos que $\uu=\vab$
+e $\vv=\vcd$'', mas também pode ser feito usando propriedades ``em
+forma mais curta'' como as da p.\pageref{propriedades-basicas-2}.
+Dica: o (1e) tem uma solução {\sl bem} curta se você souber invocar a
+propriedade certa.
+
+a) $\uu·\vv=||\uu||\,||\vv||$
+
+b) $||\uu+\vv||^2 = ||\uu||^2 + 2\uu·\vv + ||\vv||^2$.
+
+c) $||\uu+\vv||^2 + ||\uu+\vv||^2 = 2(||\uu||^2 + ||\vv||^2)$.
+
+c') $||\uu+\vv||^2 + ||\uu-\vv||^2 = 2(||\uu||^2 + ||\vv||^2)$.
+
+d) $||\uu+\vv||^2 + ||\uu-\vv||^2 = 4\uu·\vv$.
+
+d') $||\uu+\vv||^2 - ||\uu-\vv||^2 = 4\uu·\vv$.
+
+e) $||\,||\uu||\,\vv\,|| = ||\,||\vv||\,\uu\,||$
+
+
+\msk
+
+2) V/F/justifique. Aprenda a lidar com proposição com hipóteses (os
+``se''s) e use um pouco de criatividade.
+
+a) Se $α\uu+β\vv=\vec0$ então $α=0$ e $β=0$.
+
+b) Se $||\uu|| = ||\vv||$ então $(\uu-\vv)·(\uu+\vv)=0$.
+
+c) Se $\uu ≠ \vec0$ e $\uu·\vv=\uu·\ww$ então $\vv=\ww$.
+
+d) Existe uma reta que contém os pontos $A=(1,3)$, $B=(-1,2)$ e $C=(5,4)$. 
+
+d') Existe uma reta que contém os pontos $A=(1,3)$, $B=(-1,2)$ e $C=(5,5)$. 
+
+e) O triângulo com vértices $A=(1,0)$, $B=(0,2)$ e $C=(-2,1)$ é retângulo. 
+
+e') O triângulo com vértices $A=(1,0)$, $B=(0,2)$ e $C=(-4,0)$ é retângulo. 
+
+f) Todo vetor em $\R^2$ é combinação linear de $\uu=\VEC{2,1}$ e $\vv=\VEC{4,2}$. 
+
+
+\bsk
+
+Obs: quase todos os exercícios desta página faziam parte da primeira
+lista de exercícios de GA de um curso daqui do PURO de alguns anos
+atrás.
+
+% (find-LATEXfile "2016-1-GA-material.tex" "primeira lista do Reginaldo")
+
+% \Reg{2m} Se $\uu \vec0$, $\vv \vec0$ e $\Pr_{\vv}\uu = \vec0$ então $\uu \vv$.
+
+% \Reg{2b} Seja $ABCD$ um quadrilátero...
+
+
+\newpage
+
+
+%  ____                                         _ 
+% |  _ \  ___ _ __ ___     ___ ___  _ __ ___   / |
+% | | | |/ _ \ '_ ` _ \   / __/ _ \| '_ ` _ \  | |
+% | |_| |  __/ | | | | | | (_| (_) | | | | | | | |
+% |____/ \___|_| |_| |_|  \___\___/|_| |_| |_| |_|
+%                                                 
+% «demonstracao-comentada» (to ".demonstracao-comentada")
+% (gam181p 29 "demonstracao-comentada")
+\mypsection {demonstracao-comentada} {Uma demonstração (comentada)}
+
+% (gam181p 25 "propriedades-basicas")
+% (gam181     "propriedades-basicas")
+% (gam181     "propriedades-basicas" "4) $(AM)")
+% (gaq181  9 "20180418" "Demonstrações, introdução ao Pr")
+
+Em 18/abril eu mostrei no quadro como eu faria a demonstração do
+
+exercício 4 da p.\pageref{propriedades-basicas}... a minha
+demonstração seria assim:
+
+\bsk
+
+Queremos ver se esta proposição é sempre verdadeira:
+%
+$$(AM) \subst{A:=\vab \\ B:=\vcd \\ C:=\vef \\}$$
+
+Repare que esta proposição é:
+%
+$$((A·B)·C = A·(B·C)) \subst{A:=\vab \\ B:=\vcd \\ C:=\vef \\}$$
+%
+que é:
+%
+$$\qquad\qquad (\vab·\vcd)·\vef = \vab·(\vcd·\vef)  \qquad\qquad (\bigstar)$$
+
+Calculando o lado esquerdo de $(\bigstar)$, temos:
+%
+$$\begin{array}{rcl}
+  (\vab·\vcd)·\vef &=& (ac+bd)·\vef \\
+                   &=& \VEC{(ac+bd)e, (ac+bd)f}, \\
+  \end{array}
+$$
+%
+que dá um vetor, e o lado direito de $(\bigstar)$ dá:
+%
+$$\begin{array}{rcl}
+  \vab·(\vcd·\vef) &=& \vab·(\und{ce+df}{\text{número!}}) \\
+                   &=& \erro, \\
+  \end{array}
+$$
+%
+portanto a igualdade $(\bigstar)$ é falsa --- o lado esquerdo dela dá
+um vetor, e o lado direito dá erro.
+
+\bsk
+
+Esse exercício é um ``V/F/Justifique'' sobre algo que num primeiro
+momento nem parece uma proposição. Eu começo a demonstração dando a
+entender, com o ``Queremos ver se esta proposição...'' que a expressão
+$(AM)[\ldots]$ é uma proposição ``disfarçada''. Os passos ``Repare que
+esta proposição é'' e ``que é:'' reescrevem a expressão $(AM)[\ldots]$
+até ela virar algo que é claramente uma proposição sobre vetores, e
+que eu nomeio como ``$(\bigstar)$''. Até esse momento eu não dei
+nenhum indício pro leitor se a $(AM)[\ldots]$, que é equivalente a
+$(\bigstar)$, é verdadeira ou falsa; aí eu mostro como calcular o lado
+esquerda da $(\bigstar)$, depois como calcular o lado direito dela, e
+mostro que o resultado do lado esquerdo é {\sl sempre} diferente do do
+lado direito --- o que neste caso é mais fácil do que encontrar um
+contra-exemplo.
+
+Repare que a demonstração fica bem mais curta e clara com o truque de
+dar um nome para a proposição $(\bigstar)$ --- eu avisei lá na dica 3
+da p.\pageref{dicas} que era útil aprender a nomear objetos. $=)$
+
+
+\newpage
+
+%  ____       
+% |  _ \ _ __ 
+% | |_) | '__|
+% |  __/| |   
+% |_|   |_|   
+%             
+% «projecao-ortogonal» (to ".projecao-ortogonal")
+% (gam181p 30 "projecao-ortogonal")
+\mypsection {projecao-ortogonal} {Projeção ortogonal}
+
+Digamos que $λ\uu+\vv = \ww$. Então $\vv=\ww-λ\uu$.
+
+Vamos fazer duas figuras disto para o caso em que $\uu=\VEC{2,0}$ e
+$\ww=\VEC{5,3}$.
+%
+$$\unitlength=15pt
+  %
+  \begin{array}{c}
+    \text{Se $λ=2$,} \\
+    %
+    \vcenter{\hbox{%
+     \beginpicture(0,0)(7,5)%
+     \pictgrid%
+     %\pictaxes
+     {\linethickness{1.0pt}
+      \Vector(1,1)(6,4)     \put(3,3){\cell{\ww}}
+      \Vector(1,1)(5,1)     \put(4,0.2){\cell{λ\uu}}
+      \Vector(5,1)(6,4)     \put(6,2.2){\cell{\vv}}
+      \Vector(1,0.7)(3,0.7) \put(2,0){\cell{\uu}}   
+     }
+     \end{picture}%
+    }}%
+  \end{array}
+  %
+  \qquad
+  %
+  \begin{array}{c}
+    \text{Se $λ=3$,} \\
+    %
+    \vcenter{\hbox{%
+     \beginpicture(0,0)(8,5)%
+     \pictgrid%
+     %\pictaxes
+     {\linethickness{1.0pt}
+      \Vector(1,1)(6,4)     \put(3,3){\cell{\ww}}   
+      \Vector(1,1)(7,1)     \put(5,0.2){\cell{λ\uu}}
+      \Vector(7,1)(6,4)     \put(7,2.2){\cell{\vv}} 
+      \Vector(1,0.7)(3,0.7) \put(2,0){\cell{\uu}}   
+     }
+     \end{picture}%
+    }}%
+  \end{array}
+$$
+
+Repare que nenhum dos triângulos acima é retângulo.
+
+Como podemos encontrar o $λ$ que faça $\ang(λ\uu,\vv)=90°$?
+
+\msk
+
+Suponha que $\uu$ e $\ww$ estão dados e que $\uu≠\Vec0$.
+
+Se as nossas condições são $λ\uu+\vv = \ww$ e $\uu⊥\vv$ então temos $\vv=\ww-λ\uu$,
+
+$λ\uu⊥\vv$, e só vai existir um valor $λ∈\R$ que obedece estas condições.
+Veja:
+%
+$$\begin{array}{rcl}
+  \vv &=& \ww-λ\uu, \\
+  \uu &⊥& \ww-λ\uu, \\
+  \uu · (\ww-λ\uu) &=& 0, \\
+  \uu·\ww - \uu·λ\uu &=& 0, \\
+  \uu·\ww - λ(\uu·\uu) &=& 0, \\
+  \uu·\ww &=& λ(\uu·\uu), \\
+  \frac{\uu·\ww}{\uu·\uu} &=& λ \\
+  \end{array}
+$$
+
+
+\msk
+
+{\bf Uma nova operação: a projeção ortogonal, $\Pr$}
+
+Notação: $\Pr_\uu \ww$
+
+Pronúncia: $\Pr_\uu \ww$ é ``projeção {\sl sobre} $\uu$ de $\ww$''.
+
+{\sl Bem} informalmente, é como se os raios do sol fossem ortogonais a
+$\uu$, e o
+
+sol projeta uma ``sombra'' do vetor $\ww$ sobre o
+prolongamento do vetor $\uu$.
+
+Definição 1 (fácil de calcular): $\Pr_\uu \ww = \frac{\uu·\ww}{\uu·\uu} \uu$. 
+
+Definição 2 (fácil de visualizar): $\Pr_\uu \ww$ é o múltiplo $λ\uu$
+do vetor $\uu$ que faz
+
+com que $\uu⊥\vv$ quando $\vv$ é o vetor que obedece $\ww=λ\uu+\vv$.
+
+
+\msk
+
+{\bf Exercícios}
+
+1) Em cada um dos casos abaixo calcule $λ$, $\Pr_\uu \ww$ e $\vv$ e represente
+
+graficamente $\ww = λ\uu + \vv$.
+
+$\begin{tabular}{lll}
+ a) $\uu=\VEC{3,0}$, $\ww=\VEC{-1,2}$ && c) $\uu=\VEC{3,1}$, $\ww=\VEC{1,3}$ \\
+ b) $\uu=\VEC{2,2}$, $\ww=\VEC{0,1}$  &&  \\
+ \end{tabular}
+$
+
+2) Calcule e represente graficamente:
+
+$\begin{tabular}{lll}
+   a) $\Pr_{\VEC{3,1}} \VEC{0,2}$ && c) $\Pr_{\VEC{3,1}} \VEC{3,2}$ \\
+   b) $\Pr_{\VEC{3,1}} \VEC{3,0}$ && \\
+ \end{tabular}
+$
+
+
+
+
+
+
+\newpage
+
+%  ____            _
+% |  _ \ _ __ ___ (_) ___  ___ ___   ___  ___
+% | |_) | '__/ _ \| |/ _ \/ __/ _ \ / _ \/ __|
+% |  __/| | | (_) | |  __/ (_| (_) |  __/\__ \
+% |_|   |_|  \___// |\___|\___\___/ \___||___/
+%               |__/
+%
+% «projecoes-no-olhometro» (to ".projecoes-no-olhometro")
+% (gam181p 31 "projecoes-no-olhometro")
+% (gam172p 25 "projecoes")
+% (gam172     "projecoes")
+\mypsection {projecoes-no-olhometro} {Projeções no olhômetro}
+
+Quando a gente tem um pouco de prática com o ``significado
+geométrico'' da operação $\Pr$ a gente consegue 1) visualizar $\Pr_\uu
+\ww$, 2) calcular exatamente o resultado de $\Pr_\uu \ww$ ``no
+olhômetro'' em casos simples. Os exercícios abaixo são pra você
+melhorar a sua capacidade de calcular projeções ortogonais no
+olhômetro; lembre que toda vez que você tiver dúvidas você pode
+recorrer às contas.
+
+\ssk
+
+{\bf Exercícios}
+
+1) Sejam $\ww = \V(3,4)$, $\uu = \V(0,1)$, $A=(2,0)$, $B=A+\ww$.
+Represente graficamente $A$, $B$, $\uu$, $\ww$, e para cada
+$λ∈\{1,2,3,4,5\}$ desenhe no seu gráfico o triângulo $\ww = λ\uu+\vv$
+correspondente e calcule $\vv$ e $\uu·\vv$. Qual o $λ$ que faz com que
+$\uu⊥\vv$?
+
+2) Faça a mesma coisa que no (1), mas mudando o $\uu$ para
+$\uu=\V(1,1)$.
+
+3) Digamos que $\Pr_{\uu} \ww_1 = λ_1 \uu$, $\Pr_{\uu} \ww_2 = λ_2
+\uu$, etc. Determine $λ_1$, $λ_2$, etc na figura abaixo à esquerda.
+
+4) Digamos que $\Pr_{\uu} \ww_1 = λ_1 \uu$, $\Pr_{\uu} \ww_2 = λ_1
+\uu$, etc. Determine $λ_1$, $λ_2$, etc na figura abaixo à direita.
+
+%L p = function (a, b) return O + a*uu + b*vv end
+%L O, uu, vv = v(1, 1), v(2, 0), v(0, 2)
+
+%L myvec = function (a, b, label)
+%L     local bprint, out = makebprint()
+%L     local AA, BB = p(0,0), p(a,b)
+%L     local AB = BB-AA
+%L     local CC = BB + AB:unit(0.7)
+%L     local f = function (str) return (str:gsub("!", "\\")) end
+%L     bprint("\\Vector%s%s", AA, BB)
+%L     bprint("\\put%s{\\cell{%s}}", CC, f(label))
+%L     return out()
+%L   end
+\pu
+
+% (find-LATEX "edrxgac2.tex" "pict2e")
+
+$\unitlength=10pt
+ \def\closeddot{\circle*{0.2}}
+ \def\cellfont{\scriptsize}
+ \def\cellfont{}
+ \vcenter{\hbox{%
+   \beginpicture(-7,-7)(9,9)%
+   %\pictgrid%
+   {\color{GrayPale}\expr{pictpgrid(-3,-3,3,3)}}%
+   \pictaxes%
+   {\linethickness{1.0pt}
+    \expr{myvec(2, 0, "!uu")}
+    \expr{myvec(3, 1, "!ww_1")}
+    \expr{myvec(3, 2, "!ww_2")}
+    \expr{myvec(3, 3, "!ww_3")}
+    \expr{myvec(2, 3, "!ww_4")}
+    \expr{myvec(1, 3, "!ww_5")}
+    \expr{myvec(0, 3, "!ww_6")}
+    \expr{myvec(-1, 3, "!ww_7")}
+    \expr{myvec(-2, 3, "!ww_8")}
+    \expr{myvec(-3, 3, "!ww_9")}
+    \expr{myvec(-3, 2, "!ww_{10}")}
+    \expr{myvec(-3, 1, "!ww_{11}")}
+    \expr{myvec(-3, 0, "!ww_{12}")}
+    \expr{myvec(-3, -1, "!ww_{13}")}
+    \expr{myvec(-3, -2, "!ww_{14}")}
+    \expr{myvec(-3, -3, "!ww_{15}")}
+    \expr{myvec(-2, -3, "!ww_{16}")}
+    \expr{myvec(-1, -3, "!ww_{17}")}
+    \expr{myvec(-0, -3, "!ww_{18}")}
+   }
+   \end{picture}%
+  }}%
+  \quad
+  %
+%L O, uu, vv = v(1, 1), v(1, 1), v(-1, 1)
+  \pu
+  %
+  \unitlength=12pt
+  \vcenter{\hbox{%
+   \beginpicture(-7,-6)(7,8)%
+   %\pictgrid%
+   {\color{GrayPale}\expr{pictpgrid(-3,-3,3,3)}}%
+   \pictaxes%
+   {\linethickness{1.0pt}
+    \expr{myvec(2, 0, "!uu")}
+    \expr{myvec(3, 1, "!ww_1")}
+    \expr{myvec(3, 2, "!ww_2")}
+    \expr{myvec(3, 3, "!ww_3")}
+    \expr{myvec(2, 3, "!ww_4")}
+    \expr{myvec(1, 3, "!ww_5")}
+    \expr{myvec(0, 3, "!ww_6")}
+    \expr{myvec(-1, 3, "!ww_7")}
+    \expr{myvec(-2, 3, "!ww_8")}
+    \expr{myvec(-3, 3, "!ww_9")}
+    \expr{myvec(-3, 2, "!ww_{10}")}
+    \expr{myvec(-3, 1, "!ww_{11}")}
+    \expr{myvec(-3, 0, "!ww_{12}")}
+    \expr{myvec(-3, -1, "!ww_{13}")}
+    \expr{myvec(-3, -2, "!ww_{14}")}
+    \expr{myvec(-3, -3, "!ww_{15}")}
+    \expr{myvec(-2, -3, "!ww_{16}")}
+    \expr{myvec(-1, -3, "!ww_{17}")}
+    \expr{myvec(-0, -3, "!ww_{18}")}
+   }
+   \end{picture}%
+  }}%
+$
+
+\bsk
+
+5) Sejam $A=(1,1)$, $B=(3,1)$, $C=(4,4)$.
+
+Calcule e represente graficamente:
+
+$\begin{tabular}{l}
+ AB) $P = A + \Pr_{\Vec{AB}} \Vec{AC}$ \\
+ AC) $Q = A + \Pr_{\Vec{AC}} \Vec{AB}$ \\
+ BA) $R = B + \Pr_{\Vec{BA}} \Vec{BC}$ \\
+ \end{tabular}
+ %
+ \qquad
+ %
+ \begin{tabular}{l}
+ BC) $S = B + \Pr_{\Vec{BC}} \Vec{BA}$ \\
+ CA) $T = C + \Pr_{\Vec{CA}} \Vec{CB}$ \\
+ CB) $U = C + \Pr_{\Vec{CB}} \Vec{CA}$ \\
+ \end{tabular}
+ %
+ \qquad
+ \quad
+ %
+ \unitlength=10pt
+ \def\closeddot{\circle*{0.2}}
+ \vcenter{\hbox{%
+   \beginpicture(0,0)(5,5)%
+   \pictgrid
+   % {\color{GrayPale}\expr{pictpgrid(-3,-3,3,3)}}%
+   \pictaxes%
+   {\linethickness{1.0pt}
+    \polygon(1,1)(3,1)(4,4)
+    \put(1,1.6){\cell{A}}
+    \put(3.8,0.7){\cell{B}}
+    \put(4.8,3.7){\cell{C}}
+   }
+   \end{picture}%
+  }}%
+$
+
+
+\bsk
+
+6) Leia a p.55 do livro do CEDERJ. Compare a abordagem dele com a nossa.
+
+7) Leia as págs 35 a 38 do Reis/Silva. Compare a abordagem dele com a
+nossa.
+
+Repare que tanto o livro do CEDERJ quanto o do Reis/Silva começam a
+mencionar senos, cossenos e tangentes bem antes de definirem o produto
+$\uu·\vv$!
+
+
+
+% (find-GA1page (+ -2 55) "Projecao ortogonal")
+
+% (find-reissilvapage (+ -14 35) "2.7 Projeção de vetores")
+
+
+\newpage
+
+%  ____                        ____       
+% |  _ \ _ __ ___  _ __  ___  |  _ \ _ __ 
+% | |_) | '__/ _ \| '_ \/ __| | |_) | '__|
+% |  __/| | | (_) | |_) \__ \ |  __/| |   
+% |_|   |_|  \___/| .__/|___/ |_|   |_|   
+%                 |_|                     
+%
+% «propriedades-da-projecao» (to ".propriedades-da-projecao")
+% (gam181p 32 "propriedades-da-projecao")
+% (gam172p 29 "propriedades-do-Pr")
+% (gaq171 14 "20170426" "Propriedades do Pr")
+\mypsection {propriedades-da-projecao} {Propriedades da projeção}
+
+{\bf Exercícios}
+
+\ssk
+
+1) V/F/Justifique:
+
+\begin{tabular}[t]{l}
+a) (\;\;) $\Pr_\uu(\vv+\ww) = \Pr_\uu \vv + \Pr_\uu \ww$      \\
+b) (\;\;) $\Pr_{(\uu+\vv)} \ww = \Pr_\uu \ww + \Pr_\vv \ww$   \\
+c) (\;\;) $\Pr_\uu \ww = \Pr_\ww \uu$                         \\
+d) (\;\;) $\Pr_{(k\uu)} \ww = k \, \Pr_\uu \ww$               \\
+e) (\;\;) $\Pr_{(k\uu)} \ww = |k| \, \Pr_\uu \ww$             \\
+f) (\;\;) $\Pr_{(k\uu)} \ww = \Pr_\uu \ww$                    \\
+g) (\;\;) $\Pr_\uu (k\ww) = k \, \Pr_\uu \ww$                 \\
+h) (\;\;) $\Pr_\uu (k\ww) = |k| \, \Pr_\uu \ww$               \\
+i) (\;\;) $\Pr_\uu (k\ww) = \Pr_\uu \ww$                      \\
+\end{tabular}
+\qquad
+\begin{tabular}[t]{l}
+j) (\;\;) $||k\vv|| = k||\vv||$                    \\
+k) (\;\;) $||k\vv|| = |k|\,||\vv||$                \\
+l) (\;\;) $||k\vv|| = ||\vv||$                     \\
+m) (\;\;) Se $ab = ac$ então $b=c$                 \\
+n) (\;\;) Se $a\uu = b\uu$ então $a=b$             \\
+o) (\;\;) Se $a\uu = a\vv$ então $\uu=\vv$         \\
+p) (\;\;) Se $\uu·\vv = \uu·\ww$ então $\vv=\ww$   \\
+\end{tabular}
+
+\msk
+
+2) Demonstre que se $\vv$ e $\ww$ são não-nulos e $\vv⊥\ww$ então:
+
+\begin{tabular}[t]{l}
+a) $\Pr_\vv (k\ww) = \Vec 0$ \\
+b) $\Pr_\vv (k\vv) = k\vv$ \\
+c) $\Pr_\vv (a\vv+b\ww) + \Pr_\ww (a\vv+b\ww) = a\vv+b\ww$ \\
+\end{tabular}
+
+\msk
+
+3) Demonstre:
+
+\begin{tabular}[t]{l}
+a) Se $\uu⊥\vv$ então $||\uu+\vv||=||\uu-\vv||$ \\
+b) Se $\uu⊥\vv$ então $||\uu+\vv||^2=||\uu||^2+||\vv||^2$ \\
+c) Se $||\uu+\vv||=||\uu-\vv||$ então $\uu⊥\vv$ \\
+d) Se $||\uu+\vv||^2=||\uu||^2+||\vv||^2$ então $\uu⊥\vv$ \\
+\end{tabular}
+
+\msk
+
+4) Demonstre:
+
+\begin{tabular}[t]{l}
+a) Se $\uu⊥\vv$ então $||\uu||^2 ≤ ||\uu+\vv||^2$ \\
+b) Se $\uu⊥\vv$ então $||\uu||   ≤ ||\uu+\vv||$ \\
+c) Se $\uu⊥\vv$ e $\vv≠\Vec0$ então $||\uu||^2 < ||\uu+\vv||^2$ \\
+d) Se $\uu⊥\vv$ e $\vv≠\Vec0$ então $||\uu||   < ||\uu+\vv||$ \\
+\end{tabular}
+
+\msk
+
+5) Digamos que $r=\setofst{A+t\uu}{t∈\R}$ seja uma reta, que $B$ seja
+um ponto
+
+de $\R^2$ e que $\uu⊥\Vec{AB}$. Seja $\vv=\Vec{AB}$. Demonstre que:
+
+\begin{tabular}[t]{l}
+a) $d(A+t\uu,B)$ é mínimo quando $d(A+t\uu,B)^2$ é mínimo \\
+b) $d(A+t\uu,B)^2 = ||\Vec{AB}-t\uu||^2$ \\
+c) $||\Vec{AB}-t\uu||^2 = ||\vv||^2+||t\uu||^2$ \\
+d) $||\Vec{AB}-t\uu||^2 = ||\vv||^2 + t^2 ||\uu||^2$ \\
+\end{tabular}
+
+
+
+\newpage
+
+
+%  ____                                    
+% / ___|  ___ _ __     ___    ___ ___  ___ 
+% \___ \ / _ \ '_ \   / _ \  / __/ _ \/ __|
+%  ___) |  __/ | | | |  __/ | (_| (_) \__ \
+% |____/ \___|_| |_|  \___|  \___\___/|___/
+%                                          
+% «senos-e-cossenos» (to ".senos-e-cossenos")
+% (gam181p 32 "senos-e-cossenos")
+\mypsection {senos-e-cossenos} {Senos e cossenos}
+
+Vamos começar com uma revisão rápida de graus e radianos...
+
+Lembre que $180°=π$ e que radianos são ``adimensionais'' --- a gente
+escreve ``$π$ radianos'' só como ``$π$''. 
+
+O símbolo ``${}°$'' pode ser interpretado como uma multiplicação por
+uma determinada constante: $180°=π$, $90°=π/2$, $45°=π/4$, $1°=π/180$,
+$234°=234 \frac{π}{180}$, $x°=x\frac{π}{180}$.
+
+Vou usar a expressão ``nossos ângulos preferidos'' pra me referir aos
+ângulos que têm senos e cossenos fáceis de lembrar e de calcular.
+Formalmente,
+%
+$$\begin{array}{rcl}
+  A &=& \setofst{k·90°+a}{k∈\{0,1,2,3\}, a∈\{0°, 30°, 45°, 60°\}} \\
+    &=& \{0°, 30°, 45°, 60°, 90°, 120°, \ldots\}
+  \end{array}
+$$
+
+Algumas pessoas viram a tabela à esquerda abaixo no ensino médio...
+%
+$$\begin{array}{cccc}
+    θ  & (\cosθ,\senθ) \\\hline
+    0° & (√4/2,√0/2) \\
+   30° & (√3/2,√1/2) \\
+   45° & (√2/2,√2/2) \\
+   60° & (√1/2,√3/2) \\
+   90° & (√0/2,√4/2) \\
+  120° & (-√1/2,√3/2) \\
+  135° & (-√2/2,√2/2) \\
+  150° & (-√3/2,√1/2) \\
+  180° & (-√4/2,√0/2) \\
+  210° & (-√3/2,-√1/2) \\
+  225° & (-√2/2,-√2/2) \\
+  240° & (-√1/2,-√3/2) \\
+  270° & (√0/2,-√4/2) \\
+  300° & (√1/2,-√3/2) \\
+  315° & (√2/2,-√2/2) \\
+  330° & (√3/2,-√1/2) \\
+  360° & (√4/2,√0/2) \\
+  \end{array}
+  %
+  \qquad
+  %
+  \unitlength=80pt
+  \def\closeddot{\circle*{0.08}}
+  \def\putc(#1,#2){\put(#1,#2){\closeddot}}
+  \vcenter{\hbox{%
+   \beginpicture(-1,-1)(1,1)%
+   \pictgrid%
+   \pictaxes%
+   \putc( 1    ,  0    )
+   \putc( 0.965,  0.259)
+   \putc( 0.866,  0.5  )
+   \putc( 0.707,  0.707)
+   \putc( 0.5,    0.866)
+   \putc( 0.259,  0.965)
+   \putc( 0,      1    )
+   \putc(-0.259,  0.965)
+   \putc(-0.5,    0.866)
+   \putc(-0.707,  0.707)
+   \putc(-0.866,  0.5  )
+   \putc(-0.965,  0.259)
+   \putc(-1,      0    )
+   \putc(-0.965, -0.259)
+   \putc(-0.866, -0.5  )
+   \putc(-0.707, -0.707)
+   \putc(-0.5,   -0.866)
+   \putc(-0.259, -0.965)
+   \putc( 0,     -1    )
+   \putc( 0.259, -0.965)
+   \putc( 0.5,   -0.866)
+   \putc( 0.707, -0.707)
+   \putc( 0.866, -0.5  )
+   \putc( 0.965, -0.259)
+   {\linethickness{1.0pt}
+   }
+   \end{picture}%
+  }}%
+$$
+
+% (cos (/ pi 12))
+% (sin (/ pi 12))
+% (* 0.5 (sqrt 2))
+% (* 0.5 (sqrt 3))
+
+{\bf Exercícios}
+
+Dicas: $√0/2 = 0$, $√1/2 = 0.5$, $√4/2 = 1$, e use as aproximações
+$√2/2 ≈ 0.7$ e $√3/2 ≈ 0.85$. Nas contas com os ``nossos ângulos
+preferidos'' comece sempre com os múltiplos de $90°$ --- em que as
+contas são facílimas ---, depois inclua os múltiplos de $45°$, e só
+depois inclua os múltiplos de $30°$.
+
+1) Identifique cada ponto da forma $(\cosθ,\senθ)$, onde $θ∈A$, com
+pontos da figura à direita acima.
+
+2) Verifique que o triângulo $Δ(0,0)(√2/2,0)(√2/2,√2/2)$ é retângulo,
+isósceles e tem hipotenusa 1.
+
+3) Verifique que o triângulo $Δ(0,0)(1,0)(0.5,√3/2)$ é equilátero.
+
+4) Verifique que o triângulo $Δ(0,0)(0.5,0)(0.5,√3/2)$ é retângulo,
+com hipotenusa 1, e um dos seus catetos tem comprimento $1/2$.
+
+
+
+
+
+\newpage
+
+%     _                                    _      _       
+%    / \   _ __ ___  __ _ ___    ___    __| | ___| |_ ___ 
+%   / _ \ | '__/ _ \/ _` / __|  / _ \  / _` |/ _ \ __/ __|
+%  / ___ \| | |  __/ (_| \__ \ |  __/ | (_| |  __/ |_\__ \
+% /_/   \_\_|  \___|\__,_|___/  \___|  \__,_|\___|\__|___/
+%                                                         
+% «areas-e-determinantes» (to ".areas-e-determinantes")
+% (gam181p 34 "areas-e-determinantes")
+\mypsection {areas-e-determinantes} {Áreas e determinantes em $R^2$}
+% (gar181p 1 "areas-em-R3")
+% (gar181    "areas-em-R3")
+
+Notações: se $\uu$ e $\vv$ são vetores em $\R^2$ então
+$\Area(\uu,\vv)$ é a área do paralelogramo gerado por $\uu$ e $\vv$;
+se $A$, $B$, $C$ são pontos de $\R^2$ então $\Area(ΔABC)$ é a área do
+{\sl triângulo} $ΔABC$. Triângulos são ``metades de paralelogramos''.
+
+O slogan ``a área de um triângulo é base vezes altura sobre 2'' pode
+ser interpretado de várias formas. Podemos pensar que a base do
+triângulo $ΔABC$ é a distância $d(A,B)$ (um número), ou que a base é o
+segmento $\overline{AB}$; e podemos usar o slogan pra mudar um ponto
+do triângulo original mantendo a mesma base e a mesma altura, obtendo
+um triângulo $ΔABC'$ com $\Area(ΔABC) = \Area(ΔABC')$. Quando a base
+$\overline{AB}$ é um segmento horizontal ``manter a mesma altura''
+quer dizer deslizar o ponto $C$ ao longo de uma reta horizontal;
+quando $\overline{AB}$ é um segmento qualquer ``manter a mesma
+altura'' quer dizer deslizar $C$ ao longo de uma reta $r$ parelela a
+$AB$ e que passa por $C$ --- ou seja,
+%
+$$C' ∈ r = \setofst{C+t\Vec{AB}}{t∈\R}.$$
+
+No diagrama à esquerda abaixo temos $\Area(ΔABC) = \Area(ΔABC') =
+\Area(ΔABC'')$; no diagrama à direita abaixo também.
+%
+% {\sl (Ainda não fiz esses diagramas --- vou fazê-los no quadro)}
+%
+$$\unitlength=12pt
+  \def\closeddot{\circle*{0.3}}
+  \def\putc(#1,#2){\put(#1,#2){\closeddot}}
+  %
+  \vcenter{\hbox{%
+   \beginpicture(-1,-1)(5,4)%
+   \pictgrid%
+   %\pictaxes
+   {\linethickness{1.0pt}
+                             \putc(0,0)   \put(0,-1){\cell{A}}
+                             \putc(2,0)   \put(2,-1){\cell{B}}
+    \polygon(0,0)(2,0)(0,3)  \putc(0,3)   \put(0,3.2){\cell{C}}
+    \polygon(0,0)(2,0)(1,3)  \putc(1,3)   \put(1,3.2){\cell{C'}}
+    \polygon(0,0)(2,0)(4,3)  \putc(4,3)   \put(4,3.2){\cell{C''}}
+   }
+   \end{picture}%
+  }}%
+  %
+  \qquad
+  %
+  \vcenter{\hbox{%
+   \beginpicture(-1,-1)(4,4)%
+   \pictgrid%
+   %\pictaxes
+   {\linethickness{1.0pt}
+                             \putc(0,1)  \put(-0.5,0.3){\cell{A}}
+                             \putc(1,0)  \put(0.5,-0.7){\cell{B}}
+    \polygon(0,1)(1,0)(0,3)  \putc(0,3)  \put(0,3.2){\cell{C}}
+    \polygon(0,1)(1,0)(1,2)  \putc(1,2)  \put(1.3,2.2){\cell{C'}}
+    \polygon(0,1)(1,0)(2,1)  \putc(2,1)  \put(2.8,1){\cell{C''}}
+   }
+   \end{picture}%
+  }}%
+$$
+
+
+\msk
+
+{\bf Idéias.} Temos $\Area(ΔABC) = \frac12 \Area(\Vec{AB},\Vec{AC})$.
+Quando $\uu⊥\vv$ a área pode ser calculada de forma bem fácil:
+$\Area(\uu,\vv) = ||\uu||·||\vv||$. Quando $\ang(\Vec{AB},\Vec{AC}) ≠
+90°$ podemos calcular $\Area(\Vec{AB},\Vec{AC})$ encontrando um ponto
+$C'$ ``por deslizamento'', isto é, tal que $C'=C+t\Vec{AB}$, que
+obedeça $\Vec{AB}⊥\Vec{AC'}$. A tradução disto pra vetores é
+$\Area(\uu,\vv) = \Area(\uu,\vv+t\uu)$. Podemos deslocar os pontos $A$
+e $B$ ao invés de $C$: se $A'=A+α\Vec{BC}$ e $B'=B+β\Vec{AC}$ então
+$\Area(ΔABC) = \Area(ΔA'BC) = \Area(ΔAB'C)$; $\Area(\uu,\vv) =
+\Area(\uu+t\vv,\vv)$.
+
+{\bf Determinantes.} A notação usual para determinantes de matrizes
+$2×2$ é $\vsm{a & b \\ c & d} = \left| \psm{a & b \\ c & d} \right| =
+ad-bc$, mas também vamos usar $\det(\VEC{a,b},\VEC{c,d}) = \vsm{a & b
+  \\ c & d}$. Determinantes calculam a área ``com sinal''; truque:
+$\Area(\uu,\vv) = |\det(\uu,\vv)|$.
+
+\newpage
+
+%     _                                    _      _         ____  
+%    / \   _ __ ___  __ _ ___    ___    __| | ___| |_ ___  |___ \ 
+%   / _ \ | '__/ _ \/ _` / __|  / _ \  / _` |/ _ \ __/ __|   __) |
+%  / ___ \| | |  __/ (_| \__ \ |  __/ | (_| |  __/ |_\__ \  / __/ 
+% /_/   \_\_|  \___|\__,_|___/  \___|  \__,_|\___|\__|___/ |_____|
+%                                                                 
+% «areas-e-determinantes-2» (to ".areas-e-determinantes-2")
+% (gam181p 35 "areas-e-determinantes-2")
+\mypsection {areas-e-determinantes-2} {Áreas e determinantes em $R^2$ (2)}
+% (gar181p 1 "areas-em-R3")
+% (gar181    "areas-em-R3")
+
+{\bf Exercícios}
+
+1) Para cada um dos casos abaixo represente graficamente o
+paralelogramo gerado por $\uu$ e $\vv$ e calcule $\Area(\uu,\vv)$. Use
+deslizamentos se precisar mas não use determinantes.
+
+2) Para cada um dos casos abaixo represente graficamente o
+paralelogramo gerado por $\uu$ e $\vv$ e calcule $\Area(\uu,\vv)$. Use
+determinantes mas não use deslizamentos.
+
+\begin{tabular}[t]{l}
+a) $\uu=\VEC{2,0}$,  $\vv=\VEC{0,3}$    \\
+b) $\uu=\VEC{2,0}$,  $\vv=\VEC{0,-3}$   \\
+c) $\uu=\VEC{-2,0}$, $\vv=\VEC{0,3}$    \\
+d) $\uu=\VEC{2,0}$,  $\vv=\VEC{1,4}$    \\
+e) $\uu=\VEC{2,0}$,  $\vv=\VEC{1,3}$    \\
+f) $\uu=\VEC{2,0}$,  $\vv=\VEC{1,0}$    \\
+\end{tabular}
+\quad
+\begin{tabular}[t]{l}
+g) $\uu=\VEC{2,1}$ $\vv=\VEC{-1,2}$   \\
+h) $\uu=\VEC{2,1}$ $\vv=\VEC{-2,4}$   \\
+i) $\uu=\VEC{2,1}$ $\vv=\VEC{1,3}$   \\
+j) $\uu=\VEC{2,1}$ $\vv=\VEC{0,1}$   \\
+k) $\uu=\VEC{1,0}$ $\vv=\VEC{-1,2}$   \\
+\end{tabular}
+
+
+
+\newpage
+
+%  ____         _                       _               
+% |  _ \    ___| | ___  ___  ___ _ __  | |_ ___    _ __ 
+% | |_) |  / __| |/ _ \/ __|/ _ \ '__| | __/ _ \  | '__|
+% |  __/  | (__| | (_) \__ \  __/ |    | || (_) | | |   
+% |_|      \___|_|\___/|___/\___|_|     \__\___/  |_|   
+%                                                       
+% «pontos-mais-proximos» (to ".pontos-mais-proximos")
+% (gam181p 36 "pontos-mais-proximos")
+\mypsection {pontos-mais-proximos} {Pontos mais próximos e pontos simétricos}
+
+{\bf Exercícios}
+
+1) Sejam $A=(2,3)$, $\uu=\VEC{1,0}$, $r=\setofst{A+t\uu}{t∈\R}$,
+$B=(4,0)$. Sejam $B'$ o ponto de $r$ mais próximo de $B$ e
+$B''=B'+\Vec{BB'}$. Represente graficamente $A$, $\uu$, $r$, $B$,
+$B'$, $B''$.
+
+2) Sejam $A$, $\uu$ e $r$ como no exercício anterior. Seja $C=(5,1)$.
+Sejam $C'$ o ponto de $r$ mais próximo de $C$ e $C''=C'+\Vec{CC'}$.
+Represente graficamente $C$, $C'$, $C''$ no gráfico do exercício
+anterior.
+
+3) Vamos usar a mesma convenção dos exercícios anteriores para as
+letras $D$, $E$, $\ldots$ --- $D'$ é o ponto de $r$ mais próximo a
+$D$, $D''=D'+\Vec{DD'}$, etc. Sejam $D=(4,2)$ e $E=(3,3)$. Represente
+graficamente $D$, $D'$, $D''$, $E$, $E'$, $E''$ no mesmo gráfico dos
+exercícios 1 e 2.
+
+4) Sejam $A=(4,1)$, $\uu=\VEC{0,1}$, $r=\setofst{A+t\uu}{t∈\R}$,
+$B=(1,0)$, $C=(2,2)$, $D=(4,3)$, $E=(5,4)$. Represente graficamente
+num gráfico só (separado do dos exercícios anteriores!) $A$, $\uu$,
+$r$, $B$, $B'$, $B''$, $C$, $D'$, $C''$, $D$, $D'$, $D''$, $E$, $E'$,
+$E''$.
+
+5) Idem, mas agora $A=(0,4)$, $\uu=\VEC{1,-1}$, $B=(1,4)$, $C=(2,4)$,
+$D=(2,1)$, $E=(1,1)$.
+
+6) Idem, mas agora $A=(0,4)$, $\uu=\VEC{2,-1}$, $B=(1,1)$, $C=(3,0)$,
+$D=(4,2)$, $E=(3,5)$, $F=(3,4)$, $G=(3,3)$, $H=(3,2)$. Obs: aqui nem
+todos os pontos são fáceis de {\sl calcular}, mas você sabe desenhar
+aproximações para ele no olhômetro.
+
+\msk
+
+Repare que quando $r=\setofst{A+t\uu}{t∈\R}$ a gente sempre pode
+calcular o ``ponto de $r$ mais próximo de $B$'', $B'$, fazendo $B' =
+A+\Pr_{\uu} \Vec{AB}$ --- e isto nos dá uma primeira fórmula para
+calcular $d(B,r)$:
+%
+$$\begin{array}{rcl}
+  d(B,r) &=& d(B,B') \\
+         &=& d(B,A+\Pr_{\uu} \Vec{AB}) \\
+         &=& ||B - (A+\Pr_{\uu} \Vec{AB})|| \\
+         &=& ||\Vec{AB} - \Pr_{\uu} \Vec{AB}|| \\
+         &=& ||\Pr_{\uu} \Vec{AB} - \Vec{AB}|| \\
+  \end{array}
+$$
+
+7) Calcule $d(B,r)$, $d(C,r)$, $d(D,r)$, $d(E,r)$ no gráfico dos
+exercícios 1, 2 e 3 acima, de dois modos: primeiro aproveite que você
+conhece $B'$, $C'$, etc e use $d(B,r) = d(B,B')$, $d(C,r) = d(C,C')$,
+etc; depois use a fórmula $d(B,r) = ||\Vec{AB} - \Pr_{\uu}
+\Vec{AB}||$.
+
+8) Faça o mesmo para $d(B,r)$, $\ldots$, $d(E,r)$ no gráfico do
+exercício 4.
+
+9) Faça o mesmo para $d(B,r)$, $\ldots$, $d(E,r)$ no gráfico do
+exercício 5.
+
+10) Faça o mesmo para o exercício 6.
+
+\msk
+
+{\bf Exercícios sobre coeficientes}
+
+11) Encontre $a,b,c,d∈\R$ tais que $\Pr_{\VEC{2,-1}} \VEC{x,y} =
+\VEC{ax+by,cx+dy}$.
+
+12) Encontre $a,b,c,d∈\R$ tais que $\Pr_{\VEC{3,4}} \VEC{x,y} =
+\VEC{ax+by,cx+dy}$.
+
+% 5 . . . E . . .
+% 4 r . . . . . .
+% 3 . . r . . . .
+% 2 . . . . r . .
+% 1 . B . . . . .
+% 0 . . . C . . .
+%   0 1 2 3 4 5 6 7 8
+
+
+
+
+\newpage
+
+%   ____ _                _           
+%  / ___(_)_ __ ___ _   _| | ___  ___ 
+% | |   | | '__/ __| | | | |/ _ \/ __|
+% | |___| | | | (__| |_| | | (_) \__ \
+%  \____|_|_|  \___|\__,_|_|\___/|___/
+%                                     
+% «circulos» (to ".circulos")
+% (gam181p 37 "circulos")
+% (gaq172 28 "20171106" "áreas e círculos")
+\mypsection {circulos} {Círculos (via pontos óbvios)}
+
+Seja $S = \setofxyst{(x-4)^2 + (y-3)^2 = 9}$.
+
+O conjunto $S$ é um círculo (juro! Depois vamos ver porquê), e se
+con\-se\-guir\-mos um número suficiente de pontos de $S$ vamos
+conseguir desenhar o círculo, determinar o seu centro e o seu raio,
+etc.
+
+Uma gambiarra: é fácil encontrar os ``quatro pontos óbvios'' que são
+soluções de $(x-4)^2 + (y-3)^2 = 9$ --- a gente primeiro faz $(x-4)^2
+= 0$ e encontra os dois valores de $y$ que são soluções de $0 +
+(y-3)^2 = 9$, depois a gente faz $(y-3)^2 = 0$ e encontra os dois
+valores de $x$ que são soluções de $(x-4)^2 + 0 = 9$.
+%
+$$\def\obvio#1#2#3#4#5#6#7{
+    \begin{array}{c}
+    \und{(\und{\und{x}{#1}- \;\; 4}{#2})^2}{#3} +
+    \und{(\und{\und{y}{#4}- \;\; 3}{#5})^2}{#6} = 9 \\[45pt]
+    \qquad\qquad⇒\quad (x,y)=#7 \\
+    \end{array}
+  }
+  \begin{array}{ccc}
+  \obvio 400639 {(4,6)} && \obvio 4000{-3}9 {(4,0)} \\ \\ \\
+  \obvio 739300 {(7,3)} && \obvio 1{-3}9300 {(1,3)} \\
+  \end{array}
+$$
+
+Os pontos óbvios vão ser o ponto mais alto do círculo, o mais baixo, o
+mais à esquerda e o mais à direita.
+
+\msk
+
+{\bf Exercícios}
+
+1) Cada um dos conjuntos abaixo é um círculo.
+
+$C = \setofxyst{(x-3)^2 + (y-5)^2 = 4}$
+
+$C' = \setofxyst{(x-3)^2 + (y-5)^2 = 1}$
+
+$C'' = \setofxyst{(x-2)^2 + (y-5)^2 = 1}$
+
+$C''' = \setofxyst{(x-2)^2 + (y-3)^2 = 1}$
+
+$C'''' = \setofxyst{(x-2)^2 + (y-3)^2 = 25}$
+
+Para cada um deles
+
+a) encontre os 4 pontos óbvios do círculo,
+
+b) represente graficamente o círculo,
+
+c) dê o centro e o raio do círculo.
+
+\msk
+
+2) Tente fazer o mesmo para estes círculos degenerados.
+
+$C = \setofxyst{(x-2)^2 + (y-5)^2 = 0}$
+
+$C' = \setofxyst{(x-2)^2 + (y-5)^2 = -1}$
+
+
+
+
+
+\newpage
+
+%   ____ _                _             ____  
+%  / ___(_)_ __ ___ _   _| | ___  ___  |___ \ 
+% | |   | | '__/ __| | | | |/ _ \/ __|   __) |
+% | |___| | | | (__| |_| | | (_) \__ \  / __/ 
+%  \____|_|_|  \___|\__,_|_|\___/|___/ |_____|
+%                                             
+% «circulos-2» (to ".circulos-2")
+% (gam181p 38 "circulos-2")
+% (gaq172 29 "20171108" "círculos")
+\mypsection {circulos-2} {Círculos e cônicas}
+
+Quase todos os problemas das listas da Ana Isabel sobre círculos usam
+
+equações desta forma:
+
+(A) \quad $ax^2 + bx + cy^2 + dy + e = 0$
+
+onde $a, b, c, d, e ∈ \R$.
+
+Os que nós vimos têm equações desta forma:
+
+(B) \quad $(x-a)^2 + (y-b)^2 = c$
+
+onde $a, b, c ∈ \R$.
+
+Uma {\sl equação de cônica} é uma equação desta forma:
+
+(C) \quad $ax^2 + bx + c + dxy + ey + fy^2 = 0$
+
+onde $a, b, c, d, e, f ∈ \R$.
+
+
+
+\msk
+
+{\bf Exercícios}
+
+Converta as seguintes equações da forma (B) para a forma (A).
+
+1) $(x-3)^2 + (y=4)^2 = 25$
+
+2) $(x+2)^2 + (y-3)^2 = 16$
+
+Converta as seguintes equações da forma (A) para a forma (B).
+
+3) $x^2 + 2x + y^2 - 2y - 7 = 0$
+
+4) $x^2 + y^2 - 6y - 9 = 0$
+
+5) $x^2 + y^2 - 6y + 9 = 0$
+
+6) $x^2 + y^2 + 6y - 8 = 0$
+
+7) $x^2 - y^2 = 0$
+
+\msk
+
+Dica: ``completar quadrados''...
+
+$(x+a)^2 = x^2 + 2ax + a^2$
+
+$(x+a)^2 + b = x^2 + 2ax + a^2 + b$
+
+$(x+a)^2 + b - a^2 = x^2 + 2ax + b$
+
+\bsk
+
+{\bf Interseção de círculo e reta (algebricamente)}
+
+Método: comece com equações
+
+(D) \quad $ax^2 + bx + dx^2 + ey + f = 0$,
+
+(E) \quad $y = gx + h$
+
+e substitua cada $y$ em (D) por $gx+h$. Converta a equação que você
+
+obteve para a forma
+
+(F) \quad $ix^2 + jx + k = 0$,
+
+resolva-a por Bháskara e chame as soluções de $x_1$ e $x_2$.
+
+Use (E) para definir $y_1 = gx_1 + h$ e $y_2 = gx_2 + h$. 
+
+Os pontos $(x_1,y_1)$ e $(x_2,y_2)$ são as interseçõe do círculo com a
+reta.
+
+\msk
+
+Exercícios. Sejam $C$ o círculo de centro $(5,5)$ e raio 5,
+
+$r = \setofxyst{x+y=3}$, $r' = \setofxyst{y=5-3x}$.
+
+8) Calcule $C∩r$. 
+
+9) Calcule $C∩r'$. 
+
+
+
+
+
+\newpage
+
+%  ____                                                     
+% |  _ \  ___  ___ ___  _ __ ___  _ __     __ _ _ __   __ _ 
+% | | | |/ _ \/ __/ _ \| '_ ` _ \| '_ \   / _` | '_ \ / _` |
+% | |_| |  __/ (_| (_) | | | | | | |_) | | (_| | | | | (_| |
+% |____/ \___|\___\___/|_| |_| |_| .__/   \__,_|_| |_|\__, |
+%                                |_|                  |___/ 
+%
+% «decomp-ang» (to ".decomp-ang")
+% (gam181p 39 "decomp-ang")
+\mypsection {decomp-ang} {Uma decomposição (e várias utilidades para ângulos)}
+
+Sejam $A$ e $B$ dois pontos diferentes de $\R^2$.
+
+Seja $C$ um ponto de $\R^2$.
+
+Seja $r$ a reta que passa por $A$ e $B$.
+
+Seja $s$ uma reta ortogonal a $r$ que passa por $A$.
+
+Seja $D$ o ponto de $r$ mais próximo de $C$.
+
+Seja $E$ o ponto de $s$ mais próximo de $C$.
+
+$$\unitlength=12pt
+  \def\closeddot{\circle*{0.3}}
+  \def\putc(#1,#2){\put(#1,#2){\closeddot}}
+  %
+  \vcenter{\hbox{%
+   \beginpicture(-1,-1)(6,5)%
+   \pictgrid%
+   %\pictaxes
+   {\linethickness{1.0pt}
+                             \putc(0,0)   \put(0,-1){\cell{A}}
+    \Vector(0,0)(5,0)        \putc(5,0)   \put(5,-1){\cell{B}}
+    \Vector(0,0)(3,4)        \putc(3,4)   \put(3.3,4.4){\cell{C}}
+    \Vector(0,0)(3,0)        \putc(3,0)   \put(3,-1){\cell{D}}
+    \Vector(0,0)(0,4)        \putc(0,4)   \put(0,4.3){\cell{E}}
+   }
+   \end{picture}%
+  }}%
+$$
+
+
+Essa construção decompõe o vetor $\Vec{AC}$ em uma componente,
+$\Vec{AD}$,
+
+paralela a $\Vec{AB}$, e outra componente, $\Vec{AE}$,
+ortogonal a $\Vec{AB}$.
+
+Formalmente: $\Vec{AC} = \Vec{AD} + \Vec{AE}$, com $\Vec{AD}
+\myparallel \Vec{AB}$ e $\Vec{AD}⊥\Vec{AE}$.
+
+($\Vec{AD} \myparallel \Vec{AB}$ quer dizer $\Vec{AD} = λ\Vec{AB}$
+para algum $λ∈\R$.)
+
+\msk
+
+A função ``$\ang$'' sempre responde um ângulo entre $0°$ e $180°$ (lembre da `$√·$'!);
+
+daí sempre temos $0 ≤ \sen(\ang(\uu,\vv)) ≤ 1$, mas $\cosθ<0$ para $θ$
+obtuso.
+
+\msk
+
+Seja $θ = \ang(\Vec{AB}, \Vec{AC}) = \ang(\Vec{AD}, \Vec{AC})$. Lembre
+que ``cosseno é cateto
+
+adjacente sobre hipotenusa'' e ``seno é cateto oposto sobre
+hipotenusa''.
+
+Repare que $ADCE$ é um retângulo e que:
+
+1) $|\cosθ| = d(A,D) / d(A,C)$,
+
+2) $\senθ = d(D,C) / d(A,C) = d(A,E) / d(A,C)$,
+
+3) $d(A,D) = |\cos(θ)| \, d(A,C)$,
+
+4) $d(A,E) = \sen(θ) \, d(A,C)$,
+
+5) $\Vec{AD} = \Pr_{\Vec{AB}} \Vec{AC}$,
+
+6) $\Vec{AB} · \Vec{AC} = \Vec{AB} · (\Vec{AD} + \Vec{AE}) = \Vec{AB} ·
+\Vec{AD} + \Vec{AB} · \Vec{AE} = \Vec{AB} · \Vec{AD}$
+
+7) $\Pr_{\Vec{AB}} \Vec{AC} = \Pr_{\Vec{AB}} (\Vec{AD} + \Vec{AE}) =
+\Pr_{\Vec{AB}} \Vec{AD} + \Pr_{\Vec{AB}} \Vec{AE} = \Pr_{\Vec{AB}}
+\Vec{AD} = \Vec{AD}$
+
+7') $||\Pr_{\Vec{AB}} \Vec{AC}|| = ||\Vec{AD}|| = |\cosθ| \, ||\Vec{AC}||$
+
+8) $\Area(\Vec{AB}, \Vec{AC}) = \Area(\Vec{AB}, \Vec{AE}) =
+||\Vec{AB}|| · ||\Vec{AE}|| = ||\Vec{AB}|| · (\senθ \, ||\Vec{AC}||)$
+
+8') $\Area(\Vec{AB}, \Vec{AC}) = \senθ \, ||\Vec{AB}|| \,
+||\Vec{AC}||$
+
+9) $\uu·\vv = \cos(\ang(\uu,\vv)) \, ||\uu|| \, ||\vv||$ (``fórmula do
+cosseno'')
+
+Note que as afirmações 1--9 acima não usam $θ$, só $\sen θ$ e $\cos
+θ$.
+
+\msk
+
+{\bf Exercícios}
+
+1) Verifique as afirmações 1--9 no caso $\Vec{AB}=\VEC{5,0}$,
+$\Vec{AC}=\VEC{3,4}$.
+
+2) Verifique as afirmações 1--9 no caso $\Vec{AB}=\VEC{4,4}$,
+$\Vec{AC}=\VEC{0,2}$.
+
+3) Verifique as afirmações 1--9 no caso $\Vec{AB}=\VEC{4,4}$,
+$\Vec{AC}=\VEC{-2,0}$.
+
+
+
+
+\newpage
+
+%      _  ______       __  
+%   __| |/ /  _ \   _ _\ \ 
+%  / _` | || |_) | | '__| |
+% | (_| | ||  __/  | |  | |
+%  \__,_| ||_| ( ) |_|  | |
+%        \_\   |/      /_/ 
+%
+% «distancia-ponto-reta» (to ".distancia-ponto-reta")
+% (gam181p 40 "distancia-ponto-reta")
+\mypsection {distancia-ponto-reta} {Distância entre ponto e reta: segundo modo}
+
+% (gaq172 20 "20171004" "d(P,r)")
+% (gaq172 24 "20171016" "dois modos de calcular d(P,r)")
+% (gaq172 25 "20171018" "dois modos de calcular d(P,r): segunda fórmula")
+
+Sejam $A$ e $B$ dois pontos diferentes de $\R^2$ e seja $r$ a reta que
+contém $A$ e $B$. Seja $P$ um ponto qualquer de $\R^2$. Na
+p.\pageref{pontos-mais-proximos} nós vimos um primeiro modo de
+calcular $d(C,r)$ --- a gente encontrava o ponto $C'∈r$ mais próximo
+de $C$ e depois calculava $d(C,C')$. Agora vamos ver um outro modo no
+qual as contas ficam bem mais rápidas, mas que só faz sentido se a
+gente entende ângulos.
+
+Seja $s$ uma reta vertical que passa por $C$ e seja $D∈r∩s$.
+
+Seja $r = \setofxyst{y=mx+b}$; $m$ é o coeficiente angular de $r$.
+%
+%L uu  = V {1,2}
+%L vv  = V {2,-1}
+%L pA  = V {0,-1}
+%L pB  = pA + 4*uu
+%L pD  = pA + 1*uu
+%L pCC = pD + 2*uu
+%L pC  = pCC - vv
+%L
+%L pE  = V {0,0}
+%L pF  = V {1,0}
+%L pG  = V {1,2}
+\pu
+%
+$$\unitlength=10pt
+  \def\closeddot{\circle*{0.3}}
+  \def\putc(#1,#2){\put(#1,#2){\closeddot}}
+  %
+  \vcenter{\hbox{%
+   \beginpicture(-2,-2)(6,8)%
+   \pictgrid%
+   \pictaxes%
+   {\linethickness{1.0pt}
+    \CalcPoints{
+      !Line<pA - 0.5*uu, pA + 4.5*uu>
+      !putc<pA>         !put<pA + V{.5,-.5}>{!cell{A}}
+      !putc<pB>         !put<pB + V{.5,-.5}>{!cell{B}}
+      !putc<pC>         !put<pC + V{ 0, .5}>{!cell{C}}
+      !putc<pCC>        !put<pCC+ V{.7,-.5}>{!cell{C'}}
+      !putc<pD>         !put<pD + V{.5,-.5}>{!cell{D}}
+      !Line<pCC, pC, pD>
+    }
+    %\Calcpoints{!put<a/2,-a/2>{!cell{a^2}}}
+    %\Calcpoints{!put<-b/2,b/2>{!cell{b^2}}}
+   }
+   \end{picture}%
+  }}%
+  %
+  \qquad
+  \unitlength=20pt
+  \def\closeddot{\circle*{0.15}}
+  \def\putc(#1,#2){\put(#1,#2){\closeddot}}
+  %
+  \vcenter{\hbox{%
+   \beginpicture(-1,-1)(2,3)%
+   \pictgrid%
+   %\pictaxes%
+   {\linethickness{1.1pt}
+    \CalcPoints{
+      !polygon<pE, pF, pG>
+      !putc<pE>         !put<pE + V{-.3,-.6}>{!cell{E}}
+      !putc<pF>         !put<pF + V{ .3,-.6}>{!cell{F}}
+      !putc<pG>         !put<pG + V{ 0, .4}>{!cell{G}}
+    }
+    %\Calcpoints{!put<a/2,-a/2>{!cell{a^2}}}
+    %\Calcpoints{!put<-b/2,b/2>{!cell{b^2}}}
+   }
+   \end{picture}%
+  }}%
+$$
+
+O triângulo retângulo $ΔCC'D$ é semelhante a um outro triângulo bem
+mais simples, $ΔEFG$, que tem um cateto horizontal e outro vertical e
+cuja hipotenusa é paralela à reta $r$; temos $\Vec{EG} = \VEC{1,m}$
+(hipotenusa), $\Vec{EF} = \VEC{1,0}$ (cateto horizontal) e $\Vec{FG} =
+\VEC{0,m}$ (cateto vertical).
+
+\msk
+
+Queremos calcular $d(C,C')$ mas é trabalhoso fazer isto diretamente,
+então vamos calcular $d(C,D)$, que é fácil, e a proporção
+$d(C,C')/d(C,D)$ (que é o cosseno de um ângulo --- qual?)... temos:
+
+• se $C=(C_x,C_y)$ então $D = (C_x, mC_x+b)$,
+
+• $d(C,D) = |C_y - (mC_x+b)| = |mC_x+b - C_y|$,
+
+• $d(C,C') = \frac{d(C,C')}{d(C,D)} d(C,D)$,
+
+• $\frac{d(C,C')}{d(C,D)} = \frac{d(E,F)}{d(E,G)} = \frac{1}{\sqrt{1+m^2}}$,
+
+• $d(C,C') = \frac{1}{\sqrt{1+m^2}} |mC_x+b - C_y|$,
+
+• $d(C,r) = \frac{1}{\sqrt{1+m^2}} |mC_x+b - C_y|$.
+
+\msk
+
+Obs: o meu truque pra lembrar é essa fórmula é: seja $dv(C,r)$ a
+``distância vertical'' de $C$ até $r$, isto é, a distância entre $C$ e
+o ponto $r∩s$, onde $s$ é uma reta vertical que passa por $C$. A
+distância $d(C,r)$ é igual à ``distância vertical'' $dv(C,r)$ vezes
+alguma coisa que tem $\sqrt{1+m^2}$ no meio, e os casos mais fáceis de
+testar são os com coeficientes angulares iguais a 0, 1 ou 2...
+lembrando isso eu faço alguns testes e encontro a fórmula certa.
+
+\msk
+
+{\bf Exercício.} Em cada um dos casos abaixo represente graficamente
+$r$ e $F(x,y) = dv((x,y),r)$; use a notação da p.\pageref{Fxy} para
+representar $F(x,y)$.
+
+1) $r = \setofxyst{y=x+2}$
+
+2) $r = \setofxyst{y=4-2x}$
+
+3) $r = \setofxyst{y=3}$
+
+
+\newpage
+
+%   ____            _                        ____  _____ 
+%  / ___|___  _ __ (_) ___ __ _ ___    ___  |  _ \|___ / 
+% | |   / _ \| '_ \| |/ __/ _` / __|  / _ \ | |_) | |_ \ 
+% | |__| (_) | | | | | (_| (_| \__ \ |  __/ |  _ < ___) |
+%  \____\___/|_| |_|_|\___\__,_|___/  \___| |_| \_\____/ 
+%                                                        
+% «conicas-e-R3» (to ".conicas-e-R3")
+
+% (find-twusfile "LATEX/"  "2018-1-GA-conicas.pdf")
+% (find-twusfile "LATEX/"  "2018-1-GA-R3.pdf")
+% http://angg.twu.net/LATEX/2018-1-GA-conicas.pdf
+% http://angg.twu.net/LATEX/2018-1-GA-R3.pdf
+
+
+
+
+
+\unitlength=10pt
+
+
+%     _                       
+%    / \   _ __ ___  __ _ ___ 
+%   / _ \ | '__/ _ \/ _` / __|
+%  / ___ \| | |  __/ (_| \__ \
+% /_/   \_\_|  \___|\__,_|___/
+%                             
+% «areas-em-R3» (to ".areas-em-R3")
+% (gar181p 1 "areas-em-R3")
+% (gar181    "areas-em-R3")
+%\mypsection {areas-em-R3} {Áreas de retângulos e paralelogramos em $\R^3$}
+\mypsection {areas-em-R3} {Áreas de retângulos e paralelogramos em $R^3$}
+
+Notação: se $\uu$ e $\vv$ são vetores em $\R^3$ então $\Area(\uu,\vv)$
+é a área do paralelogramo gerado por $\uu$ e $\vv$. Quando $\uu⊥\vv$ a
+área pode ser calculada de forma bem fácil: $\Area(\uu,\vv) =
+||\uu||·||\vv||$.
+
+\ssk
+
+{\bf Exercícios}
+
+1) Visualize os paralelogramos abaixo e calcule a área de cada
+um deles. Em alguns casos você vai ter que usar truques pouco óbvios;
+em outros casos talvez você vá ter que responder ``não sei''.
+
+\begin{tabular}[t]{l}
+a) $\Area(\VEC{2,0,0},\VEC{0,3,0})$   \\
+b) $\Area(\VEC{0,3,0},\VEC{0,0,-4})$  \\
+c) $\Area(\VEC{5,0,0},\VEC{0,5,0})$   \\
+d) $\Area(\VEC{5,0,0},\VEC{4,3,0})$   \\
+e) $\Area(\VEC{5,0,0},\VEC{3,4,0})$   \\
+f) $\Area(\VEC{4,3,0},\VEC{-3,4,0})$  \\
+\end{tabular}
+\quad
+\begin{tabular}[t]{l}
+g) $\Area(\VEC{4,3,0},\VEC{4,3,0})$   \\
+h) $\Area(\VEC{4,3,0},\VEC{3,4,0})$   \\
+i) $\Area(\VEC{5,0,0},\VEC{0,4,3})$   \\
+j) $\Area(\VEC{5,0,0},\VEC{0,3,4})$   \\
+k) $\Area(\VEC{5,0,0},\VEC{0,0,5})$   \\
+\end{tabular}
+
+\msk
+
+Podemos calcular áreas de paralelogramos em $\R^3$ usando um truque de
+``deslizamento'' parecido com o que usamos para áreas e determinantes
+em $\R^2$. Se $\uu⊥\vv$ e $k∈\R$, então $\Area(\uu,\vv) =
+\Area(\uu,\vv+k\uu)$ --- e repare que $\Area(\uu,\vv)$ é a área de um
+retângulo e $\Area(\uu,\vv+k\uu)$ é a área de um paralelogramo.
+
+\ssk
+
+2) Use o truque acima em cada um dos itens abaixo. Visualize o
+paralelogramo $\Area(\uu,\vv+k\uu)$ e o retângulo $\Area(\uu,\vv)$
+associado a ele, e calcule as áreas.
+
+\begin{tabular}[t]{l}
+a) $\Area(\VEC{4,0,0},\VEC{0,3,0}+\VEC{4,0,0})$          \\
+b) $\Area(\VEC{4,0,0},\VEC{0,3,0}+\frac34\VEC{4,0,0})$   \\
+c) $\Area(\VEC{4,0,0},\VEC{0,3,0}+\frac24\VEC{4,0,0})$   \\
+d) $\Area(\VEC{4,0,0},\VEC{0,3,0}+\frac14\VEC{4,0,0})$   \\
+e) $\Area(\VEC{4,0,0},\VEC{0,3,0})$   \\
+f) $\Area(\VEC{4,3,0},\VEC{0,0,1})$  \\
+g) $\Area(\VEC{4,3,0}+\VEC{0,0,1},\VEC{0,0,1})$  \\
+h) $\Area(\VEC{4,3,0}+2\VEC{0,0,1},\VEC{0,0,1})$  \\
+i) $\Area(\VEC{4,3,0}+3\VEC{0,0,1},\VEC{0,0,1})$  \\
+\end{tabular}
+
+\ssk
+
+3) Faça o mesmo nos casos abaixo, mas agora você vai ter que escolher
+os vetores $\uu$ e $\vv$ adequados você mesmo.
+
+\begin{tabular}[t]{l}
+a) $\Area(\VEC{4,0,0},\VEC{0,3,0}+\VEC{4,0,0})$         (mudar) \\
+b) $\Area(\VEC{4,0,0},\VEC{0,3,0}+\frac34\VEC{4,0,0})$  (mudar) \\
+c) $\Area(\VEC{4,0,0},\VEC{0,3,0}+\frac24\VEC{4,0,0})$  (mudar) \\
+\end{tabular}
+
+\msk
+
+4) Demonstre que se $\uu⊥\vv$ e $a,k∈\R$ então:
+%
+$$\Area(\uu,a(\vv+k\uu)) = |a|\,\Area(\uu,\vv+k\uu).$$
+
+
+
+
+\newpage
+
+
+
+
+
+%  ____ /\ _____ 
+% |  _ \/\|___ / 
+% | |_) |   |_ \ 
+% |  _ <   ___) |
+% |_| \_\ |____/ 
+%                
+% «R3-retas-e-planos» (to ".R3-retas-e-planos")
+% (gar181p 2 "R3-retas-e-planos")
+% (gar181    "R3-retas-e-planos")
+
+\mypsection {R3-retas-e-planos} {Retas e planos em $R^3$}
+
+\ssk
+
+Obs: adaptado da aula de 4/jul/2016:
+
+\url{http://angg.twu.net/2016.1-GA/2016.1-GA.pdf}
+
+\msk
+
+% {\bf Retas em $\R^3$}
+
+Sejam:
+
+$r_1 = \setofexprt{(2,2,0)+t\V(0,-1,0)}$
+
+$r_2 = \setofexprt{(2,2,1)+t\V(0,-1,0)}$
+
+$r_3 = \setofexprt{(2,2,0)+t\V(0,1,1)}$
+
+$r_4 = \setofexprt{(0,2,1)+t\V(1,0,0)}$
+
+$r_4 = \setofexprt{(1,2,1)+t\V(2,0,0)}$
+
+Quais destas retas se interceptam?
+
+Em que pontos? Em que `$t$'s?
+
+Quais destas retas são paralelas?
+
+Quais destas retas são coincidentes?
+
+A terminologia para retas que não se interceptam e não são
+
+paralelas é estranha -- ``retas {\sl reversas}''.
+
+\msk
+
+As retas acima são {\sl parametrizadas}.
+
+O que é uma {\sl equação de reta} em $\R^3$?
+
+$\setofxyst{4x+5y=6}$ é uma reta em $\R^2$;
+
+$\setofxyzst{4x+5y+6z=7}$ é um {\sl plano} em $\R^3$...
+
+\msk
+
+Exercício: encontre
+
+três pontos não colineares de $\setofxyzst{z=0}$,
+
+três pontos não colineares de $\setofxyzst{z=2}$,
+
+três pontos não colineares de $\setofxyzst{x=1}$,
+
+três pontos não colineares de $\setofxyzst{y=3}$,
+
+três pontos não colineares de $\setofxyzst{\frac x2 + \frac y3 + \frac z4 = 1}$,
+
+e visualize cada um destes planos.
+
+\msk
+
+Alguns dos nossos planos preferidos:
+
+$π_{xy} = \setofxyzst{z=0}$ ($x$ e $y$ variam, $z=0$)
+
+$π_{xz} = \setofxyzst{y=0}$ ($x$ e $z$ variam, $y=0$)
+
+$π_{yz} = \setofxyzst{x=0}$ ($y$ e $z$ variam, $x=0$)
+
+\ssk
+
+Notação (temporária):
+
+$[\text{equação}] = \setofxyzst{\text{equação}}$
+
+Obs: $π_{xy} = [z=0]$, $π_{xz} = [y=0]$, $π_{yz} = [x=0]$.
+
+\msk
+
+Exercício: visualize:
+
+$π_1 = [x=1]$,     \qquad $π_8 = [y=x]$,     
+                                      
+$π_2 = [y=1]$,     \qquad $π_9 = [y=2x]$,    
+                                      
+$π_3 = [z=1]$,     \qquad $π_{10} = [z=x]$,  
+                                      
+$π_4 = [z=4]$,     \qquad $π_{11} = [z=x+1]$,
+
+$π_5 = [z=2]$,
+
+Quais deles planos são paralelos?
+
+Quais deles planos se cortam? Onde?
+
+
+
+\newpage
+
+%  ____ /\ _____     ________  
+% |  _ \/\|___ /    / /___ \ \ 
+% | |_) |   |_ \   | |  __) | |
+% |  _ <   ___) |  | | / __/| |
+% |_| \_\ |____/   | ||_____| |
+%                   \_\    /_/ 
+%
+% «R3-retas-e-planos-2» (to ".R3-retas-e-planos-2")
+% (gar181p 3 "R3-retas-e-planos-2")
+% (gar181    "R3-retas-e-planos-2")
+% (gar181p 30 "R3-retas-e-planos-2")
+% (gam172p 30 "R3-retas-e-planos-2")
+
+\mypsection {R3-retas-e-planos-2} {Retas e planos em $R^3$ (2)}
+
+\ssk
+
+Dá pra parametrizar planos em $\R^3$...
+
+Sejam
+
+$π_6 = \setofst{\und{(2,2,0) + a\V(1,0,0) + b\V(0,1,0)}
+                    {(a,b)_{Σ_6}}
+                }{a,b∈\R}$,
+
+$π_7 = \setofst{\und{(3,2,1) + a\V(1,0,0) + b\V(0,1,0)}
+                    {(a,b)_{Σ_7}}
+                }{a,b∈\R}$.
+
+Calcule e visualize:
+
+$(0,0)_{Σ_6}$, $(1,0)_{Σ_6}$, $(0,1)_{Σ_6}$, $(1,1)_{Σ_6}$,
+
+$(0,0)_{Σ_7}$, $(1,0)_{Σ_7}$, $(0,1)_{Σ_7}$, $(1,1)_{Σ_7}$,
+
+e resolva:
+
+$(a,b)_{Σ_6} = (0,3,0)$,
+
+$(a,b)_{Σ_7} = (2,4,1)$,
+
+$(a,b)_{Σ_7} = (2,4,0)$.
+
+\msk
+
+Nossos três modos preferidos de descrever planos em $\R^3$ (por equações) são:
+
+$[z = ax+by+c]$ (``$z$ em função de $x$ e $y$''),
+
+$[y = ax+bz+c]$ (``$y$ em função de $x$ e $z$''),
+
+$[x = ay+bz+c]$ (``$x$ em função de $y$ e $z$'').
+
+
+
+% (find-LATEX "2016-2-GA-algebra.tex" "Fxy")
+\msk
+
+Na p.10 nós vimos este tipo de diagrama aqui, que nos ajuda a visualizar
+
+as curvas de nível de funções de $x$ e $y$:
+
+$\sm{F(x,y)\\=\,x+2y} ⇒
+ \pictureFxy(-1,-2)(5,2){x+2*y}
+$
+
+Use diagramas deste tipo para visualizar
+
+$[z=x+y]$, 
+
+$[z=x+y+2]$, 
+
+$[z=x-y+4]$.
+
+\msk
+
+Sejam:
+
+$π_{12} = [z = x+y]$,
+
+$π_{13} = [z = x-y+4]$ 
+
+Exercício: encontre pontos de $r=π_{12}∩π_{13}$ tais que
+
+a) $x=0$, b) $x=1$, c) $x=3$; depois
+
+d) encontre uma parametrização para $r$,
+
+e) encontre uma parametrização para $r$ na qual $t=x$.
+
+\msk
+
+Alguns dos nossos modos preferidos de descrever retas em $\R^3$:
+
+$[y=ax+b, z=cx+d]$ (``$y$ e $z$ em função de $x$''),
+
+$[x=ay+b, z=cy+d]$ (``$x$ e $z$ em função de $y$''),
+
+$[x=az+b, y=cz+d]$ (``$x$ e $y$ em função de $z$'').
+
+Encontre uma descrição da forma $[y=ax+b, z=cx+d]$ para a $r$ acima.
+
+(Dica: use o ``chutar e testar''!)
+
+
+
+\newpage
+
+
+%  ____       _       
+% |  _ \  ___| |_ ___ 
+% | | | |/ _ \ __/ __|
+% | |_| |  __/ |_\__ \
+% |____/ \___|\__|___/
+%                     
+% «determinantes-em-R3» (to ".determinantes-em-R3")
+% (gar181p 4 "determinantes-em-R3")
+% (gar181    "determinantes-em-R3")
+% (gar181p 31 "determinantes-em-R3")
+% (gam172p 31 "determinantes-em-R3")
+
+\mypsection {determinantes-em-R3} {Determinantes em $R^3$}
+
+\ssk
+
+Lembre que o determinante em $\R^2$ mede {\sl áreas} (de paralelogramos),
+
+e às vezes ele responde números negativos:
+%
+$$\vsm{a&b\\c&d\\}
+  = ac-bd \qquad
+  \vsm{c&d\\a&b\\} = bd-ac = -\vsm{a&b\\c&d\\}
+$$
+
+Vamos usar a seguinte notação (temporária):
+
+$[\uu,\vv]
+  = [\V(u_1, u_2), \V(v_1, v_2)]
+  = \vsm{u_1 & u_2 \\ v_1 & v_2 \\}
+  \qquad \text{(em $\R^2$)}
+$
+
+$[\uu,\vv,\ww]
+  = [\V(u_1, u_2, u_3), \V(v_1, v_2, v_3), \V(w_1, w_2, w_3)]
+  = \vsm{u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \\}
+  \qquad \text{(em $\R^3$)}
+$
+
+``$[\uu,\vv]$'' e ``$[\uu,\vv,\ww]$'' querem dizer
+
+``empilhe os vetores numa matriz quadrada e tire o determinante dela''.
+
+\msk
+
+A definição de determinante em $\R^3$ -- como conta -- é:
+
+$$\begin{array}{rcl}
+  \vmat{u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \\}
+  &=& \pmat{u_1v_2w_3 + u_2v_3w_4 + u_3v_4w_5 \\
+         -u_3v_2w_1 - u_4v_3w_2 - u_5v_4w_3 \\
+        } \\
+  &=& \pmat{u_1v_2w_3 + u_2v_3w_1 + u_3v_1w_2 \\
+         -u_3v_2w_1 - u_1v_3w_2 - u_2v_1w_3 \\
+        }
+  \end{array}
+$$
+
+\def\ii{\vec{\mathbf{i}}}
+\def\jj{\vec{\mathbf{j}}}
+\def\kk{\vec{\mathbf{k}}}
+
+As seguintes definições são padrão:
+
+$$\ii=\V(1,0,0) \qquad \jj=\V(0,1,0) \qquad \kk=\V(0,0,1)$$
+
+Exercício: calcule
+
+a) $[\ii,\jj,\kk]$
+
+b) $[\ii,\kk,\jj]$
+
+c) $[\jj,\ii,\kk]$
+
+d) $[\jj,\kk,\ii]$
+
+e) $[\kk,\ii,\jj]$
+
+f) $[\kk,\jj,\ii]$
+
+g) $[\ii,\jj,\ii]$
+
+g) $[2\ii,3\jj,4\kk]$
+
+h) $[a\ii,b\jj,c\kk]$
+
+i) $[a\ii+b\jj+c\kk,d\jj+e\kk,f\kk]$
+
+j) $[a\ii, b\ii+c\jj, d\ii+e\jj+f\kk]$
+
+% (find-angg ".emacs" "gaq161")
+% (gaq161 58 "20160704" "Visualizar R^3")
+
+
+
+\newpage
+
+%  ____       _                          ____ /\ _____    ________  
+% |  _ \  ___| |_ ___    ___ _ __ ___   |  _ \/\|___ /   / /___ \ \ 
+% | | | |/ _ \ __/ __|  / _ \ '_ ` _ \  | |_) |   |_ \  | |  __) | |
+% | |_| |  __/ |_\__ \ |  __/ | | | | | |  _ <   ___) | | | / __/| |
+% |____/ \___|\__|___/  \___|_| |_| |_| |_| \_\ |____/  | ||_____| |
+%                                                        \_\    /_/ 
+% «determinantes-em-R3-2» (to ".determinantes-em-R3-2")
+% (gar181p 5 "determinantes-em-R3-2")
+% (gar181    "determinantes-em-R3-2")
+% (gar181p 32 "determinantes-em-R3-2")
+% (gam172p 32 "determinantes-em-R3-2")
+
+\mypsection {determinantes-em-R3-2} {Determinantes em $R^3$ (2)}
+
+\ssk
+
+Lembre que o determinante em $\R^2$ mede áreas, que são ``base vezes altura'',
+
+e que a gente pode deslizar um lado ($\vv$) do paralelogramo gerado por $\uu$ e $\vv$
+
+``numa direço paralela a $\uu$'', sem alterar nem a ``base'' nem a ``altura''...
+
+Algebricamente: $[\uu,\vv] = [\uu,\vv+a\uu]$.
+
+E deslizando o $\uu$, temos $[\uu,\vv] = [\uu+a\vv,\vv]$.
+
+\msk
+
+Em $\R^3$ podemos pensar que o determinante $[\uu,\vv,\ww]$ mede
+
+a área da base --- a área do paralelogramo gerado por $\uu$ e $\vv$ ---
+
+vezes a altura.
+
+Se $\uu$, $\vv$ e $\ww$ são ortogonais entre si então
+
+a ``área da base'' é $||\uu||·||\vv||$, e a ``altura'' é $||\ww||$.
+
+\ssk
+
+(Obs: em $\R^3$, $\V(a,b,c)·\V(d,e,f) = ad+be+cf$, $||\vv|| = \sqrt{\uu·\vv}$,
+
+$\uu⊥\vv = (\uu·\vv=0)$, $\Pr_{\uu}\vv = \frac{\uu·\vv}{\uu·\uu}\uu$.)
+
+\msk
+
+Propriedades mais importantes dos determinantes em $\R^3$:
+
+$[a\uu,b\vv,c\ww] = abc[\uu,\vv,\ww]$
+
+$[\uu,\vv,\ww] = [\uu,\vv,\ww+a\uu+b\vv]$
+
+$[\uu,\vv,\ww] = [\uu,\vv+a\uu+b\ww,\ww]$
+
+$[\uu,\vv,\ww] = [\uu+a\vv+b\ww,\vv,\ww]$
+
+\msk
+
+Quase todas as idéias sobre determinantes em $\R^3$ que a gente vai
+ver agora ficam mais fáceis de entender se a gente as entende em três
+etapas: 1) com $\uu$, $\vv$, $\ww$ ortogonais entre si, e todos com
+comprimento 1; 2) usando vetores $\uu'=a\uu$, $\vv'=b\vv$, $\ww'=c\ww$
+construídos a partir dos anteriores; estes $\uu'$, $\vv'$ e $\ww'$ são
+ortogonais entre si, mas podem ter qualquer comprimento, 3) usando
+vetores $\uu''=\uu'$, $\vv''=\vv'+d\uu'$ e $\ww'=\ww'+e\uu'+f\vv'$.
+
+\msk
+
+{\bf Exercício importantíssimo} (encontrar coeficientes):
+
+a) Encontre $a,b,c$ tais que $\V(a,b,c)·\V(x,y,z) = 2x+3y+4z$
+
+b) Encontre $a,b,c,d$ tais que $\V(a,b,c)·\V(x,y,z)+d = 2x+3y+4z+5$
+
+c) Encontre $a,b,c$ tais que $\vsm{1&2&3 \\ 4&5&6 \\ x&y&z \\} = \V(a,b,c)·\V(x,y,z)$
+
+d) Encontre $a,b,c$ tais que $\vsm{u_1&u_2&u_3 \\ v_1&v_2&v_3 \\ x&y&z \\} = \V(a,b,c)·\V(x,y,z)$
+
+e) Encontre $a,b,c$ tais que $\vsm{u_1&u_2&u_3 \\ v_1&v_2&v_3 \\ w_1&w_2&w_3 \\}
+   = \V(a,b,c)·\V(w_1,w_2,w_3)$
+
+% (find-fline "/tmp/33.jpg")
+
+
+
+\newpage
+
+%                                                   _ 
+%   ___ _ __ ___  ___ ___       _ __  _ __ ___   __| |
+%  / __| '__/ _ \/ __/ __|_____| '_ \| '__/ _ \ / _` |
+% | (__| | | (_) \__ \__ \_____| |_) | | | (_) | (_| |
+%  \___|_|  \___/|___/___/     | .__/|_|  \___/ \__,_|
+%                              |_|                    
+%
+% «cross-prod» (to ".cross-prod")
+% (gar181p 6 "cross-prod")
+% (gar181    "cross-prod")
+% (gar181p 33 "cross-prod")
+% (gam172p 33 "cross-prod")
+
+\mypsection {cross-prod} {O produto cruzado ($×$) em $R^3$}
+
+\ssk
+
+\def\area{\textsf{área}}
+
+O ``produto cruzado'' (ou ``produto vetorial'') $\uu×\vv$ é definido como
+
+se ele fosse ``uma parte da conta do determinante'': $(\uu×\vv)·\ww = [\uu,\vv,\ww]$.
+
+Exercício: verifique que no item (e) acima temos
+
+$\uu×\vv = \V(\uu_2\vv_3-\uu_3\vv_2, \uu_3\vv_1-\uu_1\vv_3, \uu_1\vv_2-\uu_2\vv_1)$.
+
+\msk
+
+{\sl Idéia importantíssima:}
+
+1) para quaisquer $\uu$ e $\vv$, se $\ww$ é ortogonal a $\uu$ e $\vv$
+e $||\ww||=1$, então o volume $[\uu,\vv,\ww]$ é exatamente a área do
+paralelogramo gerado por $\uu$ e $\vv$ (exceto talvez pelo sinal);
+
+2) para quaisquer $\uu$ e $\vv$, se $\ww$ é ortogonal a $\uu$ e $\vv$
+e $||\ww||=1$, então o volume $[\uu,\vv,\ww+a\uu+b\vv]$ é exatamente a
+área do paralelogramo gerado por $\uu$ e $\vv$ (exceto talvez pelo
+sinal);
+
+3) para quaisquer $\uu$ e $\vv$, se $\ww$ é ortogonal a $\uu$ e $\vv$
+e $||\ww||=1$, então o volume $[\uu,\vv,a\uu+b\vv+c\ww]$ é
+$c·\area(\uu,\vv)$ (exceto talvez pelo sinal);
+
+4) para quaisquer $\uu$ e $\vv$, se $\ww$ é ortogonal a $\uu$ e $\vv$
+e $||\ww||=1$, então $(\uu×\vv)·(a\uu+b\vv+c\ww)$ é $c·\area(\uu,\vv)$
+(exceto talvez pelo sinal);
+
+5) para quaisquer $\uu$ e $\vv$, se $\ww$ é ortogonal a $\uu$ e $\vv$
+e $||\ww||=1$, então $\uu×\vv = \area(\uu,\vv)·\ww$ (exceto talvez
+pelo sinal).
+
+\msk
+
+{\bf Exercício:}
+
+Use o (5) acima para tentar descobrir quais são as duas respostas
+possíveis para $\uu×\vv$ nos casos a e b abaixo, e depois compare as
+suas respostas com resposta ``algébrica'' dada pela fórmula lá no alto
+da página.
+
+a) $\uu=\V(3,0,0)$, $\vv=\V(0,4,0)$, $\ww=\V(0,0,1)$
+
+b) $\uu=\V(0,3,0)$, $\vv=\V(0,3,3)$, $\ww=\V(1,0,0)$
+
+
+
+\newpage
+
+% (find-fline "/tmp/34.jpg")
+
+
+%   ___                    
+%  / _ \ _ __  ___   __  __
+% | | | | '_ \/ __|  \ \/ /
+% | |_| | |_) \__ \   >  < 
+%  \___/| .__/|___/  /_/\_\
+%       |_|                
+%
+% «alguns-usos-do-x» (to ".alguns-usos-do-x")
+% (gar181p 7 "alguns-usos-do-x")
+% (gar181    "alguns-usos-do-x")
+% (gam172p 34 "alguns-usos-do-x")
+% (gam172     "alguns-usos-do-x")
+% (gaq 31)
+
+\mypsection {alguns-usos-do-x} { Alguns usos do `$×$'}
+
+\ssk
+
+1) $||\uu×\vv|| = \area(\uu,\vv)$
+
+2) $\uu×\vv$ sempre dá um vetor ortogonal a $\uu$ e $\vv$
+
+3) $\uu×\vv=\V(0,0,0)$ se e só se $\area(\uu,\vv)=0$, ou seja, se
+$\uu$ e $\vv$ são colineares
+
+(i.e., paralelos).
+
+4) Digamos que
+
+$r  = \setofst{A+t \uu}{t \in\R}$,
+
+$r' = \setofst{B+t'\vv}{t'\in\R}$,
+
+$B = A+\ww$.
+
+Então $r$ e $r'$ são reversas se e só se $[\uu,\vv,\ww] \neq 0$.
+
+(Se $[\uu,\vv,\ww]=0$ então $r$ e $r'$ são ou paralelas, ou coincidentes, ou se cortam).
+
+5) Pra testar se quatro pontos $A,B,C,D∈\R^3$ são coplanares,
+
+encontre $\uu,\vv,\ww$ tais que $A+\uu=B$, $A+\vv=C$, $A+\ww=D$;
+
+temos $[\uu,\vv,\ww]=0$ se e só se $A,B,C,D$ forem coplanares.
+
+6) (Difícil!) Sejam
+
+$r  = \setofst{A+t \uu}{t \in\R}$,
+
+$r' = \setofst{B+t'\vv}{t'\in\R}$,
+
+$B = A+\ww$.
+
+\def\ut#1#2{\underbrace{#1}_{\text{#2}}}
+
+Então: $d(r,r') = \ut{\ut{|[\uu,\vv,\ww]|}{volume} / \ut{\area(\uu,\vv)}{área da base}}{altura}$.
+
+7) (Difícil!) Sejam
+
+$r  = \setofst{A+t \uu}{t \in\R}$,
+
+$r' = \setofst{B+t'\vv}{t'\in\R}$,
+
+$B = A+\ww$.
+
+Como a gente encontra uma reta $s$ que corte $r$ e $r'$ e seja ortogonal a ambas?
+
+Sejam $C_t = A+t \uu$ e $D_{t'} = B+t' \vv$.
+
+Queremos que $\Vec{C_tD_{t'}}$ seja ortogonal a $\uu$ e $\vv$,
+
+ou seja, que $\Vec{C_tD_{t'}}$ seja paralelo a $\uu×\vv$,
+
+ou seja, que $\Vec{C_tD_{t'}}×(\uu×\vv)=\V(0,0,0)$,
+
+ou seja, que $(D_{t'}-C_t)×(\uu×\vv)=\V(0,0,0)$,
+
+ou seja, que $((B+t'\vv)-(A+t \uu))×(\uu×\vv)=\V(0,0,0)$,
+
+ou seja, que $(t'\vv - t\uu + \Vec{AB})×(\uu×\vv)=\V(0,0,0)$,
+
+o que dá um sistema que nos permite encontrar $t$ e $t'$ com poucas contas...
+
+Sabendo $t$ e $t'$ sabemos $C_t$ e $D_{t'}$, e a reta $s$ passa por $C_t$ e $D_{t'}$.
+
+\bsk
+
+{\sl Agora você deve ser capaz de resolver os exercícios 1 a 20 da lista 9 da}
+
+{\sl Ana Isabel! Yaaaaay!} $=)$ $=)$ $=)$
+
+
+
+
+\newpage
+
+
+%  ___           _ _          
+% |_ _|_ __   __| (_) ___ ___ 
+%  | || '_ \ / _` | |/ __/ _ \
+%  | || | | | (_| | | (_|  __/
+% |___|_| |_|\__,_|_|\___\___|
+%                             
+% «indice» (to ".indice")
+% (mpgp 43 "indice")
+% (mpg     "indice")
+
+\directlua{PPV(psections)}
+\mypsectionstex
+
+\end{document}
+
+
+
+
+%   ____ _ _   
+%  / ___(_) |_ 
+% | |  _| | __|
+% | |_| | | |_ 
+%  \____|_|\__|
+%              
+% «git»  (to ".git")
+% (find-es "math" "material-para-GA-git")
+
+
+
+
+
+% Local Variables:
+% coding: utf-8-unix
+% modes: (latex-mode sh-mode)
+% ee-tla: "mpg"
+% End:
