@@ -3,16 +3,21 @@
 -- http://angg.twu.net/LATEX/edrxtikz.lua.html
 --  (find-angg        "LATEX/edrxtikz.lua")
 --
+-- This is a mess.
+-- Version: 2021feb08
 
 -- «.Line»		(to "Line")
 -- «.Line-test»		(to "Line-test")
 -- «.Ellipse»		(to "Ellipse")
+-- «.Ellipse-test»	(to "Ellipse-test")
 -- «.Hyperbole»		(to "Hyperbole")
+-- «.Hyperbole-test»	(to "Hyperbole-test")
 -- «.Hyperbole.fromOxe»	(to "Hyperbole.fromOxe")
 -- «.Parabola»		(to "Parabola")
+-- «.Parabola-test»	(to "Parabola-test")
 -- «.drawdots0»		(to "drawdots0")
 
-loaddednat6()  -- (find-angg "LUA/lua50init.lua" "loaddednat6")
+loaddednat6("dednat6/")  -- (find-angg "LUA/lua50init.lua" "loaddednat6")
 seqndraw = function (a, b, n, f, sep)
     local A = {}
     for i=0,n do table.insert(A, tostring(f(a + (b-a)*(i/n)))) end
@@ -132,6 +137,7 @@ Ellipse = Class {
   },
 }
 
+-- «Ellipse-test»  (to ".Ellipse-test")
 --[[
  (eepitch-lua51)
  (eepitch-kill)
@@ -204,6 +210,8 @@ Hyperbole = Class {
       end,
   },
 }
+
+-- «Hyperbole-test»  (to ".Hyperbole-test")
 --[[
  (eepitch-lua51)
  (eepitch-kill)
@@ -294,6 +302,8 @@ Parabola = Class {
       end,
   },
 }
+
+-- «Parabola-test»  (to ".Parabola-test")
 --[[
  (eepitch-lua51)
  (eepitch-kill)

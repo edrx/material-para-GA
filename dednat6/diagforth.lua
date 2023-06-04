@@ -4,7 +4,7 @@
 --   http://angg.twu.net/dednat6/dednat6/diagforth.lua
 --           (find-angg "dednat6/dednat6/diagforth.lua")
 -- Author: Eduardo Ochs <eduardoochs@gmail.com>
--- Version: 2019oct01
+-- Version: 2021feb26
 -- License: GPL3
 --
 
@@ -21,14 +21,17 @@
 -- «.enddiagram»	(to "enddiagram")
 -- «.BOX»		(to "BOX")
 -- «.nodes»		(to "nodes")
+-- «.arrow-modifiers»	(to "arrow-modifiers")
 -- «.dxyren»		(to "dxyren")
 -- «.arrows»		(to "arrows")
 -- «.2D-and-2Dx»	(to "2D-and-2Dx")
 
 -- «.run»		(to "run")
+-- «.dxyrun»		(to "dxyrun")
 -- «.forths»		(to "forths")
 
 -- «.relplace»		(to "relplace")
+-- «.newnode:at:»	(to "newnode:at:")
 
 -- «.high-level-tests»	(to "high-level-tests")
 -- «.low-level-tests»	(to "low-level-tests")
@@ -50,10 +53,10 @@ forths["@"] = function () ds:push(depths:metapick(1 + getwordasluaexpr())) end
 
 
 
--- «run»  (to ".run")
-
--- «diag-head»  (to ".diag-head")
--- (find-dn6file "segments.lua" "tosegments =")
+-- «run»     (to ".run")
+-- «dxyrun»  (to ".dxyrun")
+-- Used mainly by: (find-dn6 "heads6.lua" "diag-head")
+--
 dxyrun = function (str, pos)
     setsubj(str, pos or 1)
     while getword() do
@@ -65,13 +68,6 @@ dxyrun = function (str, pos)
     end
   end
 
--- Moved to: (find-dn6 "heads6.lua" "diag-head")
--- registerhead "%D" {
---   name = "diag",
---   action = function ()
---       dxyrun(untabify(linestr), 3)
---     end,
--- }
 
 
 
@@ -134,7 +130,7 @@ torelativenumber = function (prevn, str)
     if not sign then return end           -- fail
     local n = tonumber(strn)
     if sign == "" then return n end
-    if sign == "+" then return prevn + n else return prev - n end
+    if sign == "+" then return prevn + n else return prevn - n end
   end
 
 dxy2Dx = function ()
@@ -182,6 +178,7 @@ forths["node:"] = function ()
 forths[".tex="] = function () ds:pick(0).tex = getword() or werror() end
 forths[".TeX="] = function () ds:pick(0).TeX = getword() or werror() end
 
+-- «arrow-modifiers»  (to ".arrow-modifiers")
 -- (find-dn4 "dednat4.lua" "diag-arrows")
 forths[".p="] = function () ds:pick(0).placement = getword() or werror() end
 forths[".slide="] = function () ds:pick(0).slide = getword() or werror() end
@@ -270,6 +267,12 @@ forths["loop"] = function ()
 forths["x+="] = function () ds:pick(0).x = ds:pick(0).x + getwordasluaexpr() end
 forths["y+="] = function () ds:pick(0).y = ds:pick(0).y + getwordasluaexpr() end
 
+forths["xy+="] = function ()
+    local dx,dy = getwordasluaexpr(), getwordasluaexpr()
+    ds:pick(0).x = ds:pick(0).x + dx
+    ds:pick(0).y = ds:pick(0).y + dy
+  end
+
 -- «relplace»  (to ".relplace")
 -- (find-LATEXfile "2017elephant.tex" "relplace")
 forths["relplace"] = function ()
@@ -282,11 +285,56 @@ forths["relplace"] = function ()
 
 
 
+-- «newnode:at:»  (to ".newnode:at:")
+-- See: (find-es "dednat" "at:")
+-- New, 2021feb26.
+-- To do: move Node and storenode to the right places.
+
+Node = Class {
+  type       = "Node",
+  __tostring = function (node) return mytostring(node) end,
+  __index    = {
+    v    = function (node) return v(node.x,node.y) end,
+    setv = function (node,v) node.x=v[1]; node.y=v[2]; return node end,
+  },
+}
+storenode = function (node)
+    node = Node(node)
+    table.insert(nodes, node)
+    node.noden = #nodes         -- nodes[node.noden] == node
+    if node.tag then            -- was: "and not nodes[node.tag]"...
+      nodes[node.tag] = node    -- nodes[node.tag] == node
+    end
+    return node
+  end
+
+tow = function (vv, ww, a, b)
+    local diff = ww-vv
+    local diffrot90 = v(diff[2], -diff[1])
+    return vv + (a or 0.5)*diff + (b or 0)*diffrot90
+  end
+ats_to_vs = function (str)
+    return (str:gsub("@(%w+)", "nodes[\"%1\"]:v()"))
+  end
+forths["newnode:"] = function ()
+    local tag = getword()
+    ds:push(storenode({tag=tag, TeX=phantomnode}))
+  end
+forths["at:"] = function ()
+    local node = ds:pick(0)
+    local vexpr = getword()
+    node:setv(expr(ats_to_vs(vexpr)))
+  end
+
+
+
+
+
 -- «high-level-tests» (to ".high-level-tests")
 --[==[
- (eepitch-lua51)
- (eepitch-kill)
- (eepitch-lua51)
+• (eepitch-lua51)
+• (eepitch-kill)
+• (eepitch-lua51)
 require "diagforth"
 forths["PP"] = function () PP(getwordasluaexpr()) end
 run = dxyrun
@@ -314,9 +362,9 @@ run [[    @ 1 @ 0 =>       ]]
 print(arrows_to_defdiag("foo"))
 
 
- (eepitch-lua51)
- (eepitch-kill)
- (eepitch-lua51)
+• (eepitch-lua51)
+• (eepitch-kill)
+• (eepitch-lua51)
 require "diagforth"
 forths["PP"] = function () PP(getwordasluaexpr()) end
 run = dxyrun
@@ -339,9 +387,9 @@ run [[ )) ]]
 
 -- «low-level-tests» (to ".low-level-tests")
 --[==[
- (eepitch-lua51)
- (eepitch-kill)
- (eepitch-lua51)
+• (eepitch-lua51)
+• (eepitch-kill)
+• (eepitch-lua51)
 require "diagforth"
 storenode {TeX="a", tag="a", x=100, y=100}
 storenode {TeX="b", tag="b", x=140, y=100}

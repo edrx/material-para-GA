@@ -1,10 +1,14 @@
--- rect.lua: concatenable ascii rectangles, for building trees in ascii.
+-- rect.lua: concatenable ascii rectangles, for drawing trees in ascii.
+-- This thing supports both "syntax trees" and "deduction trees".
 -- This file:
 -- http://angg.twu.net/dednat6/dednat6/rect.lua
 -- http://angg.twu.net/dednat6/dednat6/rect.lua.html
 --         (find-angg "dednat6/dednat6/rect.lua")
+-- Author: Eduardo Ochs <eduardoochs@gmail.com>
+-- Version: 2020aug24
+-- License: GPL3
 --
--- Example:
+-- Some examples:
 --
 --   > = synttorect {[0]="+", {[0]="*", "2", "3"}, {[0]="*", "4", "5"}}
 --   +_____.
@@ -12,6 +16,44 @@
 --   *__.  *__.
 --   |  |  |  |
 --   2  3  4  5
+--
+--   > = dedtorect {[0]="+", {[0]="*", "2", "3"}, {[0]="*", "4", "5"}}
+--   2  3  4  5
+--   ----  ----
+--   *     *
+--   -------
+--   +
+--
+--   > = dedtorect {[0]="a", "b", {[0]="c", label="foo", bar="=", "d", "e"}}
+--      d  e
+--      ====foo
+--   b  c
+--   ----
+--   a
+--
+-- This is a hacking tool that is currently mainly used by:
+--
+--   (find-dn6 "treetex.lua")
+--   (find-dn6 "treetex.lua" "TreeNode")
+--   (find-dn6 "treetex.lua" "TreeNode" "__tostring")
+--   (find-dn6 "treetex.lua" "TreeNode" "return dedtorect(tn)")
+--   (find-dn6 "treetex.lua" "ProofSty-test")
+--   (find-dn6 "treetex.lua" "BussProofs-test")
+--
+-- The function dedtorect, defined below, accepts both Lua tables in
+-- the format above, that is easy to write by hand, and TreeNode
+-- objects, that are harder to write by hand but are easier to use in
+-- functions. The understand how the conversion to TreeNodes works,
+-- see:
+--
+--   (find-dn6 "treetex.lua" "TreeNode")
+--   (find-dn6 "treetex.lua" "TreeNode" "from =")
+--
+-- At this moment Dednat6 only builds TreeNode objects by parsing
+-- %:-blocks in .tex files, and only uses these TreeNode objects to
+-- generate "\defded"s, but at one point I thought that I could need
+-- to generate trees from programs, and edit them in Lua... so I wrote
+-- this library.
 
 -- «.Rect»			(to "Rect")
 -- «.Rect-tests»		(to "Rect-tests")
@@ -21,16 +63,14 @@
 -- «.dedtorect»			(to "dedtorect")
 -- «.dedtorect-tests»		(to "dedtorect-tests")
 
-
-
 --  ____           _   
 -- |  _ \ ___  ___| |_ 
 -- | |_) / _ \/ __| __|
 -- |  _ <  __/ (__| |_ 
 -- |_| \_\___|\___|\__|
 --                     
--- This is a total rewrite (different data structures, methods, etc) of:
--- (find-dn6 "gab.lua" "Rect")
+-- This is my n-th rewrite of a class of ascii rectangles...
+-- See: (find-dn6 "edrxlib.lua" "Rect")
 -- «Rect» (to ".Rect")
 
 copy = function (A)
@@ -50,6 +90,16 @@ Rect = Class {
   type = "Rect",
   new  = function (str) return Rect(splitlines(str)) end,
   rep  = function (str, n) local r=Rect{}; for i=1,n do r[i]=str end; return r end,
+  from = function (o) return type(o) == "string" and Rect.new(o) or o end,
+  --
+  -- A hack to let us build syntax trees very quickly:
+  syntree = function (op, a1, ...)
+      if not a1 then return Rect.from(op) end
+      local r = Rect.from(a1):syn1(op)
+      for _,an in ipairs({...}) do r = r:synconcat(Rect.from(an)) end
+      return r
+    end,
+  --
   __tostring = function (rect) return rect:tostring() end,
   __concat = function (r1, r2) return torect(r1):concat(torect(r2)) end,
   __index = {
@@ -108,9 +158,9 @@ Rect = Class {
 
 -- «Rect-tests» (to ".Rect-tests")
 --[[
- (eepitch-lua51)
- (eepitch-kill)
- (eepitch-lua51)
+• (eepitch-lua51)
+• (eepitch-kill)
+• (eepitch-lua51)
 dofile "rect.lua"
 
 r = Rect.new "a\nbb\nccc"
@@ -124,12 +174,26 @@ PP(r)
 = r:copy():push2("op", "|"):pad0(1, r:width()+1, "_")..r:copy():push2(".", "|")
 = "This => "..r.." <="
 
- (ex "rect-0")
+abc = Rect.new "a\nbb\nccc"
+= abc
+PP(abc)
+= abc:syn1("op")
+= abc:syn1("op"):synconcat(abc)
+= abc:syn1("op"):synconcat(Rect.from "d")
+= abc:syn1("op"):synconcat(Rect.from(abc))
+
+syntree = Rect.syntree
+= syntree "a"
+= syntree("a", "b")
+= syntree(abc)
+= syntree("a", abc)
+= syntree("a", abc, "d")
+= syntree("a", abc, "d", abc)
 
 -- «Rect-ded-tests» (to ".Rect-ded-tests")
- (eepitch-lua51)
- (eepitch-kill)
- (eepitch-lua51)
+• (eepitch-lua51)
+• (eepitch-kill)
+• (eepitch-lua51)
 dofile "rect.lua"
 abc   = Rect.new("a  b\n----\nc")
 defgh = Rect.new("   d\n   -\ne  f  g\n-------\nh")
@@ -145,8 +209,6 @@ defgh = Rect.new("   d\n   -\ne  f  g\n-------\nh")
 = defgh:dedconcat(abc):dedaddroot("iiiiiiiiiii", "=", "foo")
 = Rect.new("")
 = Rect.new(""):dedaddroot("iiiii", "=", "foo")
-
- (ex "rect-1")
 
 --]]
 
@@ -173,16 +235,14 @@ synttorect = function (o)
 
 -- «synttorect-tests» (to ".synttorect-tests")
 --[[
- (eepitch-lua51)
- (eepitch-kill)
- (eepitch-lua51)
+• (eepitch-lua51)
+• (eepitch-kill)
+• (eepitch-lua51)
 dofile "rect.lua"
 tree = {[0]="+", {[0]="*", "2", "3"}, {[0]="*", "4", "5"}}
 tree = {[0]="+", {[0]="*", "2", "3"}, {[0]="*", "4", "5"}, bar="=", label="hi"}
 = synttorect(tree)
 = dedtorect (tree)
-
- (ex "rect-synt")
 
 --]]
 
@@ -213,9 +273,9 @@ dedtorect = function (o)
 -- «dedtorect-tests» (to ".dedtorect-tests")
 -- See: (find-dn6 "treesegs.lua" "allsegments-tests")
 --[[
- (eepitch-lua51)
- (eepitch-kill)
- (eepitch-lua51)
+• (eepitch-lua51)
+• (eepitch-kill)
+• (eepitch-lua51)
 dofile "rect.lua"
 = dedtorect "a"
 = dedtorect {[0]="a"}
@@ -224,6 +284,8 @@ dofile "rect.lua"
 = dedtorect {[0]="a", "b", {[0]="c"}}
 = dedtorect {[0]="a", "b", {[0]="c", bar="-"}}
 = dedtorect {[0]="a", "b", {[0]="c", label="foo"}}
+= dedtorect {[0]="a", "b", {[0]="c", label="foo", bar="=", "d", "e"}}
+= dedtorect {[0]="a", "b", {[0]="c", label="foo", "d", "e"}}
 = dedtorect {[0]="a", "b", {[0]="c", "d", "e"}}
 
 --]]

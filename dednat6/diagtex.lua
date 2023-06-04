@@ -1,11 +1,91 @@
--- diagtex.lua:
+-- diagtex.lua: generate TeX code from 2D diagrams.
 -- This file:
 --   http://angg.twu.net/dednat6/dednat6/diagtex.lua.html
 --   http://angg.twu.net/dednat6/dednat6/diagtex.lua
 --           (find-angg "dednat6/dednat6/diagtex.lua")
 -- Author: Eduardo Ochs <eduardoochs@gmail.com>
--- Version: 2019aug12
+-- Version: 2020mar17
 -- License: GPL3
+
+
+-- This file implements the default method of generating TeX code from
+-- 2D diagrams. In other terms, this file implements the "default
+-- back-end for 2D diagrams" - the "diagxy back-end". Until feb/2020
+-- this was the only back-end for 2D diagrams in dednat6; for
+-- information on the newer back-ends see the comments at the end of
+-- this section.
+--
+-- The section 2.2 of the TUGBoat article, at
+--
+--   http://angg.twu.net/dednat6/tugboat-rev2.pdf#page=2
+--
+-- explains the diagxy back-end in detail. In short, when dednat6
+-- processes this "%D"-block,
+--
+--   %D diagram T:F->G
+--   %D 2Dx     100 +20 +20
+--   %D 2D  100     A
+--   %D 2D         /|\
+--   %D 2D        v v v
+--   %D 2D  +30 FA --> GA
+--   %D 2D
+--   %D (( A FA |-> A GA |->
+--   %D    FA GA -> .plabel= b TA
+--   %D    A FA GA midpoint -->
+--   %D ))
+--   %L print("nodes:"); print(nodes)
+--   %L print("arrows:"); print(arrows)
+--   %D enddiagram
+--
+-- the "print"s in the two "%L" line print to stdout the contents of
+-- the tables "nodes" and "arrows", which are:
+--
+--   nodes:
+--   { 1={"noden"=1, "tag"="A", "x"=120, "y"=100},
+--     2={"noden"=2, "tag"="FA", "x"=100, "y"=130},
+--     3={"noden"=3, "tag"="-->", "x"=120, "y"=130},
+--     4={"noden"=4, "tag"="GA", "x"=140, "y"=130},
+--     5={"TeX"="\\phantom{O}", "noden"=5, "x"=120.0, "y"=130.0},
+--     "-->"={"noden"=3, "tag"="-->", "x"=120, "y"=130},
+--     "A"={"noden"=1, "tag"="A", "x"=120, "y"=100},
+--     "FA"={"noden"=2, "tag"="FA", "x"=100, "y"=130},
+--     "GA"={"noden"=4, "tag"="GA", "x"=140, "y"=130}
+--   }
+--   arrows:
+--   { 1={"arrown"=1, "from"=1, "shape"="|->", "to"=2},
+--     2={"arrown"=2, "from"=1, "shape"="|->", "to"=4},
+--     3={"arrown"=3, "from"=2, "label"="TA", "placement"="b", "shape"="->", "to"=4},
+--     4={"arrown"=4, "from"=1, "shape"="-->", "to"=5}
+--   }
+--
+-- and the "enddiagram" at the last "%D" line "outputs" this:
+--
+--   \defdiag{T:F->G}{
+--     \morphism(300,0)/|->/<-300,-450>[{A}`{FA};]
+--     \morphism(300,0)/|->/<300,-450>[{A}`{GA};]
+--     \morphism(0,-450)|b|/->/<600,0>[{FA}`{GA};{TA}]
+--     \morphism(300,0)/-->/<0,-450>[{A}`{\phantom{O}};]
+--   }
+--
+-- i.e., this is sent to both stdout and the TeX interpreter. The
+-- function "output" is explained the section 3.1 of the TUGBoat
+-- article.
+--
+--
+--
+-- Other back-ends for 2D diagrams
+-- ===============================
+-- In feb/2020 I finally implemented another (experimental) back-end
+-- for 2D diagrams - the "Tikz back-end". See:
+--
+--   http://angg.twu.net/dednat6.html#other-back-ends
+--   http://angg.twu.net/dednat6/demo-tikz.pdf
+--   http://angg.twu.net/dednat6/demo-tikz.tex.html
+--   http://angg.twu.net/dednat6/dednat6/diagtikz.lua.html
+--    (find-angg        "dednat6/dednat6/diagtikz.lua")
+
+
+
 
 -- «.coords»		(to "coords")
 -- «.arrow_to_TeX»	(to "arrow_to_TeX")
@@ -16,6 +96,8 @@
 -- «.DxyLoop»		(to "DxyLoop")
 -- «.arrows_to_defdiag»	(to "arrows_to_defdiag")
 -- «.arrows-tests»	(to "arrows-tests")
+
+
 
 
 require "eoo"         -- (find-dn6 "eoo.lua" "over")
@@ -97,9 +179,9 @@ arrow_to_TeX_pshL = function (arrow)
 -- «arrow_to_TeX-test» (to ".arrow_to_TeX-test")
 -- (find-es "diagxy" "shape")
 --[==[
- (eepitch-lua51)
- (eepitch-kill)
- (eepitch-lua51)
+• (eepitch-lua51)
+• (eepitch-kill)
+• (eepitch-lua51)
 require "diagtex"
 test = function (A) print(arrow_to_TeX(A)) end
 storenode {TeX="a", tag="a", x=100, y=100}
@@ -108,8 +190,6 @@ test {from="a", to="b", shape="|->"}
 test {from="a", to="b", shape="|->", label="up", placement="a"}
 test {from="a", to="b", shape="|->", label="up", placement="a", slide="5pt"}
 test {from="a", to="b", shape="|->", label="up", lplacement="_(0.42)"}  -- err?
-
- (ex "diagtex-0")
 
 --]==]
 
@@ -179,9 +259,9 @@ arrows_to_defdiagprep = function (name, prep, hyperlink)
 
 -- «arrows-tests» (to ".arrows-tests")
 --[==[
- (eepitch-lua51)
- (eepitch-kill)
- (eepitch-lua51)
+• (eepitch-lua51)
+• (eepitch-kill)
+• (eepitch-lua51)
 require "diagtex"
 storenode {TeX="a", tag="a", x=100, y=100}
 storenode {TeX="b", tag="b", x=140, y=100}
@@ -199,9 +279,8 @@ print(arrows[4]:TeX())
 print(arrows_to_TeX())
 print(arrows_to_defdiag("??", "  % foo"))
 
- (ex "diagtex-1")
-
 --]==]
+
 
 
 

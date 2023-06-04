@@ -69,7 +69,7 @@ TexLines = Class {
       return TexLines({name=name}):setlines(lines)
     end,
   read = function (fname)
-      return TexLines.new(fnamenondirectory(fname), ee_readfile(fname))
+      return TexLines.new(fnamenondirectory(fname), unixnewlines(ee_readfile(fname)))
     end,
   test = function (str)
       local tr = {["L"]="%L", ["D"]="%D", [":"]="%:", ["p"]="\\pu"}
@@ -116,9 +116,9 @@ TexLines = Class {
 
 
 --[[
- (eepitch-lua51)
- (eepitch-kill)
- (eepitch-lua51)
+• (eepitch-lua51)
+• (eepitch-kill)
+• (eepitch-lua51)
 dofile "block.lua"
 heads = {["%L"]={}, ["%D"]={}, ["%:"]={}}
 
@@ -218,16 +218,16 @@ Block = Class {
         return bl
       end,
     --
-    getblock = function (bl)
+    getblock = function (bl, headwidth)
         local i,j,head = lastheadblock.i, lastheadblock.j, lastheadblock.head
         local A = {}
         for k=i,j do
-            table.insert(A, texlines:line(k):sub(#head+1))
+            table.insert(A, texlines:line(k):sub((headwidth or #head)+1))
           end
         return i,j,A
       end,
-    getblockstr = function (bl)
-        local i,j,A = tf:getblock()
+    getblockstr = function (bl, headwidth)
+        local i,j,A = tf:getblock(headwidth)
         return i,j,table.concat(A, "\n")
       end,
     -- hyperlink = function (bl)
@@ -242,9 +242,9 @@ Block = Class {
 
 
 --[[
- (eepitch-lua51)
- (eepitch-kill)
- (eepitch-lua51)
+• (eepitch-lua51)
+• (eepitch-kill)
+• (eepitch-lua51)
 dofile "block.lua"
 heads = {["%L"]="%L", ["%D"]="%D", ["%:"]="%:"}
 Block.__index.processheadblock = function (bl) print(mytostring(bl)) end
@@ -288,9 +288,9 @@ texfile = function (fname)
 pu = function (puline) tf:processuntil(puline or tex.inputlineno) end
 
 --[[
- (eepitch-lua51)
- (eepitch-kill)
- (eepitch-lua51)
+• (eepitch-lua51)
+• (eepitch-kill)
+• (eepitch-lua51)
 dofile "block.lua"
 texfile0("../2018tugboat.tex")
 = tf

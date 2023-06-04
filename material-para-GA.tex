@@ -1,83 +1,94 @@
-% (find-angg "LATEX/material-para-GA.tex")
-% (defun c () (interactive) (find-LATEXsh "lualatex -record material-para-GA.tex"))
-% (defun d () (interactive) (find-xpdfpage "~/LATEX/material-para-GA.pdf"))
-% (defun b () (interactive) (find-zsh "bibtex material-para-GA; makeindex material-para-GA"))
+% (find-LATEX "material-para-GA.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record material-para-GA.tex" :end))
+% (defun C () (interactive) (find-LATEXSH "lualatex material-para-GA.tex" "Success!!!"))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/material-para-GA.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/material-para-GA.pdf"))
 % (defun e () (interactive) (find-LATEX "material-para-GA.tex"))
 % (defun u () (interactive) (find-latex-upload-links "material-para-GA"))
-% (find-xpdfpage "~/LATEX/material-para-GA.pdf")
+% (defun v () (interactive) (find-2a '(e) '(d)))
+% (defun cv () (interactive) (C) (ee-kill-this-buffer) (v) (g))
+% (defun d0 () (interactive) (find-ebuffer "material-para-GA.pdf"))
+%          (code-eec-LATEX "material-para-GA")
+% (find-pdf-page   "~/LATEX/material-para-GA.pdf")
 % (find-sh0 "cp -v  ~/LATEX/material-para-GA.pdf /tmp/")
 % (find-sh0 "cp -v  ~/LATEX/material-para-GA.pdf /tmp/pen/")
 %   file:///home/edrx/LATEX/material-para-GA.pdf
 %               file:///tmp/material-para-GA.pdf
 %           file:///tmp/pen/material-para-GA.pdf
-% http://angg.twu.net/LATEX/material-para-GA.pdf
+%  http://anggtwu.net/LATEX/material-para-GA.pdf
+% (find-TH "material-para-GA")
+% (find-LATEX "2019.mk")
+% (find-lualatex-links "material-para-GA" "mpg")
 
-% «.Psection»			(to "Psection")
-% «.mypsection»			(to "mypsection")
-% «.picturedots»		(to "picturedots")
-% «.pictOuv»			(to "pictOuv")
-% «.pictABCDE»			(to "pictABCDE")
-% «.cells»			(to "cells")
-% «.tikz-defs»			(to "tikz-defs")
-% «.pictureFxy»			(to "pictureFxy")
-% «.calcpoints»			(to "calcpoints")
+% «.Psection»				(to "Psection")
+% «.mypsection»				(to "mypsection")
+% «.picturedots»			(to "picturedots")
+% «.pictOuv»				(to "pictOuv")
+% «.pictABCDE»				(to "pictABCDE")
+% «.cells»				(to "cells")
+% «.tikz-defs»				(to "tikz-defs")
+% «.pictureFxy»				(to "pictureFxy")
+% «.calcpoints»				(to "calcpoints")
 %
-% «.title-page»			(to "title-page")
-% «.introducao»			(to "introducao")
+% «.title-page»				(to "title-page")
+% «.introducao»				(to "introducao")
+%   «.for-children»			(to "for-children")
+%   «.oi-reginaldo»			(to "oi-reginaldo")
 %
-% «.coisas-muito»		(to "coisas-muito")
-% «.dicas»			(to "dicas")
-% «.substituicao»		(to "substituicao")
-% «.matrizes»			(to "matrizes")
-% «.comprehension»		(to "comprehension")
-% «.comprehension-tables»	(to "comprehension-tables")
-% «.comprehension-ex123»	(to "comprehension-ex123")
-% «.comprehension-prod»		(to "comprehension-prod")
-% «.comprehension-gab»		(to "comprehension-gab")
-% «.retas»			(to "retas")
-% «.pontos-e-vetores»		(to "pontos-e-vetores")
-% «.pontos-e-vetores-graficamente»  (to "pontos-e-vetores-graficamente")
-% «.retas-de-novo»		(to "retas-de-novo")
-% «.intersecoes-de-retas»	(to "intersecoes-de-retas")
-% «.sistemas-de-coordenadas»	(to "sistemas-de-coordenadas")
-% «.sistemas-de-coordenadas-2»	(to "sistemas-de-coordenadas-2")
-% «.sistemas»			(to "sistemas")
-% «.sistemas-2»			(to "sistemas-2")
-% «.varias-coords»		(to "varias-coords")
-% «.varias-coords-2»		(to "varias-coords-2")
-% «.Fxy»			(to "Fxy")
-% «.pitagoras»			(to "pitagoras")
-% «.normas»			(to "normas")
-% «.uma-demonstracao-errada»	(to "uma-demonstracao-errada")
-% «.propriedades-basicas»	(to "propriedades-basicas")
-% «.dicas-V-F-justifique»	(to "dicas-V-F-justifique")
-% «.propriedades-basicas-2»	(to "propriedades-basicas-2")
-% «.propriedades-de-normas»	(to "propriedades-de-normas")
-% «.demonstracao-comentada»	(to "demonstracao-comentada")
-% «.projecao-ortogonal»		(to "projecao-ortogonal")
-% «.projecoes-no-olhometro»	(to "projecoes-no-olhometro")
-% «.propriedades-da-projecao»	(to "propriedades-da-projecao")
-% «.senos-e-cossenos»		(to "senos-e-cossenos")
-% «.areas-e-determinantes»	(to "areas-e-determinantes")
-% «.areas-e-determinantes-2»	(to "areas-e-determinantes-2")
-% «.pontos-mais-proximos»	(to "pontos-mais-proximos")
-% «.circulos»			(to "circulos")
-% «.circulos-2»			(to "circulos-2")
-% «.decomp-ang»			(to "decomp-ang")
-% «.distancia-ponto-reta»	(to "distancia-ponto-reta")
+% «.coisas-muito»			(to "coisas-muito")
+% «.dicas»				(to "dicas")
+% «.substituicao»			(to "substituicao")
+% «.matrizes»				(to "matrizes")
+% «.comprehension»			(to "comprehension")
+% «.comprehension-tables»		(to "comprehension-tables")
+% «.comprehension-ex123»		(to "comprehension-ex123")
+% «.comprehension-prod»			(to "comprehension-prod")
+% «.comprehension-gab»			(to "comprehension-gab")
+% «.retas»				(to "retas")
+% «.pontos-e-vetores»			(to "pontos-e-vetores")
+% «.pontos-e-vetores-graficamente»	(to "pontos-e-vetores-graficamente")
+% «.retas-de-novo»			(to "retas-de-novo")
+% «.intersecoes-de-retas»		(to "intersecoes-de-retas")
+%   «.intersecoes-tikz»			(to "intersecoes-tikz")
+% «.sistemas-de-coordenadas»		(to "sistemas-de-coordenadas")
+% «.sistemas-de-coordenadas-2»		(to "sistemas-de-coordenadas-2")
+% «.sistemas»				(to "sistemas")
+% «.sistemas-2»				(to "sistemas-2")
+% «.varias-coords»			(to "varias-coords")
+% «.varias-coords-2»			(to "varias-coords-2")
+% «.Fxy»				(to "Fxy")
+% «.pitagoras»				(to "pitagoras")
+% «.normas»				(to "normas")
+% «.uma-demonstracao-errada»		(to "uma-demonstracao-errada")
+% «.propriedades-basicas»		(to "propriedades-basicas")
+% «.dicas-V-F-justifique»		(to "dicas-V-F-justifique")
+% «.propriedades-basicas-2»		(to "propriedades-basicas-2")
+% «.propriedades-de-normas»		(to "propriedades-de-normas")
+% «.demonstracao-comentada»		(to "demonstracao-comentada")
+% «.projecao-ortogonal»			(to "projecao-ortogonal")
+% «.projecoes-no-olhometro»		(to "projecoes-no-olhometro")
+% «.propriedades-da-projecao»		(to "propriedades-da-projecao")
+% «.senos-e-cossenos»			(to "senos-e-cossenos")
+% «.areas-e-determinantes»		(to "areas-e-determinantes")
+% «.areas-e-determinantes-2»		(to "areas-e-determinantes-2")
+% «.pontos-mais-proximos»		(to "pontos-mais-proximos")
+% «.circulos»				(to "circulos")
+% «.circulos-2»				(to "circulos-2")
+% «.decomp-ang»				(to "decomp-ang")
+% «.distancia-ponto-reta»		(to "distancia-ponto-reta")
 %
-% «.conicas-e-R3»		(to "conicas-e-R3")
+% «.conicas-e-R3»			(to "conicas-e-R3")
 %
-% «.areas-em-R3»		(to "areas-em-R3")
-% «.R3-retas-e-planos»		(to "R3-retas-e-planos")
-% «.R3-retas-e-planos-2»	(to "R3-retas-e-planos-2")
-% «.determinantes-em-R3»	(to "determinantes-em-R3")
-% «.determinantes-em-R3-2»	(to "determinantes-em-R3-2")
-% «.cross-prod»			(to "cross-prod")
-% «.alguns-usos-do-x»		(to "alguns-usos-do-x")
+% «.areas-em-R3»			(to "areas-em-R3")
+% «.R3-retas-e-planos»			(to "R3-retas-e-planos")
+% «.R3-retas-e-planos-2»		(to "R3-retas-e-planos-2")
+% «.determinantes-em-R3»		(to "determinantes-em-R3")
+% «.determinantes-em-R3-2»		(to "determinantes-em-R3-2")
+% «.cross-prod»				(to "cross-prod")
+% «.alguns-usos-do-x»			(to "alguns-usos-do-x")
 %
-% «.indice»			(to "indice")
-% «.git»			(to "git")
+% «.indice»				(to "indice")
+% «.git»				(to "git")
 
 \documentclass[oneside]{book}
 \usepackage[colorlinks,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
@@ -92,18 +103,20 @@
 \usepackage{boxedminipage}
 %
 % (find-dn6 "preamble6.lua" "preamble0")
-\usepackage{proof}   % For derivation trees ("%:" lines)
-\input diagxy        % For 2D diagrams ("%D" lines)
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
 %\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
 %
-\usepackage{edrx15}               % (find-angg "LATEX/edrx15.sty")
-\input edrxaccents.tex            % (find-angg "LATEX/edrxaccents.tex")
-\input edrxchars.tex              % (find-LATEX "edrxchars.tex")
-\input edrxheadfoot.tex           % (find-dn4ex "edrxheadfoot.tex")
+\usepackage{edrx21}               % (find-LATEX "edrx21.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrx21chars.tex            % (find-LATEX "edrx21chars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
 \input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
 %
 \begin{document}
 
+\def\drafturl{http://anggtwu.net/material-para-GA.html}
+\def\draftfooter{\footnotesize \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
 
 \catcode`\^^J=10
 \directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
@@ -326,12 +339,12 @@
 
 \def\tikzp#1{\mat{\begin{tikzpicture}#1\end{tikzpicture}}}
 
-\def\mydraw       #1;{\draw [mycurve]  \expr{#1};}
-\def\mydot        #1;{\node [cldot] at \expr{#1} [] {};}
-\def\myldot #1 #2 #3;{\node [cldot] at \expr{#1} [label=#2:${#3}$] {};}
-\def\myseg     #1 #2;{\draw [mycurve]  \expr{#1} -- \expr{#2};}
-\def\mylabel #1 #2 #3;{\node []     at \expr{#1} [label=#2:${#3}$] {};}
-\def\myseggrid  #1 #2;{\draw [grid]    \expr{#1} -- \expr{#2};}
+\def\mydraw        #1;{\draw [mycurve]  \expr{#1};}
+\def\mydot         #1;{\node [cldot] at \expr{#1} [] {};}
+\def\myldot  #1 #2 #3;{\node [cldot] at \expr{#1} [label=#2:${#3}$] {};}
+\def\myseg      #1 #2;{\draw [mycurve]  \expr{#1} -- \expr{#2};}
+\def\mylabel #1 #2 #3;{\node []      at \expr{#1} [label=#2:${#3}$] {};}
+\def\myseggrid  #1 #2;{\draw [grid]     \expr{#1} -- \expr{#2};}
 
 % \myvgrid, for things like this:
 % (find-xpdfpage "~/LATEX/2016-1-GA-material.pdf" 6)
@@ -397,6 +410,8 @@
 %   |_| |_|\__|\__,_|_|\___/ 
 %                            
 % «title-page» (to ".title-page")
+% (mpgp 1 "title-page")
+% (mpga   "title-page")
 % (find-LATEX "2018tug-dednat6.tex" "title-page")
 
 \thispagestyle{empty}
@@ -409,7 +424,7 @@
 %\includegraphics[width=2cm]{2018tug-edrx-hoop.png}\\
 Eduardo Ochs -
 $〈${\tt eduardoochs@gmail.com}$〉$ \\
-\url{http://angg.twu.net/material-para-GA.html} \\
+\url{http://anggtwu.net/material-para-GA.html} \\
 RCN/CURO/UFF, 21/fev/2020 \\
 \end{tabular}
 
@@ -453,7 +468,7 @@ $$
 \mypsection {introducao} {Introdução}
 
 % (find-TH "material-para-GA")
-%    http://angg.twu.net/material-para-GA.html
+%     http://anggtwu.net/material-para-GA.html
 % file:///home/edrx/TH/L/material-para-GA.html
 
 % Introdução nova:
@@ -534,7 +549,7 @@ aqui... mas aqui tem um link pro PDF dele:
 
 \msk
 
-\url{http://angg.twu.net/LATEX/2018-1-GA-conicas.pdf}
+\url{http://anggtwu.net/LATEX/2018-1-GA-conicas.pdf}
 
 \bsk
 
@@ -549,11 +564,11 @@ links abaixo:
 \msk
 
 % (find-TH "2018.1-GA")
-\url{http://angg.twu.net/2018.1-GA.html}
+\url{http://anggtwu.net/2018.1-GA.html}
 
-\url{http://angg.twu.net/2018.1-GA/2018.1-GA.pdf}
+\url{http://anggtwu.net/2018.1-GA/2018.1-GA.pdf}
 
-\url{http://angg.twu.net/2018.1-GA/Makefile.html}
+\url{http://anggtwu.net/2018.1-GA/Makefile.html}
 
 
 \bsk
@@ -561,6 +576,9 @@ links abaixo:
 \bsk
 
 
+% «for-children»  (to ".for-children")
+% (mpgp 3 "for-children")
+% (mpg    "for-children")
 
 {\bf As mesmas idéias num nível mais alto}
 
@@ -573,11 +591,11 @@ workshops e artigos. Links:
 
 \msk
 
-\url{http://angg.twu.net/math-b.html\#zhas-for-children-2}
+\url{http://anggtwu.net/math-b.html\#zhas-for-children-2}
 
-\url{http://angg.twu.net/logic-for-children-2018.html}
+\url{http://anggtwu.net/logic-for-children-2018.html}
 
-\url{http://angg.twu.net/math-b.html\#2020-tallinn}
+\url{http://anggtwu.net/math-b.html\#2022-md}
 
 
 
@@ -616,7 +634,7 @@ workshops e artigos. Links:
 % ele até de noite):
 
 
-% http://angg.twu.net/2018.1-GA.html
+% http://anggtwu.net/2018.1-GA.html
 % https://geometrianaliticauff.wordpress.com/2015/12/02/bibliografia/
 
 % Reis, G. L. e Silva, V. V. Geometria Analítica. LTC.
@@ -663,6 +681,7 @@ workshops e artigos. Links:
 % $$
 
 
+% «oi-reginaldo»  (to ".oi-reginaldo")
 % https://mail.google.com/mail/ca/u/0/#search/reginaldo/FMfcgxvwzcBWHctfnghRHbxwrQXZqplX
 
 % Oi Reginaldo,
@@ -751,12 +770,12 @@ workshops e artigos. Links:
 % \par Geometria Analítica - material para exercícios
 % \par PURO-UFF - 2018.1 - Eduardo Ochs
 % \par Links importantes:
-% \par \url{http://angg.twu.net/2018.1-GA.html} (página do curso)
-% \par \url{http://angg.twu.net/2018.1-GA/2018.1-GA.pdf} (quadros)
-% \par \url{http://angg.twu.net/LATEX/2018-1-GA-material.pdf} (isto aqui)
+% \par \url{http://anggtwu.net/2018.1-GA.html} (página do curso)
+% \par \url{http://anggtwu.net/2018.1-GA/2018.1-GA.pdf} (quadros)
+% \par \url{http://anggtwu.net/LATEX/2018-1-GA-material.pdf} (isto aqui)
 % \par {\tt eduardoochs@gmail.com} (meu e-mail)
 % \par Dá pra chegar na página do curso googlando por ``Eduardo Ochs'',
-% \par indo pra qualquer subpágina do angg.twu.net, e clicando em ``GA''
+% \par indo pra qualquer subpágina do anggtwu.net, e clicando em ``GA''
 % \par na barra de navegação à esquerda.
 % 
 % }
@@ -841,6 +860,8 @@ que aprender a ler {\bf E A ESCREVER} definições.
 % |____/|_|\___\__,_|___/
 %
 % «dicas» (to ".dicas")
+% (mpgp 5 "dicas")
+% (mpg    "dicas")
 % (gam181p 2 "dicas")
 \mypsection {dicas} {Dicas MUITO IMPORTANTES e pouco óbvias}
 
@@ -900,7 +921,7 @@ jeito bem melhor, não hesite --- reescrever é um ótimo exercício.
 % 8) Estas notas {\sl vão ser} uma versão ampliada e melhorada destas
 % notas aqui, do semestre passado:
 %
-% \url{http://angg.twu.net/LATEX/2017-2-GA-material.pdf}
+% \url{http://anggtwu.net/LATEX/2017-2-GA-material.pdf}
 
 
 
@@ -1138,6 +1159,8 @@ $
 %                      |_|
 %
 % «comprehension» (to ".comprehension")
+% (mpgp 8 "comprehension")
+% (mpga   "comprehension")
 % (gam181p 5 "comprehension")
 \mypsection {comprehension} {``Set comprehensions''}
 
@@ -1510,6 +1533,8 @@ $
 %  \____|\__,_|_.__/ \__,_|_|  |_|\__\___/
 %
 % «comprehension-gab» (to ".comprehension-gab")
+% (mpgp 12 "comprehension-gab")
+% (mpga    "comprehension-gab")
 % (gam181p 9 "comprehension-gab")
 % (to "picturedots")
 \mypsection {comprehension-gab} {Gabarito dos exercícios de set comprehensions}
@@ -1678,6 +1703,8 @@ $
 % |_|  \___|\__\__,_|___/
 %                        
 % «retas» (to ".retas")
+% (mpgp 13 "retas")
+% (mpg     "retas")
 % (gam181p 10 "retas")
 \mypsection {retas} {Retas}
 
@@ -1919,6 +1946,8 @@ a) $\begin{array}[t]{l}
 %                      |___/               
 %
 % «pontos-e-vetores-graficamente» (to ".pontos-e-vetores-graficamente")
+% (mpgp 15 "pontos-e-vetores-graficamente")
+% (mpg     "pontos-e-vetores-graficamente")
 % (gam181p 12 "pontos-e-vetores-graficamente")
 
 \mypsection {pontos-e-vetores-graficamente} {Como representar pontos e vetores graficamente}
@@ -1994,6 +2023,8 @@ $(-1)\vv$ apoiando-os no ponto $B$.
 % |_|  \___|\__\__,_|___/
 %
 % «retas-de-novo» (to ".retas")
+% (mpgp 16 "retas-de-novo")
+% (mpga    "retas-de-novo")
 % (gam181p 13 "retas-de-novo")
 \mypsection {retas-de-novo} {Retas (de novo)}
 
@@ -2095,6 +2126,8 @@ $\vv_4$, $\vv_5$ apoiando todos no ponto $(0,0)$.
 % |_|    |_|_| |_|\__\___|_|    |___/
 %                                    
 % «intersecoes-de-retas» (to ".intersecoes-de-retas")
+% (mpgp 17 "intersecoes-de-retas")
+% (mpga    "intersecoes-de-retas")
 % (gam181p 14 "intersecoes-de-retas")
 % (gaap162 14 "parametrizadas")
 {\setlength{\parindent}{0em}
@@ -2125,6 +2158,8 @@ Graficamente,
 
 \msk
 
+% «intersecoes-tikz»  (to ".intersecoes-tikz")
+%
 %L inter  = v(1,4)
 %L r0, rv = v(3,3), v(2,-1)
 %L s0, sw = v(4,1), v(-1,1)
@@ -2201,6 +2236,8 @@ Obs: no (d) o olhômetro não basta, você vai precisar resolver um sistema.
 %      |/        |/
 %
 % «sistemas-de-coordenadas» (to ".sistemas-de-coordenadas")
+% (mpgp 18 "sistemas-de-coordenadas")
+% (mpga    "sistemas-de-coordenadas")
 % (gam181p 15 "sistemas-de-coordenadas")
 % (gaap162 11 "coordenadas")
 {\setlength{\parindent}{0em}
@@ -2341,6 +2378,8 @@ o nome dele --- por exemplo, ``$(1,2)_Σ$''.
 %      |/        |/                 
 
 % «sistemas-de-coordenadas-2» (to ".sistemas-de-coordenadas-2")
+% (mpgp 19 "sistemas-de-coordenadas-2")
+% (mpga    "sistemas-de-coordenadas-2")
 % (gam181p 16 "sistemas-de-coordenadas-2")
 {\setlength{\parindent}{0em}
 
@@ -2466,6 +2505,8 @@ $
 % |____/|_|___/\__\___|_| |_| |_|\__,_|___/
 %
 % «sistemas» (to ".sistemas")
+% (mpgp 20 "sistemas")
+% (mpga    "sistemas")
 % (gam181p 17 "sistemas")
 % (gaap162 12 "sistemas")
 
@@ -2658,6 +2699,8 @@ $(*)$ e $(**)$.
 %
 
 % «sistemas-2» (to ".sistemas-2")
+% (mpgp 21 "sistemas-2")
+% (mpga    "sistemas-2")
 % (gam181p 18 "sistemas-2")
 % (gaap162 13 "sistemas-2")
 
@@ -2759,6 +2802,8 @@ $\vv=\V(-1,1)$.
 %    \_/ \__,_|_|  |_|\__,_|___/  \___\___/ \___/|_|  \__,_|___/
 %                                                               
 % «varias-coords» (to ".varias-coords")
+% (mpgp 22 "varias-coords")
+% (mpga    "varias-coords")
 % (gam181p 19 "varias-coords")
 % (gaap162 15 "sistemas-3")
 \mypsection {varias-coords} {Vários sistemas de coordenadas ao mesmo tempo}
@@ -2900,6 +2945,8 @@ $P_d$, $P_e$, $P_f$.
 %    \_/ \__,_|_|  |_|\__,_|___/  \___\___/ \___/|_|  \__,_|___/ |_____|
 %                                                                       
 % «varias-coords-2» (to ".varias-coords-2")
+% (mpgp 23 "varias-coords-2")
+% (mpga    "varias-coords-2")
 % (gam181p 20 "varias-coords-2")
 \mypsection {varias-coords-2} {Vários sistemas de coordenadas ao mesmo tempo (2)}
 
@@ -3149,6 +3196,8 @@ c-2) $\setofxyst{ \V(x,y)·\V(2,-1)=-2 }$ & g4) $\setofxyst{ xy=4 }$         \\
 %                   |___/                     
 %
 % «pitagoras» (to ".pitagoras")
+% (mpgp 25 "pitagoras")
+% (mpga    "pitagoras")
 % (gam181p 22 "pitagoras")
 \mypsection {pitagoras} {O teorema de Pitágoras}
 
@@ -3267,7 +3316,10 @@ Nos próximos exercícios suponha que $P=(a,b)$ e $Q=(c,d)$.
 % |_| \_|\___/|_|  |_| |_| |_|\__,_|___/
 %                                       
 % «normas» (to ".normas")
+% (mpgp 26 "normas")
+% (mpga    "normas")
 % (gam181p 23 "normas")
+
 \mypsection {normas} {Comprimentos (``normas'') de vetores e ortogonalidade}
 
 Vamos definir quatro operações novas:
@@ -3340,6 +3392,8 @@ Calcule:
 % |____/ \___|_| |_| |_|  \___|_|  |_|  \__,_|\__,_|\__,_|
 %                                                         
 % «uma-demonstracao-errada» (to ".uma-demonstracao-errada")
+% (mpgp 27 "uma-demonstracao-errada")
+% (mpga    "uma-demonstracao-errada")
 % (gam181p 24 "uma-demonstracao-errada")
 \mypsection {uma-demonstracao-errada} {Uma demonstração errada}
 
@@ -3415,6 +3469,8 @@ de igualdades --- as dos exercícios da próxima página.
 %                 |_|                                          
 %
 % «propriedades-basicas» (to ".propriedades-basicas")
+% (mpgp 28 "propriedades-basicas")
+% (mpga    "propriedades-basicas")
 % (gam181p 25 "propriedades-basicas")
 \mypsection {propriedades-basicas} {Propriedades das operações básicas com pontos e vetores}
 
@@ -3513,6 +3569,8 @@ $\vcd+\pab = \text{erro}$.
 %                                                 |_|           
 %
 % «dicas-V-F-justifique» (to ".dicas-V-F-justifique")
+% (mpgp 29 "dicas-V-F-justifique")
+% (mpga    "dicas-V-F-justifique")
 % (gam181p 26 "dicas-V-F-justifique")
 \mypsection {dicas-V-F-justifique} {Dicas para problemas de ``V/F/Justifique''}
 
@@ -3579,6 +3637,8 @@ $3$ e $b$ por $4$ na demonstração $(DE)$ temos ...''.
 %                 |_|                                                  
 %
 % «propriedades-basicas-2» (to ".propriedades-basicas-2")
+% (mpgp 30 "propriedades-basicas-2")
+% (mpga    "propriedades-basicas-2")
 % (gam181p 27 "propriedades-basicas-2")
 \mypsection {propriedades-basicas-2} {Propriedades das operações básicas com pontos e vetores (2)}
 
@@ -3666,6 +3726,8 @@ aprende o que a gente pode omitir sem perder a clareza.
 %                 |_|                                               
 %
 % «propriedades-de-normas» (to ".propriedades-de-normas")
+% (mpgp 31 "propriedades-de-normas")
+% (mpga    "propriedades-de-normas")
 % (gam181p 28 "propriedades-de-normas")
 \mypsection {propriedades-de-normas} {Propriedades de normas e distâncias}
 
@@ -3738,6 +3800,8 @@ atrás.
 % |____/ \___|_| |_| |_|  \___\___/|_| |_| |_| |_|
 %                                                 
 % «demonstracao-comentada» (to ".demonstracao-comentada")
+% (mpgp 32 "demonstracao-comentada")
+% (mpga    "demonstracao-comentada")
 % (gam181p 29 "demonstracao-comentada")
 \mypsection {demonstracao-comentada} {Uma demonstração (comentada)}
 
@@ -3814,6 +3878,8 @@ da p.\pageref{dicas} que era útil aprender a nomear objetos. $=)$
 % |_|   |_|   
 %             
 % «projecao-ortogonal» (to ".projecao-ortogonal")
+% (mpgp 33 "projecao-ortogonal")
+% (mpga    "projecao-ortogonal")
 % (gam181p 30 "projecao-ortogonal")
 \mypsection {projecao-ortogonal} {Projeção ortogonal}
 
@@ -3945,6 +4011,8 @@ $
 %               |__/
 %
 % «projecoes-no-olhometro» (to ".projecoes-no-olhometro")
+% (mpgp 34 "projecoes-no-olhometro")
+% (mpga    "projecoes-no-olhometro")
 % (gam181p 31 "projecoes-no-olhometro")
 % (gam172p 25 "projecoes")
 % (gam172     "projecoes")
@@ -4131,6 +4199,8 @@ $\uu·\vv$!
 %                 |_|                     
 %
 % «propriedades-da-projecao» (to ".propriedades-da-projecao")
+% (mpgp 35 "propriedades-da-projecao")
+% (mpga    "propriedades-da-projecao")
 % (gam181p 32 "propriedades-da-projecao")
 % (gam172p 29 "propriedades-do-Pr")
 % (gaq171 14 "20170426" "Propriedades do Pr")
@@ -4222,6 +4292,8 @@ d) $||\Vec{AB}-t\uu||^2 = ||\vv||^2 + t^2 ||\uu||^2$ \\
 % |____/ \___|_| |_|  \___|  \___\___/|___/
 %                                          
 % «senos-e-cossenos» (to ".senos-e-cossenos")
+% (mpgp 36 "senos-e-cossenos")
+% (mpga    "senos-e-cossenos")
 % (gam181p 32 "senos-e-cossenos")
 \mypsection {senos-e-cossenos} {Senos e cossenos}
 
@@ -4343,6 +4415,8 @@ com hipotenusa 1, e um dos seus catetos tem comprimento $1/2$.
 % /_/   \_\_|  \___|\__,_|___/  \___|  \__,_|\___|\__|___/
 %                                                         
 % «areas-e-determinantes» (to ".areas-e-determinantes")
+% (mpgp 37 "areas-e-determinantes")
+% (mpga    "areas-e-determinantes")
 % (gam181p 34 "areas-e-determinantes")
 \mypsection {areas-e-determinantes} {Áreas e determinantes em $R^2$}
 % (gar181p 1 "areas-em-R3")
@@ -4436,6 +4510,8 @@ $\Area(\uu,\vv) = |\det(\uu,\vv)|$.
 % /_/   \_\_|  \___|\__,_|___/  \___|  \__,_|\___|\__|___/ |_____|
 %                                                                 
 % «areas-e-determinantes-2» (to ".areas-e-determinantes-2")
+% (mpgp 38 "areas-e-determinantes-2")
+% (mpga    "areas-e-determinantes-2")
 % (gam181p 35 "areas-e-determinantes-2")
 \mypsection {areas-e-determinantes-2} {Áreas e determinantes em $R^2$ (2)}
 % (gar181p 1 "areas-em-R3")
@@ -4479,6 +4555,8 @@ k) $\uu=\VEC{1,0}$ $\vv=\VEC{-1,2}$   \\
 % |_|      \___|_|\___/|___/\___|_|     \__\___/  |_|   
 %                                                       
 % «pontos-mais-proximos» (to ".pontos-mais-proximos")
+% (mpgp 39 "pontos-mais-proximos")
+% (mpga    "pontos-mais-proximos")
 % (gam181p 36 "pontos-mais-proximos")
 \mypsection {pontos-mais-proximos} {Pontos mais próximos e pontos simétricos}
 
@@ -4574,6 +4652,8 @@ exercício 5.
 %  \____|_|_|  \___|\__,_|_|\___/|___/
 %                                     
 % «circulos» (to ".circulos")
+% (mpgp 40 "circulos")
+% (mpga    "circulos")
 % (gam181p 37 "circulos")
 % (gaq172 28 "20171106" "áreas e círculos")
 \mypsection {circulos} {Círculos (via pontos óbvios)}
@@ -4652,6 +4732,8 @@ $C' = \setofxyst{(x-2)^2 + (y-5)^2 = -1}$
 %  \____|_|_|  \___|\__,_|_|\___/|___/ |_____|
 %                                             
 % «circulos-2» (to ".circulos-2")
+% (mpgp 41 "circulos-2")
+% (mpga    "circulos-2")
 % (gam181p 38 "circulos-2")
 % (gaq172 29 "20171108" "círculos")
 \mypsection {circulos-2} {Círculos e cônicas}
@@ -4757,6 +4839,8 @@ $r = \setofxyst{x+y=3}$, $r' = \setofxyst{y=5-3x}$.
 %                                |_|                  |___/ 
 %
 % «decomp-ang» (to ".decomp-ang")
+% (mpgp 42 "decomp-ang")
+% (mpga    "decomp-ang")
 % (gam181p 39 "decomp-ang")
 \mypsection {decomp-ang} {Uma decomposição (e várias utilidades para ângulos)}
 
@@ -4878,6 +4962,8 @@ $\Vec{AC}=\VEC{-2,0}$.
 %        \_\   |/      /_/ 
 %
 % «distancia-ponto-reta» (to ".distancia-ponto-reta")
+% (mpgp 43 "distancia-ponto-reta")
+% (mpga    "distancia-ponto-reta")
 % (gam181p 40 "distancia-ponto-reta")
 \mypsection {distancia-ponto-reta} {Distância entre ponto e reta: segundo modo}
 
@@ -5016,8 +5102,8 @@ representar $F(x,y)$.
 
 % (find-twusfile "LATEX/"  "2018-1-GA-conicas.pdf")
 % (find-twusfile "LATEX/"  "2018-1-GA-R3.pdf")
-% http://angg.twu.net/LATEX/2018-1-GA-conicas.pdf
-% http://angg.twu.net/LATEX/2018-1-GA-R3.pdf
+% http://anggtwu.net/LATEX/2018-1-GA-conicas.pdf
+% http://anggtwu.net/LATEX/2018-1-GA-R3.pdf
 
 
 
@@ -5033,6 +5119,8 @@ representar $F(x,y)$.
 % /_/   \_\_|  \___|\__,_|___/
 %                             
 % «areas-em-R3» (to ".areas-em-R3")
+% (mpgp 44 "areas-em-R3")
+% (mpga    "areas-em-R3")
 % (gar181p 1 "areas-em-R3")
 % (gar181    "areas-em-R3")
 %\mypsection {areas-em-R3} {Áreas de retângulos e paralelogramos em $\R^3$}
@@ -5127,6 +5215,8 @@ $$\Area(\uu,a(\vv+k\uu)) = |a|\,\Area(\uu,\vv+k\uu).$$
 % |_| \_\ |____/ 
 %                
 % «R3-retas-e-planos» (to ".R3-retas-e-planos")
+% (mpgp 45 "R3-retas-e-planos")
+% (mpga    "R3-retas-e-planos")
 % (gar181p 2 "R3-retas-e-planos")
 % (gar181    "R3-retas-e-planos")
 
@@ -5136,7 +5226,7 @@ $$\Area(\uu,a(\vv+k\uu)) = |a|\,\Area(\uu,\vv+k\uu).$$
 
 Obs: adaptado da aula de 4/jul/2016:
 
-\url{http://angg.twu.net/2016.1-GA/2016.1-GA.pdf}
+\url{http://anggtwu.net/2016.1-GA/2016.1-GA.pdf}
 
 \msk
 
@@ -5152,7 +5242,7 @@ $r_3 = \setofexprt{(2,2,0)+t\V(0,1,1)}$
 
 $r_4 = \setofexprt{(0,2,1)+t\V(1,0,0)}$
 
-$r_4 = \setofexprt{(1,2,1)+t\V(2,0,0)}$
+$r_5 = \setofexprt{(1,2,1)+t\V(2,0,0)}$
 
 Quais destas retas se interceptam?
 
@@ -5240,6 +5330,8 @@ Quais deles planos se cortam? Onde?
 %                   \_\    /_/ 
 %
 % «R3-retas-e-planos-2» (to ".R3-retas-e-planos-2")
+% (mpgp 46 "R3-retas-e-planos-2")
+% (mpga    "R3-retas-e-planos-2")
 % (gar181p 3 "R3-retas-e-planos-2")
 % (gar181    "R3-retas-e-planos-2")
 % (gar181p 30 "R3-retas-e-planos-2")
@@ -5348,6 +5440,8 @@ Encontre uma descrição da forma $[y=ax+b, z=cx+d]$ para a $r$ acima.
 % |____/ \___|\__|___/
 %                     
 % «determinantes-em-R3» (to ".determinantes-em-R3")
+% (mpgp 47 "determinantes-em-R3")
+% (mpga    "determinantes-em-R3")
 % (gar181p 4 "determinantes-em-R3")
 % (gar181    "determinantes-em-R3")
 % (gar181p 31 "determinantes-em-R3")
@@ -5445,6 +5539,8 @@ j) $[a\ii, b\ii+c\jj, d\ii+e\jj+f\kk]$
 % |____/ \___|\__|___/  \___|_| |_| |_| |_| \_\ |____/  | ||_____| |
 %                                                        \_\    /_/ 
 % «determinantes-em-R3-2» (to ".determinantes-em-R3-2")
+% (mpgp 48 "determinantes-em-R3-2")
+% (mpga    "determinantes-em-R3-2")
 % (gar181p 5 "determinantes-em-R3-2")
 % (gar181    "determinantes-em-R3-2")
 % (gar181p 32 "determinantes-em-R3-2")
@@ -5533,6 +5629,8 @@ e) Encontre $a,b,c$ tais que $\vsm{u_1&u_2&u_3 \\ v_1&v_2&v_3 \\ w_1&w_2&w_3 \\}
 %                              |_|                    
 %
 % «cross-prod» (to ".cross-prod")
+% (mpgp 49 "cross-prod")
+% (mpga    "cross-prod")
 % (gar181p 6 "cross-prod")
 % (gar181    "cross-prod")
 % (gar181p 33 "cross-prod")
@@ -5605,6 +5703,8 @@ b) $\uu=\V(0,3,0)$, $\vv=\V(0,3,3)$, $\ww=\V(1,0,0)$
 %       |_|                
 %
 % «alguns-usos-do-x» (to ".alguns-usos-do-x")
+% (mpgp 50 "alguns-usos-do-x")
+% (mpga    "alguns-usos-do-x")
 % (gar181p 7 "alguns-usos-do-x")
 % (gar181    "alguns-usos-do-x")
 % (gam172p 34 "alguns-usos-do-x")
@@ -5701,11 +5801,13 @@ Sabendo $t$ e $t'$ sabemos $C_t$ e $D_{t'}$, e a reta $s$ passa por $C_t$ e $D_{
 % |___|_| |_|\__,_|_|\___\___|
 %                             
 % «indice» (to ".indice")
-% (mpgp 43 "indice")
+% (mpgp 51 "indice")
 % (mpg     "indice")
 
 \directlua{PPV(psections)}
 \mypsectionstex
+
+\GenericWarning{Success:}{Success!!!}  % Used by `M-x cv
 
 \end{document}
 

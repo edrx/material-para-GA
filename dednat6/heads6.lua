@@ -59,7 +59,7 @@ registerhead "%:" {
 registerhead "%L" {
   name   = "lua",
   action = function ()
-      local i,j,luacode = tf:getblockstr()
+      local i,j,luacode = tf:getblockstr(3)
       local chunkname = tf.name..":%L:"..i.."-"..j
       -- local luacode = table.concat(lualines, "\n")
       assert(loadstring(luacode, chunkname))()
@@ -87,7 +87,14 @@ registerhead "%R" {
 }
 
 -- «tree-head» (to ".tree-head")
+-- (find-dn6 "treesegs.lua" "allsegments")
 -- (find-dn6 "treesegs.lua" "tosegments")
+-- (find-dn6 "treesegs.lua" "Segment")
+-- (find-dn6 "treesegs.lua" "Segment" "rootnode =")
+-- (find-dn6 "treesegs.lua" "Segment" "totreenode =")
+-- (find-dn6 "treetex.lua" "TreeNode")
+-- (find-dn6 "treetex.lua" "TreeNode" "TeX_deftree =")
+--
 registerhead "%:" {
   name   = "tree",
   action = function ()
@@ -106,12 +113,12 @@ registerhead "%:" {
 }
 
 -- «diag-head» (to ".diag-head")
--- (find-dn6 "diagforth.lua" "diag-head")
+-- (find-dn6 "diagforth.lua" "dxyrun")
 registerhead "%D" {
   name = "diag",
   action = function ()
       local i,j,diaglines = tf:getblock()
-      for n=i,j do dxyrun(untabify(texlines:line(n)), 3) end
+      for n=i,j do dxyrun(untabify(texlines:line(n)), 3, n) end
     end,
 }
 
@@ -121,9 +128,9 @@ registerhead "%D" {
 -- «heads-test» (to ".heads-test")
 -- See: (find-dn6 "texfile.lua" "texfiletest")
 --[==[
- (eepitch-lua51)
- (eepitch-kill)
- (eepitch-lua51)
+• (eepitch-lua51)
+• (eepitch-kill)
+• (eepitch-lua51)
 dofile "texfile.lua"
 dofile "luarects.lua"
 texfiletest()
@@ -135,8 +142,6 @@ add [[%R      \ c d/ ]]
 pu()
 = a
 
- (ex "heads-0")
-
 --]==]
 
 
@@ -144,9 +149,9 @@ pu()
 
 
 --[[
- (eepitch-lua51)
- (eepitch-kill)
- (eepitch-lua51)
+• (eepitch-lua51)
+• (eepitch-kill)
+• (eepitch-lua51)
 dofile "heads6.lua"
 = mytabletostring(heads)
 

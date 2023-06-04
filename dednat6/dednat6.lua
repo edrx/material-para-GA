@@ -4,7 +4,7 @@
 -- http://angg.twu.net/dednat6/dednat6/dednat6.lua.html
 --         (find-angg "dednat6/dednat6/dednat6.lua")
 -- By Eduardo Ochs <eduardoochs@gmail.com>
--- Version: 2019jul06
+-- Version: 2020nov17
 --
 -- This file adds "dednat6/" to the load path and loads all the
 -- default modules of dednat6. See:
@@ -41,14 +41,21 @@ if tex then
       package.loaded[stem] = package.loaded[stem] or dofile(fname) or fname
     end
   --
-  require "lualoader"  -- (find-dn6 "lualoader.lua")
-  require "binloader"  -- (find-dn6 "binloader.lua")
+  require "lualoader"   -- (find-dn6 "lualoader.lua")
+  require "binloader"   -- (find-dn6 "binloader.lua")
+  require "edrxlib"     -- (find-dn6 "edrxlib.lua")
 end
 
 
 -- «requires» (to ".requires")
 -- (find-dn5file "build.lua" "stems = {")
-if true then require "edrxlib" end
+--
+-- Temporary, until I fix the package.searchers bug (2020nov06)
+-- if true then require "edrxlib" end
+-- if true then dofile "dednat6/edrxlib.lua" end
+-- print(); REPL = Repl:new(); REPL:repl()
+
+
 
 -- The four lowest-level modules (all independent):
 require "eoo"          -- (find-dn6 "eoo.lua")
@@ -58,11 +65,10 @@ require "rect"         -- (find-dn6 "rect.lua")
 require "stacks"       -- (find-dn6 "stacks.lua")
 
 -- General functions to read and process ".tex" files:
--- require "process"   -- (find-dn6 "process.lua")
 require "output"       -- (find-dn6 "output.lua")
 require "preamble6"    -- (find-dn6 "preamble6.lua")
 require   "heads6"     -- (find-dn6 "heads6.lua")
-require "texfile"      -- (find-dn6 "texfile.lua")
+-- require "texfile"   -- (find-dn6 "texfile.lua")
 -- "texfile" was superseded by: (find-dn6 "block.lua")
 -- See: (find-LATEXfile "dednat6load.lua" "block.lua")
 
@@ -88,7 +94,8 @@ require "tcgs"          -- (find-dn6 "tcgs.lua")
 require "luarects"      -- (find-dn6 "luarects.lua")
 
 -- The REPL, for interaction (experimental):
-require "luarepl"      -- (find-dn6 "luarepl.lua")
+-- require "luarepl"      -- (find-dn6 "luarepl.lua")
+-- Superseded by:         -- (find-dn6 "edrxlib.lua" "Repl")
 
 -- Obsolete modules:
 -- require "wrap"       -- (find-dn5 "wrap.lua")
@@ -106,8 +113,9 @@ require "luarepl"      -- (find-dn6 "luarepl.lua")
 getword_utf8 = getword
 
 -- Support for command-line options.
--- This is only used when dednat6load.lua is called as a standalone
--- program - an undocumented hack! See:
+-- This is only used when dednat6load.lua
+-- is called as a standalone program.
+-- See: (find-dednat6 "demo-preproc.tex")
 require "options6"     -- (find-dn6 "options6.lua")
 
 -- «dooptions» (to ".dooptions")
@@ -117,12 +125,12 @@ require "options6"     -- (find-dn6 "options6.lua")
 
 
 --[[
- «run-tests-in-test-dir» (to ".run-tests-in-test-dir")
+•• «run-tests-in-test-dir» (to ".run-tests-in-test-dir")
 
- Copy the essential files from dednat6 to a test dir (/tmp/d6/)
- (eepitch-shell)
- (eepitch-kill)
- (eepitch-shell)
+•• Copy the essential files from dednat6 to a test dir (/tmp/d6/)
+• (eepitch-shell)
+• (eepitch-kill)
+• (eepitch-shell)
 cd ~/dednat6/
 (TZ=GMT date; date) | tee VERSION
 cat dednat6.lua | grep "^ *require" | tr -d '"()'
@@ -139,10 +147,10 @@ cp -v tests/{0,2,3,4}.tex              /tmp/d6/tests/
 # (find-dn6 "tests/")
 # (find-fline "/tmp/d6/")
 
- Make /tmp/dednat6.zip
- (eepitch-shell)
- (eepitch-kill)
- (eepitch-shell)
+•• Make /tmp/dednat6.zip
+• (eepitch-shell)
+• (eepitch-kill)
+• (eepitch-shell)
 # (find-sh "cd /tmp/d6/; find * | sort")
 # (find-sh "cd /tmp/d6/; ls *.lua; ls tests/*")
 DD="dednat6-$(date +%Y%m%d)"; echo $DD
@@ -156,10 +164,10 @@ tar -cvzf /tmp/$DD.tgz     VERSION *.lua tests/*
 
 # (find-fline "/tmp/dednat6.zip")
 
- Run dednat6 in the test dir, check if everything works
- (eepitch-shell)
- (eepitch-kill)
- (eepitch-shell)
+•• Run dednat6 in the test dir, check if everything works
+• (eepitch-shell)
+• (eepitch-kill)
+• (eepitch-shell)
 cd    /tmp/d6/tests/
 lualatex 0.tex
 lualatex 2.tex
@@ -167,10 +175,10 @@ lualatex 3.tex
 lualatex 4.tex
 # (find-fline "/tmp/d6/tests/")
 
- Upload
- (eepitch-shell)
- (eepitch-kill)
- (eepitch-shell)
+•• Upload
+• (eepitch-shell)
+• (eepitch-kill)
+• (eepitch-shell)
 DD="dednat6-$(date +%Y%m%d)"; echo $DD
 cd /tmp/
 laf       {dednat6,$DD}.{tgz,zip}
@@ -184,10 +192,10 @@ Scp-np -v {0,2,3,4}.pdf           edrx@angg.twu.net:/home/edrx/public_html/dedna
 
 
 
- Old & obsolete
- (eepitch-shell)
- (eepitch-kill)
- (eepitch-shell)
+•• Old & obsolete
+• (eepitch-shell)
+• (eepitch-kill)
+• (eepitch-shell)
 cd ~/dednat6/
 cat dednat6.lua | grep "^ *require" | tr -d '"()' | awk '{print $5}' | tee /tmp/o
 rm -Rv   /tmp/d6/
@@ -218,9 +226,9 @@ Scp-np -v dednat6-test.tgz dednat6-test.zip edrx@angg.twu.net:/home/edrx/public_
 
 
 --[[
- (eepitch-lua51)
- (eepitch-kill)
- (eepitch-lua51)
+• (eepitch-lua51)
+• (eepitch-kill)
+• (eepitch-lua51)
 dofile "dednat6.lua"
 PP(keys(package))
 PP(keys(package.loaded))

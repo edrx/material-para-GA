@@ -10,7 +10,7 @@ direito, que no início do curso não conseguiam estudar pelos livros
 porque achavam eles "abstratos demais", e que iriam precisar cursar GA
 duas ou três vezes até serem aprovados...
 
-  http://angg.twu.net/material-para-GA.html  
-  http://angg.twu.net/LATEX/material-para-GA.pdf  
+  http://anggtwu.net/material-para-GA.html  
+  http://anggtwu.net/LATEX/material-para-GA.pdf  
   https://github.com/edrx/material-para-GA.git  
   
